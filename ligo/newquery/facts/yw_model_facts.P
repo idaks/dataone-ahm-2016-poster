@@ -1,0 +1,516 @@
+
+% FACT: program(program_id, program_name, qualified_program_name, begin_annotation_id, end_annotation_id).
+program(1, 'GRAVITATIONAL_WAVE_DETECTION', 'GRAVITATIONAL_WAVE_DETECTION', 1, 223).
+program(2, 'LOAD_DATA', 'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA', 52, 68).
+program(3, 'AMPLITUDE_SPECTRAL_DENSITY', 'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY', 69, 84).
+program(4, 'WHITENING', 'GRAVITATIONAL_WAVE_DETECTION.WHITENING', 85, 95).
+program(5, 'BANDPASSING', 'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING', 96, 106).
+program(6, 'STRAIN_WAVEFORM_FOR_WHITENED_DATA', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_WHITENED_DATA', 107, 117).
+program(7, 'SPECTROGRAMS_FOR_STRAIN_DATA', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_STRAIN_DATA', 118, 129).
+program(8, 'SPECTROGRAMS_FOR_WHITEND_DATA', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_WHITEND_DATA', 130, 141).
+program(9, 'FILTER_COEFS', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_COEFS', 142, 147).
+program(10, 'FILTER_DATA', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA', 148, 164).
+program(11, 'STRAIN_WAVEFORM_FOR_FILTERED_DATA', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_FILTERED_DATA', 165, 179).
+program(12, 'WAVE_FILE_GENERATOR_FOR_WHITENED_DATA', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_WHITENED_DATA', 180, 190).
+program(13, 'SHIFT_FREQUENCY_BANDPASSED', 'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED', 191, 201).
+program(14, 'WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA', 202, 212).
+program(15, 'DOWNSAMPLING', 'GRAVITATIONAL_WAVE_DETECTION.DOWNSAMPLING', 213, 222).
+
+% FACT: workflow(program_id).
+workflow(1).
+
+% FACT: function(program_id).
+
+% FACT: has_subprogram(program_id, subprogram_id).
+has_subprogram(1, 2).
+has_subprogram(1, 3).
+has_subprogram(1, 4).
+has_subprogram(1, 5).
+has_subprogram(1, 6).
+has_subprogram(1, 7).
+has_subprogram(1, 8).
+has_subprogram(1, 9).
+has_subprogram(1, 10).
+has_subprogram(1, 11).
+has_subprogram(1, 12).
+has_subprogram(1, 13).
+has_subprogram(1, 14).
+has_subprogram(1, 15).
+
+% FACT: port(port_id, port_type, port_name, qualified_port_name, port_annotation_id, data_id).
+port(1, 'in', 'fn_d', 'GRAVITATIONAL_WAVE_DETECTION<-fn_d', 3, 1).
+port(2, 'in', 'fn_sr', 'GRAVITATIONAL_WAVE_DETECTION<-fn_sr', 7, 2).
+port(3, 'param', 'fs', 'GRAVITATIONAL_WAVE_DETECTION<-fs', 11, 3).
+port(4, 'out', 'shifted.wav', 'GRAVITATIONAL_WAVE_DETECTION->shifted.wav', 13, 4).
+port(5, 'out', 'whitenbp.wav', 'GRAVITATIONAL_WAVE_DETECTION->whitenbp.wav', 17, 5).
+port(6, 'out', 'spectrogram_whitened.png', 'GRAVITATIONAL_WAVE_DETECTION->spectrogram_whitened.png', 21, 6).
+port(7, 'out', 'spectrogram.png', 'GRAVITATIONAL_WAVE_DETECTION->spectrogram.png', 25, 7).
+port(8, 'out', 'GW150914_filter.png', 'GRAVITATIONAL_WAVE_DETECTION->GW150914_filter.png', 29, 8).
+port(9, 'out', 'GW150914_strain_whitened.png', 'GRAVITATIONAL_WAVE_DETECTION->GW150914_strain_whitened.png', 33, 9).
+port(10, 'out', 'GW150914_H1_strain_filtered.png', 'GRAVITATIONAL_WAVE_DETECTION->GW150914_H1_strain_filtered.png', 37, 10).
+port(11, 'out', 'GW150914_H1_strain_unfiltered.png', 'GRAVITATIONAL_WAVE_DETECTION->GW150914_H1_strain_unfiltered.png', 41, 11).
+port(12, 'out', 'GW150914_ASDs.png', 'GRAVITATIONAL_WAVE_DETECTION->GW150914_ASDs.png', 45, 12).
+port(13, 'out', 'GW150914_H1_ASD_SamplingRate.png', 'GRAVITATIONAL_WAVE_DETECTION->GW150914_H1_ASD_SamplingRate.png', 49, 13).
+port(14, 'in', 'fn_d', 'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA<-fn_d', 54, 14).
+port(15, 'in', 'fn_sr', 'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA<-fn_sr', 57, 15).
+port(16, 'out', 'strain_H1', 'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA->strain_H1', 60, 16).
+port(17, 'out', 'strain_L1', 'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA->strain_L1', 62, 17).
+port(18, 'out', 'strain_16', 'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA->strain_16', 64, 18).
+port(19, 'out', 'strain_4', 'GRAVITATIONAL_WAVE_DETECTION.LOAD_DATA->strain_4', 66, 19).
+port(20, 'in', 'strain_H1', 'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY<-strain_H1', 71, 16).
+port(21, 'in', 'strain_L1', 'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY<-strain_L1', 73, 17).
+port(22, 'param', 'fs', 'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY<-fs', 75, 20).
+port(23, 'out', 'psd_H1', 'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY->psd_H1', 76, 21).
+port(24, 'out', 'psd_L1', 'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY->psd_L1', 78, 22).
+port(25, 'out', 'GW150914_ASDs.png', 'GRAVITATIONAL_WAVE_DETECTION.AMPLITUDE_SPECTRAL_DENSITY->GW150914_ASDs.png', 80, 23).
+port(26, 'in', 'psd_H1', 'GRAVITATIONAL_WAVE_DETECTION.WHITENING<-psd_H1', 87, 21).
+port(27, 'in', 'psd_L1', 'GRAVITATIONAL_WAVE_DETECTION.WHITENING<-psd_L1', 89, 22).
+port(28, 'out', 'strain_H1_whiten', 'GRAVITATIONAL_WAVE_DETECTION.WHITENING->strain_H1_whiten', 91, 24).
+port(29, 'out', 'strain_L1_whiten', 'GRAVITATIONAL_WAVE_DETECTION.WHITENING->strain_L1_whiten', 93, 25).
+port(30, 'in', 'strain_H1_whiten', 'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING<-strain_H1_whiten', 98, 24).
+port(31, 'in', 'strain_L1_whiten', 'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING<-strain_L1_whiten', 100, 25).
+port(32, 'out', 'strain_H1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING->strain_H1_whitenbp', 102, 26).
+port(33, 'out', 'strain_L1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.BANDPASSING->strain_L1_whitenbp', 104, 27).
+port(34, 'in', 'strain_H1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_WHITENED_DATA<-strain_H1_whitenbp', 109, 26).
+port(35, 'in', 'strain_L1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_WHITENED_DATA<-strain_L1_whitenbp', 111, 27).
+port(36, 'out', 'GW150914_strain_whitened.png', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_WHITENED_DATA->GW150914_strain_whitened.png', 113, 28).
+port(37, 'in', 'strain_H1', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_STRAIN_DATA<-strain_H1', 120, 16).
+port(38, 'in', 'strain_L1', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_STRAIN_DATA<-strain_L1', 122, 17).
+port(39, 'param', 'fs', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_STRAIN_DATA<-fs', 124, 20).
+port(40, 'out', 'spectrogram.png', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_STRAIN_DATA->spectrogram.png', 125, 29).
+port(41, 'in', 'strain_H1_whiten', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_WHITEND_DATA<-strain_H1_whiten', 132, 24).
+port(42, 'in', 'strain_L1_whiten', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_WHITEND_DATA<-strain_L1_whiten', 134, 25).
+port(43, 'param', 'fs', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_WHITEND_DATA<-fs', 136, 20).
+port(44, 'out', 'spectrogram_whitened.png', 'GRAVITATIONAL_WAVE_DETECTION.SPECTROGRAMS_FOR_WHITEND_DATA->spectrogram_whitened.png', 137, 30).
+port(45, 'param', 'fs', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_COEFS<-fs', 144, 20).
+port(46, 'out', 'coefs', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_COEFS->coefs', 145, 31).
+port(47, 'in', 'strain_H1', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA<-strain_H1', 150, 16).
+port(48, 'in', 'strain_L1', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA<-strain_L1', 152, 17).
+port(49, 'in', 'coefs', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA<-coefs', 154, 31).
+port(50, 'out', 'strain_H1_filt', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA->strain_H1_filt', 156, 32).
+port(51, 'out', 'strain_L1_filt', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA->strain_L1_filt', 158, 33).
+port(52, 'out', 'GW150914_filter.png', 'GRAVITATIONAL_WAVE_DETECTION.FILTER_DATA->GW150914_filter.png', 160, 34).
+port(53, 'in', 'strain_H1_filt', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_FILTERED_DATA<-strain_H1_filt', 167, 32).
+port(54, 'in', 'strain_L1_filt', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_FILTERED_DATA<-strain_L1_filt', 169, 33).
+port(55, 'out', 'GW150914_H1_strain_filtered.png', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_FILTERED_DATA->GW150914_H1_strain_filtered.png', 171, 35).
+port(56, 'out', 'GW150914_H1_strain_unfiltered.png', 'GRAVITATIONAL_WAVE_DETECTION.STRAIN_WAVEFORM_FOR_FILTERED_DATA->GW150914_H1_strain_unfiltered.png', 175, 36).
+port(57, 'in', 'strain_H1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_WHITENED_DATA<-strain_H1_whitenbp', 182, 26).
+port(58, 'in', 'strain_L1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_WHITENED_DATA<-strain_L1_whitenbp', 184, 27).
+port(59, 'out', 'whitenbp.wav', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_WHITENED_DATA->whitenbp.wav', 186, 37).
+port(60, 'in', 'strain_H1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED<-strain_H1_whitenbp', 193, 26).
+port(61, 'in', 'strain_L1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED<-strain_L1_whitenbp', 195, 27).
+port(62, 'out', 'strain_H1_shifted', 'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED->strain_H1_shifted', 197, 38).
+port(63, 'out', 'strain_L1_shifted', 'GRAVITATIONAL_WAVE_DETECTION.SHIFT_FREQUENCY_BANDPASSED->strain_L1_shifted', 199, 39).
+port(64, 'in', 'strain_H1_shifted', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA<-strain_H1_shifted', 204, 38).
+port(65, 'in', 'strain_L1_shifted', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA<-strain_L1_shifted', 206, 39).
+port(66, 'out', 'shifted.wav', 'GRAVITATIONAL_WAVE_DETECTION.WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA->shifted.wav', 208, 40).
+port(67, 'in', 'strain_16', 'GRAVITATIONAL_WAVE_DETECTION.DOWNSAMPLING<-strain_16', 215, 18).
+port(68, 'in', 'strain_4', 'GRAVITATIONAL_WAVE_DETECTION.DOWNSAMPLING<-strain_4', 217, 19).
+port(69, 'out', 'GW150914_H1_ASD_SamplingRate.png', 'GRAVITATIONAL_WAVE_DETECTION.DOWNSAMPLING->GW150914_H1_ASD_SamplingRate.png', 219, 41).
+
+% FACT: port_alias(port_id, alias).
+port_alias(1, 'FN_Detector').
+port_alias(2, 'FN_Sampling_rate').
+port_alias(4, 'shifted_wavefile').
+port_alias(5, 'whitened_bandpass_wavefile').
+port_alias(6, 'spectrogram_whitened').
+port_alias(7, 'spectrogram').
+port_alias(8, 'filtered_white_noise_data').
+port_alias(9, 'WHITENED_strain_data').
+port_alias(10, 'H1_strain_filtered').
+port_alias(11, 'H1_strain_unfiltered').
+port_alias(12, 'ASDs').
+port_alias(13, 'H1_ASD_SamplingRate').
+port_alias(14, 'FN_Detector').
+port_alias(15, 'FN_Sampling_rate').
+port_alias(16, 'strain_H1').
+port_alias(17, 'strain_L1').
+port_alias(18, 'strain_16').
+port_alias(19, 'strain_4').
+port_alias(20, 'strain_H1').
+port_alias(21, 'strain_L1').
+port_alias(23, 'PSD_H1').
+port_alias(24, 'PSD_L1').
+port_alias(25, 'ASDs').
+port_alias(26, 'PSD_H1').
+port_alias(27, 'PSD_L1').
+port_alias(28, 'strain_H1_whiten').
+port_alias(29, 'strain_L1_whiten').
+port_alias(30, 'strain_H1_whiten').
+port_alias(31, 'strain_L1_whiten').
+port_alias(32, 'strain_H1_whitenbp').
+port_alias(33, 'strain_L1_whitenbp').
+port_alias(34, 'strain_H1_whitenbp').
+port_alias(35, 'strain_L1_whitenbp').
+port_alias(36, 'WHITENED_strain_data').
+port_alias(37, 'strain_H1').
+port_alias(38, 'strain_L1').
+port_alias(40, 'spectrogram').
+port_alias(41, 'strain_H1_whiten').
+port_alias(42, 'strain_L1_whiten').
+port_alias(44, 'spectrogram_whitened').
+port_alias(46, 'COEFFICIENTS').
+port_alias(47, 'strain_H1').
+port_alias(48, 'strain_L1').
+port_alias(49, 'COEFFICIENTS').
+port_alias(50, 'strain_H1_filt').
+port_alias(51, 'strain_L1_filt').
+port_alias(52, 'filtered_white_noise_data').
+port_alias(53, 'strain_H1_filt').
+port_alias(54, 'strain_L1_filt').
+port_alias(55, 'H1_strain_filtered').
+port_alias(56, 'H1_strain_unfiltered').
+port_alias(57, 'strain_H1_whitenbp').
+port_alias(58, 'strain_L1_whitenbp').
+port_alias(59, 'whitened_bandpass_wavefile').
+port_alias(60, 'strain_H1_whitenbp').
+port_alias(61, 'strain_L1_whitenbp').
+port_alias(62, 'strain_H1_shifted').
+port_alias(63, 'strain_L1_shifted').
+port_alias(64, 'strain_H1_shifted').
+port_alias(65, 'strain_L1_shifted').
+port_alias(66, 'shifted_wavefile').
+port_alias(67, 'strain_16').
+port_alias(68, 'strain_4').
+port_alias(69, 'H1_ASD_SamplingRate').
+
+% FACT: port_uri_template(port_id, uri).
+port_uri_template(1, 'file:{Detector}_LOSC_4_V1-1126259446-32.hdf5').
+port_uri_template(2, 'file:H-H1_LOSC_{DownSampling}_V1-1126259446-32.hdf5').
+port_uri_template(4, 'file:GW150914_{detector}_shifted.wav').
+port_uri_template(5, 'file:GW150914_{detector}_whitenbp.wav').
+port_uri_template(6, 'file:GW150914_{detector}_spectrogram_whitened.png').
+port_uri_template(7, 'file:GW150914_{detector}_spectrogram.png').
+port_uri_template(8, 'file:GW150914_filter.png').
+port_uri_template(9, 'file:GW150914_strain_whitened.png').
+port_uri_template(10, 'file:GW150914_H1_strain_filtered.png').
+port_uri_template(11, 'file:GW150914_H1_strain_unfiltered.png').
+port_uri_template(12, 'file:GW150914_ASDs.png').
+port_uri_template(13, 'file:GW150914_H1_ASD_{SamplingRate}.png').
+port_uri_template(14, 'file:{Detector}_LOSC_4_V1-1126259446-32.hdf5').
+port_uri_template(15, 'file:H-H1_LOSC_{downsampling}_V1-1126259446-32.hdf5').
+port_uri_template(25, 'file:GW150914_ASDs.png').
+port_uri_template(36, 'file:GW150914_strain_whitened.png').
+port_uri_template(40, 'file:GW150914_{detector}_spectrogram.png').
+port_uri_template(44, 'file:GW150914_{detector}_spectrogram_whitened.png').
+port_uri_template(52, 'file:GW150914_filter.png').
+port_uri_template(55, 'file:GW150914_H1_strain_filtered.png').
+port_uri_template(56, 'file:GW150914_H1_strain_unfiltered.png').
+port_uri_template(59, 'file:GW150914_{detector}_whitenbp.wav').
+port_uri_template(66, 'file:GW150914_{detector}_shifted.wav').
+port_uri_template(69, 'file:GW150914_H1_ASD_{SamplingRate}.png').
+
+% FACT: has_in_port(block_id, port_id).
+has_in_port(1, 1).
+has_in_port(1, 2).
+has_in_port(1, 3).
+has_in_port(2, 14).
+has_in_port(2, 15).
+has_in_port(3, 20).
+has_in_port(3, 21).
+has_in_port(3, 22).
+has_in_port(4, 26).
+has_in_port(4, 27).
+has_in_port(5, 30).
+has_in_port(5, 31).
+has_in_port(6, 34).
+has_in_port(6, 35).
+has_in_port(7, 37).
+has_in_port(7, 38).
+has_in_port(7, 39).
+has_in_port(8, 41).
+has_in_port(8, 42).
+has_in_port(8, 43).
+has_in_port(9, 45).
+has_in_port(10, 47).
+has_in_port(10, 48).
+has_in_port(10, 49).
+has_in_port(11, 53).
+has_in_port(11, 54).
+has_in_port(12, 57).
+has_in_port(12, 58).
+has_in_port(13, 60).
+has_in_port(13, 61).
+has_in_port(14, 64).
+has_in_port(14, 65).
+has_in_port(15, 67).
+has_in_port(15, 68).
+
+% FACT: has_out_port(block_id, port_id).
+has_out_port(1, 4).
+has_out_port(1, 5).
+has_out_port(1, 6).
+has_out_port(1, 7).
+has_out_port(1, 8).
+has_out_port(1, 9).
+has_out_port(1, 10).
+has_out_port(1, 11).
+has_out_port(1, 12).
+has_out_port(1, 13).
+has_out_port(2, 16).
+has_out_port(2, 17).
+has_out_port(2, 18).
+has_out_port(2, 19).
+has_out_port(3, 23).
+has_out_port(3, 24).
+has_out_port(3, 25).
+has_out_port(4, 28).
+has_out_port(4, 29).
+has_out_port(5, 32).
+has_out_port(5, 33).
+has_out_port(6, 36).
+has_out_port(7, 40).
+has_out_port(8, 44).
+has_out_port(9, 46).
+has_out_port(10, 50).
+has_out_port(10, 51).
+has_out_port(10, 52).
+has_out_port(11, 55).
+has_out_port(11, 56).
+has_out_port(12, 59).
+has_out_port(13, 62).
+has_out_port(13, 63).
+has_out_port(14, 66).
+has_out_port(15, 69).
+
+% FACT: data(data_id, data_name, qualified_data_name).
+data(1, 'FN_Detector', '[FN_Detector]').
+data(2, 'FN_Sampling_rate', '[FN_Sampling_rate]').
+data(3, 'fs', '[fs]').
+data(4, 'shifted_wavefile', '[shifted_wavefile]').
+data(5, 'whitened_bandpass_wavefile', '[whitened_bandpass_wavefile]').
+data(6, 'spectrogram_whitened', '[spectrogram_whitened]').
+data(7, 'spectrogram', '[spectrogram]').
+data(8, 'filtered_white_noise_data', '[filtered_white_noise_data]').
+data(9, 'WHITENED_strain_data', '[WHITENED_strain_data]').
+data(10, 'H1_strain_filtered', '[H1_strain_filtered]').
+data(11, 'H1_strain_unfiltered', '[H1_strain_unfiltered]').
+data(12, 'ASDs', '[ASDs]').
+data(13, 'H1_ASD_SamplingRate', '[H1_ASD_SamplingRate]').
+data(14, 'FN_Detector', 'GRAVITATIONAL_WAVE_DETECTION[FN_Detector]').
+data(15, 'FN_Sampling_rate', 'GRAVITATIONAL_WAVE_DETECTION[FN_Sampling_rate]').
+data(16, 'strain_H1', 'GRAVITATIONAL_WAVE_DETECTION[strain_H1]').
+data(17, 'strain_L1', 'GRAVITATIONAL_WAVE_DETECTION[strain_L1]').
+data(18, 'strain_16', 'GRAVITATIONAL_WAVE_DETECTION[strain_16]').
+data(19, 'strain_4', 'GRAVITATIONAL_WAVE_DETECTION[strain_4]').
+data(20, 'fs', 'GRAVITATIONAL_WAVE_DETECTION[fs]').
+data(21, 'PSD_H1', 'GRAVITATIONAL_WAVE_DETECTION[PSD_H1]').
+data(22, 'PSD_L1', 'GRAVITATIONAL_WAVE_DETECTION[PSD_L1]').
+data(23, 'ASDs', 'GRAVITATIONAL_WAVE_DETECTION[ASDs]').
+data(24, 'strain_H1_whiten', 'GRAVITATIONAL_WAVE_DETECTION[strain_H1_whiten]').
+data(25, 'strain_L1_whiten', 'GRAVITATIONAL_WAVE_DETECTION[strain_L1_whiten]').
+data(26, 'strain_H1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION[strain_H1_whitenbp]').
+data(27, 'strain_L1_whitenbp', 'GRAVITATIONAL_WAVE_DETECTION[strain_L1_whitenbp]').
+data(28, 'WHITENED_strain_data', 'GRAVITATIONAL_WAVE_DETECTION[WHITENED_strain_data]').
+data(29, 'spectrogram', 'GRAVITATIONAL_WAVE_DETECTION[spectrogram]').
+data(30, 'spectrogram_whitened', 'GRAVITATIONAL_WAVE_DETECTION[spectrogram_whitened]').
+data(31, 'COEFFICIENTS', 'GRAVITATIONAL_WAVE_DETECTION[COEFFICIENTS]').
+data(32, 'strain_H1_filt', 'GRAVITATIONAL_WAVE_DETECTION[strain_H1_filt]').
+data(33, 'strain_L1_filt', 'GRAVITATIONAL_WAVE_DETECTION[strain_L1_filt]').
+data(34, 'filtered_white_noise_data', 'GRAVITATIONAL_WAVE_DETECTION[filtered_white_noise_data]').
+data(35, 'H1_strain_filtered', 'GRAVITATIONAL_WAVE_DETECTION[H1_strain_filtered]').
+data(36, 'H1_strain_unfiltered', 'GRAVITATIONAL_WAVE_DETECTION[H1_strain_unfiltered]').
+data(37, 'whitened_bandpass_wavefile', 'GRAVITATIONAL_WAVE_DETECTION[whitened_bandpass_wavefile]').
+data(38, 'strain_H1_shifted', 'GRAVITATIONAL_WAVE_DETECTION[strain_H1_shifted]').
+data(39, 'strain_L1_shifted', 'GRAVITATIONAL_WAVE_DETECTION[strain_L1_shifted]').
+data(40, 'shifted_wavefile', 'GRAVITATIONAL_WAVE_DETECTION[shifted_wavefile]').
+data(41, 'H1_ASD_SamplingRate', 'GRAVITATIONAL_WAVE_DETECTION[H1_ASD_SamplingRate]').
+
+% FACT: channel(channel_id, data_id).
+channel(1, 4).
+channel(2, 5).
+channel(3, 6).
+channel(4, 7).
+channel(5, 8).
+channel(6, 9).
+channel(7, 10).
+channel(8, 11).
+channel(9, 12).
+channel(10, 13).
+channel(11, 14).
+channel(12, 15).
+channel(13, 16).
+channel(14, 16).
+channel(15, 16).
+channel(16, 17).
+channel(17, 17).
+channel(18, 17).
+channel(19, 20).
+channel(20, 20).
+channel(21, 20).
+channel(22, 20).
+channel(23, 21).
+channel(24, 22).
+channel(25, 24).
+channel(26, 24).
+channel(27, 25).
+channel(28, 25).
+channel(29, 26).
+channel(30, 26).
+channel(31, 26).
+channel(32, 27).
+channel(33, 27).
+channel(34, 27).
+channel(35, 31).
+channel(36, 32).
+channel(37, 33).
+channel(38, 38).
+channel(39, 39).
+channel(40, 18).
+channel(41, 19).
+channel(42, 1).
+channel(43, 2).
+channel(44, 3).
+channel(45, 3).
+channel(46, 3).
+channel(47, 3).
+channel(48, 40).
+channel(49, 37).
+channel(50, 30).
+channel(51, 29).
+channel(52, 34).
+channel(53, 28).
+channel(54, 35).
+channel(55, 36).
+channel(56, 23).
+channel(57, 41).
+
+% FACT: port_connects_to_channel(port_id, channel_id).
+port_connects_to_channel(66, 1).
+port_connects_to_channel(59, 2).
+port_connects_to_channel(44, 3).
+port_connects_to_channel(40, 4).
+port_connects_to_channel(52, 5).
+port_connects_to_channel(36, 6).
+port_connects_to_channel(55, 7).
+port_connects_to_channel(56, 8).
+port_connects_to_channel(25, 9).
+port_connects_to_channel(69, 10).
+port_connects_to_channel(14, 11).
+port_connects_to_channel(15, 12).
+port_connects_to_channel(16, 13).
+port_connects_to_channel(20, 13).
+port_connects_to_channel(16, 14).
+port_connects_to_channel(37, 14).
+port_connects_to_channel(16, 15).
+port_connects_to_channel(47, 15).
+port_connects_to_channel(17, 16).
+port_connects_to_channel(21, 16).
+port_connects_to_channel(17, 17).
+port_connects_to_channel(38, 17).
+port_connects_to_channel(17, 18).
+port_connects_to_channel(48, 18).
+port_connects_to_channel(22, 19).
+port_connects_to_channel(39, 20).
+port_connects_to_channel(43, 21).
+port_connects_to_channel(45, 22).
+port_connects_to_channel(23, 23).
+port_connects_to_channel(26, 23).
+port_connects_to_channel(24, 24).
+port_connects_to_channel(27, 24).
+port_connects_to_channel(28, 25).
+port_connects_to_channel(30, 25).
+port_connects_to_channel(28, 26).
+port_connects_to_channel(41, 26).
+port_connects_to_channel(29, 27).
+port_connects_to_channel(31, 27).
+port_connects_to_channel(29, 28).
+port_connects_to_channel(42, 28).
+port_connects_to_channel(32, 29).
+port_connects_to_channel(34, 29).
+port_connects_to_channel(32, 30).
+port_connects_to_channel(57, 30).
+port_connects_to_channel(32, 31).
+port_connects_to_channel(60, 31).
+port_connects_to_channel(33, 32).
+port_connects_to_channel(35, 32).
+port_connects_to_channel(33, 33).
+port_connects_to_channel(58, 33).
+port_connects_to_channel(33, 34).
+port_connects_to_channel(61, 34).
+port_connects_to_channel(46, 35).
+port_connects_to_channel(49, 35).
+port_connects_to_channel(50, 36).
+port_connects_to_channel(53, 36).
+port_connects_to_channel(51, 37).
+port_connects_to_channel(54, 37).
+port_connects_to_channel(62, 38).
+port_connects_to_channel(64, 38).
+port_connects_to_channel(63, 39).
+port_connects_to_channel(65, 39).
+port_connects_to_channel(18, 40).
+port_connects_to_channel(67, 40).
+port_connects_to_channel(19, 41).
+port_connects_to_channel(68, 41).
+port_connects_to_channel(14, 42).
+port_connects_to_channel(15, 43).
+port_connects_to_channel(22, 44).
+port_connects_to_channel(39, 45).
+port_connects_to_channel(43, 46).
+port_connects_to_channel(45, 47).
+port_connects_to_channel(66, 48).
+port_connects_to_channel(59, 49).
+port_connects_to_channel(44, 50).
+port_connects_to_channel(40, 51).
+port_connects_to_channel(52, 52).
+port_connects_to_channel(36, 53).
+port_connects_to_channel(55, 54).
+port_connects_to_channel(56, 55).
+port_connects_to_channel(25, 56).
+port_connects_to_channel(69, 57).
+
+% FACT: inflow_connects_to_channel(port_id, channel_id).
+inflow_connects_to_channel(1, 11).
+inflow_connects_to_channel(2, 12).
+inflow_connects_to_channel(3, 19).
+inflow_connects_to_channel(3, 20).
+inflow_connects_to_channel(3, 21).
+inflow_connects_to_channel(3, 22).
+inflow_connects_to_channel(1, 42).
+inflow_connects_to_channel(2, 43).
+inflow_connects_to_channel(3, 44).
+inflow_connects_to_channel(3, 45).
+inflow_connects_to_channel(3, 46).
+inflow_connects_to_channel(3, 47).
+
+% FACT: outflow_connects_to_channel(port_id, channel_id).
+outflow_connects_to_channel(4, 1).
+outflow_connects_to_channel(5, 2).
+outflow_connects_to_channel(6, 3).
+outflow_connects_to_channel(7, 4).
+outflow_connects_to_channel(8, 5).
+outflow_connects_to_channel(9, 6).
+outflow_connects_to_channel(10, 7).
+outflow_connects_to_channel(11, 8).
+outflow_connects_to_channel(12, 9).
+outflow_connects_to_channel(13, 10).
+outflow_connects_to_channel(4, 48).
+outflow_connects_to_channel(5, 49).
+outflow_connects_to_channel(6, 50).
+outflow_connects_to_channel(7, 51).
+outflow_connects_to_channel(8, 52).
+outflow_connects_to_channel(9, 53).
+outflow_connects_to_channel(10, 54).
+outflow_connects_to_channel(11, 55).
+outflow_connects_to_channel(12, 56).
+outflow_connects_to_channel(13, 57).
+
+% FACT: uri_variable(uri_variable_id, variable_name, port_id).
+uri_variable(1, 'Detector', 1).
+uri_variable(2, 'DownSampling', 2).
+uri_variable(3, 'detector', 4).
+uri_variable(4, 'detector', 5).
+uri_variable(5, 'detector', 6).
+uri_variable(6, 'detector', 7).
+uri_variable(7, 'SamplingRate', 13).
+uri_variable(8, 'Detector', 14).
+uri_variable(9, 'downsampling', 15).
+uri_variable(10, 'detector', 40).
+uri_variable(11, 'detector', 44).
+uri_variable(12, 'detector', 59).
+uri_variable(13, 'detector', 66).
+uri_variable(14, 'SamplingRate', 69).
+
+% FACT: log_template(log_template_id, port_id, entry_template, log_annotation_id).
+
+% FACT: log_template_variable(log_variable_id, variable_name, log_template_id).
