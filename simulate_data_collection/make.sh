@@ -22,8 +22,12 @@ $QUERIES_DIR/materialize_yw_views.sh > $VIEWS_DIR/yw_views.P
 $QUERIES_DIR/render_complete_wf_graph.sh > $RESULTS_DIR/complete_wf_graph.gv
 dot -Tpdf $RESULTS_DIR/complete_wf_graph.gv > $RESULTS_DIR/complete_wf_graph.pdf
 
+# list workflow outputs
+$QUERIES_DIR/list_workflow_outputs.sh > $RESULTS_DIR/workflow_outputs.txt
+
+
 ##############
-    Q1_pro
+#   Q1_pro   #
 ##############
 
 # draw worfklow graph upstream of corrected_image

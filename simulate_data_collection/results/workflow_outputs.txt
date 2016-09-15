@@ -1,0 +1,4 @@
+q(rejection_log).
+q(collection_log).
+q(run_log).
+q(corrected_image).
