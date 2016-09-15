@@ -1,0 +1,146 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="GRAVITATIONAL_WAVE_DETECTION"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+LOAD_DATA
+AMPLITUDE_SPECTRAL_DENSITY
+WHITENING
+BANDPASSING
+STRAIN_WAVEFORM_FOR_WHITENED_DATA
+SPECTROGRAMS_FOR_STRAIN_DATA
+SPECTROGRAMS_FOR_WHITEND_DATA
+FILTER_COEFS
+FILTER_DATA
+STRAIN_WAVEFORM_FOR_FILTERED_DATA
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+SHIFT_FREQUENCY_BANDPASSED
+WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+DOWNSAMPLING
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+FN_Detector
+FN_Sampling_rate
+strain_H1
+strain_L1
+strain_16
+strain_4
+PSD_H1
+PSD_L1
+ASDs
+strain_H1_whiten
+strain_L1_whiten
+strain_H1_whitenbp
+strain_L1_whitenbp
+WHITENED_strain_data
+spectrogram
+spectrogram_whitened
+COEFFICIENTS
+strain_H1_filt
+strain_L1_filt
+filtered_white_noise_data
+H1_strain_filtered
+H1_strain_unfiltered
+whitened_bandpass_wavefile
+strain_H1_shifted
+strain_L1_shifted
+shifted_wavefile
+H1_ASD_SamplingRate
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+fs
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+fs_inflow [label=""]
+FN_Detector_inflow [label=""]
+FN_Sampling_rate_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+ASDs_outflow [label=""]
+WHITENED_strain_data_outflow [label=""]
+spectrogram_outflow [label=""]
+spectrogram_whitened_outflow [label=""]
+filtered_white_noise_data_outflow [label=""]
+H1_strain_filtered_outflow [label=""]
+H1_strain_unfiltered_outflow [label=""]
+whitened_bandpass_wavefile_outflow [label=""]
+shifted_wavefile_outflow [label=""]
+H1_ASD_SamplingRate_outflow [label=""]
+}}
+FN_Detector -> LOAD_DATA
+FN_Sampling_rate -> LOAD_DATA
+strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
+strain_H1 -> SPECTROGRAMS_FOR_STRAIN_DATA
+strain_H1 -> FILTER_DATA
+strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
+strain_L1 -> SPECTROGRAMS_FOR_STRAIN_DATA
+strain_L1 -> FILTER_DATA
+strain_16 -> DOWNSAMPLING
+strain_4 -> DOWNSAMPLING
+fs -> AMPLITUDE_SPECTRAL_DENSITY
+fs -> SPECTROGRAMS_FOR_STRAIN_DATA
+fs -> SPECTROGRAMS_FOR_WHITEND_DATA
+fs -> FILTER_COEFS
+PSD_H1 -> WHITENING
+PSD_L1 -> WHITENING
+strain_H1_whiten -> BANDPASSING
+strain_H1_whiten -> SPECTROGRAMS_FOR_WHITEND_DATA
+strain_L1_whiten -> BANDPASSING
+strain_L1_whiten -> SPECTROGRAMS_FOR_WHITEND_DATA
+strain_H1_whitenbp -> STRAIN_WAVEFORM_FOR_WHITENED_DATA
+strain_H1_whitenbp -> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+strain_H1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
+strain_L1_whitenbp -> STRAIN_WAVEFORM_FOR_WHITENED_DATA
+strain_L1_whitenbp -> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+strain_L1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
+COEFFICIENTS -> FILTER_DATA
+strain_H1_filt -> STRAIN_WAVEFORM_FOR_FILTERED_DATA
+strain_L1_filt -> STRAIN_WAVEFORM_FOR_FILTERED_DATA
+strain_H1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+strain_L1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+LOAD_DATA -> strain_H1
+LOAD_DATA -> strain_L1
+LOAD_DATA -> strain_16
+LOAD_DATA -> strain_4
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_L1
+AMPLITUDE_SPECTRAL_DENSITY -> ASDs
+WHITENING -> strain_H1_whiten
+WHITENING -> strain_L1_whiten
+BANDPASSING -> strain_H1_whitenbp
+BANDPASSING -> strain_L1_whitenbp
+STRAIN_WAVEFORM_FOR_WHITENED_DATA -> WHITENED_strain_data
+SPECTROGRAMS_FOR_STRAIN_DATA -> spectrogram
+SPECTROGRAMS_FOR_WHITEND_DATA -> spectrogram_whitened
+FILTER_COEFS -> COEFFICIENTS
+FILTER_DATA -> strain_H1_filt
+FILTER_DATA -> strain_L1_filt
+FILTER_DATA -> filtered_white_noise_data
+STRAIN_WAVEFORM_FOR_FILTERED_DATA -> H1_strain_filtered
+STRAIN_WAVEFORM_FOR_FILTERED_DATA -> H1_strain_unfiltered
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA -> whitened_bandpass_wavefile
+SHIFT_FREQUENCY_BANDPASSED -> strain_H1_shifted
+SHIFT_FREQUENCY_BANDPASSED -> strain_L1_shifted
+WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA -> shifted_wavefile
+DOWNSAMPLING -> H1_ASD_SamplingRate
+fs_inflow -> fs
+FN_Detector_inflow -> FN_Detector
+FN_Sampling_rate_inflow -> FN_Sampling_rate
+ASDs -> ASDs_outflow
+WHITENED_strain_data -> WHITENED_strain_data_outflow
+spectrogram -> spectrogram_outflow
+spectrogram_whitened -> spectrogram_whitened_outflow
+filtered_white_noise_data -> filtered_white_noise_data_outflow
+H1_strain_filtered -> H1_strain_filtered_outflow
+H1_strain_unfiltered -> H1_strain_unfiltered_outflow
+whitened_bandpass_wavefile -> whitened_bandpass_wavefile_outflow
+shifted_wavefile -> shifted_wavefile_outflow
+H1_ASD_SamplingRate -> H1_ASD_SamplingRate_outflow
+}
+
