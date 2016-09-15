@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -l
+#!/usr/bin/env bash
 
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
