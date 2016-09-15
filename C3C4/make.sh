@@ -43,6 +43,11 @@ $QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'Grass_fraction_data\' > $RESU
 dot -Tpdf $RESULTS_DIR/wf_upstream_of_Grass_fraction_data.gv > $RESULTS_DIR/wf_upstream_of_Grass_fraction_data.pdf
 
 
+# draw worfklow graph upstream of mean_precip
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh mean_precip > $RESULTS_DIR/wf_upstream_of_mean_precip.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_mean_precip.gv > $RESULTS_DIR/wf_upstream_of_mean_precip.pdf
+
+
 ##############
 #   Q2_pro   #
 ##############
