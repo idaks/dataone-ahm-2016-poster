@@ -1,4 +1,4 @@
-
+export YW_JAR="/Users/syc/bin/yesworkflow-0.2.1-SNAPSHOT-jar-with-dependencies.jar"
 
 # define command for running YesWorkflow
 export YW_CMD="java -jar $YW_JAR"

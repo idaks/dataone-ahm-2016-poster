@@ -1,0 +1,89 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="C3_C4_map_present_NA"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+fetch_SYNMAP_land_cover_map_variable
+fetch_monthly_mean_air_temperature_data
+fetch_monthly_mean_precipitation_data
+initialize_Grass_Matrix
+examine_pixels_for_grass
+generate_netcdf_file_for_C3_fraction
+generate_netcdf_file_for_C4_fraction
+generate_netcdf_file_for_Grass_fraction
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+SYNMAP_land_cover_map_data
+lon_variable
+lat_variable
+lon_bnds_variable
+lat_bnds_variable
+mean_airtemp
+Tair_Matrix
+mean_precip
+Rain_Matrix
+Grass_variable
+C3_Data
+C4_Data
+C3_fraction_data
+C4_fraction_data
+Grass_fraction_data
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+SYNMAP_land_cover_map_data_inflow [label=""]
+mean_airtemp_inflow [label=""]
+mean_precip_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+Grass_fraction_data_outflow [label=""]
+C4_fraction_data_outflow [label=""]
+C3_fraction_data_outflow [label=""]
+}}
+SYNMAP_land_cover_map_data -> fetch_SYNMAP_land_cover_map_variable
+lon_variable -> generate_netcdf_file_for_C3_fraction
+lon_variable -> generate_netcdf_file_for_C4_fraction
+lon_variable -> generate_netcdf_file_for_Grass_fraction
+lat_variable -> generate_netcdf_file_for_C3_fraction
+lat_variable -> generate_netcdf_file_for_C4_fraction
+lat_variable -> generate_netcdf_file_for_Grass_fraction
+lon_bnds_variable -> generate_netcdf_file_for_C3_fraction
+lon_bnds_variable -> generate_netcdf_file_for_C4_fraction
+lon_bnds_variable -> generate_netcdf_file_for_Grass_fraction
+lat_bnds_variable -> generate_netcdf_file_for_C3_fraction
+lat_bnds_variable -> generate_netcdf_file_for_C4_fraction
+lat_bnds_variable -> generate_netcdf_file_for_Grass_fraction
+mean_airtemp -> fetch_monthly_mean_air_temperature_data
+Tair_Matrix -> examine_pixels_for_grass
+mean_precip -> fetch_monthly_mean_precipitation_data
+Rain_Matrix -> examine_pixels_for_grass
+Grass_variable -> generate_netcdf_file_for_Grass_fraction
+C3_Data -> generate_netcdf_file_for_C3_fraction
+C4_Data -> generate_netcdf_file_for_C4_fraction
+fetch_SYNMAP_land_cover_map_variable -> lon_variable
+fetch_SYNMAP_land_cover_map_variable -> lat_variable
+fetch_SYNMAP_land_cover_map_variable -> lon_bnds_variable
+fetch_SYNMAP_land_cover_map_variable -> lat_bnds_variable
+fetch_monthly_mean_air_temperature_data -> Tair_Matrix
+fetch_monthly_mean_precipitation_data -> Rain_Matrix
+initialize_Grass_Matrix -> Grass_variable
+examine_pixels_for_grass -> C3_Data
+examine_pixels_for_grass -> C4_Data
+generate_netcdf_file_for_C3_fraction -> C3_fraction_data
+generate_netcdf_file_for_C4_fraction -> C4_fraction_data
+generate_netcdf_file_for_Grass_fraction -> Grass_fraction_data
+SYNMAP_land_cover_map_data_inflow -> SYNMAP_land_cover_map_data
+mean_airtemp_inflow -> mean_airtemp
+mean_precip_inflow -> mean_precip
+Grass_fraction_data -> Grass_fraction_data_outflow
+C4_fraction_data -> C4_fraction_data_outflow
+C3_fraction_data -> C3_fraction_data_outflow
+}
+
