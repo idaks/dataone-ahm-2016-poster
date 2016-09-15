@@ -38,6 +38,65 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_shifted_wavefile.gv > $RESULTS_DIR/wf_upst
 $QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'WHITENED_strain_data\' > $RESULTS_DIR/wf_upstream_of_WHITENED_strain_data.gv
 dot -Tpdf $RESULTS_DIR/wf_upstream_of_WHITENED_strain_data.gv > $RESULTS_DIR/wf_upstream_of_WHITENED_strain_data.pdf
 
+# draw worfklow graph upstream of whitened_bandpass_wavefile 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'whitened_bandpass_wavefile\' > $RESULTS_DIR/wf_upstream_of_whitened_bandpass_wavefile.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_whitened_bandpass_wavefile.gv > $RESULTS_DIR/wf_upstream_of_whitened_bandpass_wavefile.pdf
+
+# draw worfklow graph upstream of spectrogram_whitened 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'spectrogram_whitened\' > $RESULTS_DIR/wf_upstream_of_spectrogram_whitened.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_spectrogram_whitened.gv > $RESULTS_DIR/wf_upstream_of_spectrogram_whitened.pdf
+
+# draw worfklow graph upstream of H1_strain_filtered 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'H1_strain_filtered\' > $RESULTS_DIR/wf_upstream_of_H1_strain_filtered.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_H1_strain_filtered.gv > $RESULTS_DIR/wf_upstream_of_H1_strain_filtered.pdf
+
+# draw worfklow graph upstream of H1_strain_unfiltered 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'H1_strain_unfiltered\' > $RESULTS_DIR/wf_upstream_of_H1_strain_unfiltered.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_H1_strain_unfiltered.gv > $RESULTS_DIR/wf_upstream_of_H1_strain_unfiltered.pdf
+
+# draw worfklow graph upstream of filtered_white_noise_data 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'filtered_white_noise_data\' > $RESULTS_DIR/wf_upstream_of_filtered_white_noise_data.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_filtered_white_noise_data.gv > $RESULTS_DIR/wf_upstream_of_filtered_white_noise_data.pdf
+
+# draw worfklow graph upstream of ASDs 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'ASDs\' > $RESULTS_DIR/wf_upstream_of_ASDs.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_ASDs.gv > $RESULTS_DIR/wf_upstream_of_ASDs.pdf
+
+# draw worfklow graph upstream of H1_ASD_SamplingRate 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'H1_ASD_SamplingRate\' > $RESULTS_DIR/wf_upstream_of_H1_ASD_SamplingRate.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_H1_ASD_SamplingRate.gv > $RESULTS_DIR/wf_upstream_of_H1_ASD_SamplingRate.pdf
+
+
+# draw worfklow graph upstream of spectrogram
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'spectrogram\' > $RESULTS_DIR/wf_upstream_of_spectrogram.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_spectrogram.gv > $RESULTS_DIR/wf_upstream_of_spectrogram.pdf
+
 # draw worfklow graph upstream of COEFFICIENTS 
 $QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'COEFFICIENTS\' > $RESULTS_DIR/wf_upstream_of_COEFFICIENTS.gv
 dot -Tpdf $RESULTS_DIR/wf_upstream_of_COEFFICIENTS.gv > $RESULTS_DIR/wf_upstream_of_COEFFICIENTS.pdf
+
+
+# draw worfklow graph upstream of FN_Sampling_rate 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'FN_Sampling_rate\' > $RESULTS_DIR/wf_upstream_of_FN_Sampling_rate.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_FN_Sampling_rate.gv > $RESULTS_DIR/wf_upstream_of_FN_Sampling_rate.pdf
+
+
+# draw worfklow graph upstream of FN_Detector 
+$QUERIES_DIR/render_wf_graph_upstream_of_data.sh \'FN_Detector\' > $RESULTS_DIR/wf_upstream_of_FN_Detector.gv
+dot -Tpdf $RESULTS_DIR/wf_upstream_of_FN_Detector.gv > $RESULTS_DIR/wf_upstream_of_FN_Detector.pdf
+
+
+##############
+#   Q2_pro   #
+##############
+
+# list workflow outputs
+./q2-q4-queries/q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
+
+
+##############
+#   Q4_pro   #
+##############
+
+# list workflow outputs
+./q2-q4-queries/q4.sh > $RESULTS_DIR/q4_pro_outputs.txt

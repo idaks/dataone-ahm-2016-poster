@@ -1,0 +1,36 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of a given data product D.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
+q2_pro(shifted_wavefile,fs).
+q2_pro(shifted_wavefile,'FN_Sampling_rate').
+q2_pro(shifted_wavefile,'FN_Detector').
+q2_pro('WHITENED_strain_data',fs).
+q2_pro('WHITENED_strain_data','FN_Sampling_rate').
+q2_pro('WHITENED_strain_data','FN_Detector').
+q2_pro(whitened_bandpass_wavefile,fs).
+q2_pro(whitened_bandpass_wavefile,'FN_Sampling_rate').
+q2_pro(whitened_bandpass_wavefile,'FN_Detector').
+q2_pro(spectrogram_whitened,fs).
+q2_pro(spectrogram_whitened,'FN_Sampling_rate').
+q2_pro(spectrogram_whitened,'FN_Detector').
+q2_pro('H1_strain_filtered',fs).
+q2_pro('H1_strain_filtered','FN_Sampling_rate').
+q2_pro('H1_strain_filtered','FN_Detector').
+q2_pro('H1_strain_unfiltered',fs).
+q2_pro('H1_strain_unfiltered','FN_Sampling_rate').
+q2_pro('H1_strain_unfiltered','FN_Detector').
+q2_pro(filtered_white_noise_data,fs).
+q2_pro(filtered_white_noise_data,'FN_Sampling_rate').
+q2_pro(filtered_white_noise_data,'FN_Detector').
+q2_pro('ASDs',fs).
+q2_pro('ASDs','FN_Sampling_rate').
+q2_pro('ASDs','FN_Detector').
+q2_pro('H1_ASD_SamplingRate','FN_Sampling_rate').
+q2_pro('H1_ASD_SamplingRate','FN_Detector').
+q2_pro(spectrogram,fs).
+q2_pro(spectrogram,'FN_Sampling_rate').
+q2_pro(spectrogram,'FN_Detector').

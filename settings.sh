@@ -1,11 +1,12 @@
-export YW_JAR="/Users/syc/bin/yesworkflow-0.2.1-SNAPSHOT-jar-with-dependencies.jar"
-
-# define command for running YesWorkflow
-export YW_CMD="java -jar $YW_JAR"
-
 # define base directories
 export EXAMPLE_DIR=.
 export PROJECT_ROOT=..
+
+# define lcoation of YesWorkflow jar file
+export YW_JAR="${PROJECT_ROOT}/yw_jar/yesworkflow-0.2.1-SNAPSHOT-jar-with-dependencies.jar"
+
+# define command for running YesWorkflow
+export YW_CMD="java -jar $YW_JAR"
 
 # location of shared Prolog rules, scripts, and queries
 export RULES_DIR=${PROJECT_ROOT}/rules

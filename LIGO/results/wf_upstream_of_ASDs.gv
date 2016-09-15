@@ -6,27 +6,15 @@ label="GRAVITATIONAL_WAVE_DETECTION"
 subgraph cluster_workflow { label=""; color=black; penwidth=2
 subgraph cluster_workflow_inner { label=""; color=white
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
-SHIFT_FREQUENCY_BANDPASSED
-BANDPASSING
-WHITENING
-AMPLITUDE_SPECTRAL_DENSITY
 LOAD_DATA
-WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+AMPLITUDE_SPECTRAL_DENSITY
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 FN_Detector
 FN_Sampling_rate
 strain_H1
 strain_L1
-PSD_H1
-PSD_L1
-strain_H1_whiten
-strain_L1_whiten
-strain_H1_whitenbp
-strain_L1_whitenbp
-strain_H1_shifted
-strain_L1_shifted
-shifted_wavefile
+ASDs
 node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
 fs
 }}
@@ -40,35 +28,19 @@ FN_Sampling_rate_inflow [label=""]
 subgraph cluster_outflows { label=""; color=white; penwidth=2
 subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
-shifted_wavefile_outflow [label=""]
+ASDs_outflow [label=""]
 }}
-FN_Detector -> LOAD_DATA
+fs -> AMPLITUDE_SPECTRAL_DENSITY
+strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
 strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
 FN_Sampling_rate -> LOAD_DATA
-strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
-fs -> AMPLITUDE_SPECTRAL_DENSITY
-PSD_H1 -> WHITENING
-PSD_L1 -> WHITENING
-strain_H1_whiten -> BANDPASSING
-strain_H1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
-strain_L1_whiten -> BANDPASSING
-strain_L1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
-strain_H1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
-strain_L1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
+FN_Detector -> LOAD_DATA
 LOAD_DATA -> strain_H1
 LOAD_DATA -> strain_L1
-AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1
-AMPLITUDE_SPECTRAL_DENSITY -> PSD_L1
-WHITENING -> strain_H1_whiten
-WHITENING -> strain_L1_whiten
-BANDPASSING -> strain_H1_whitenbp
-BANDPASSING -> strain_L1_whitenbp
-SHIFT_FREQUENCY_BANDPASSED -> strain_H1_shifted
-SHIFT_FREQUENCY_BANDPASSED -> strain_L1_shifted
-WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA -> shifted_wavefile
+AMPLITUDE_SPECTRAL_DENSITY -> ASDs
 fs_inflow -> fs
 FN_Detector_inflow -> FN_Detector
 FN_Sampling_rate_inflow -> FN_Sampling_rate
-shifted_wavefile -> shifted_wavefile_outflow
+ASDs -> ASDs_outflow
 }
 
