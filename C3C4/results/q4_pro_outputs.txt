@@ -1,0 +1,14 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q4_Pro : List the outputs that depend on a particular script input.
+
+q4_pro(InputDataName, OutputDataName)
+...................................................................................................
+q4_pro(mean_airtemp,'C4_fraction_data').
+q4_pro(mean_airtemp,'C3_fraction_data').
+q4_pro(mean_precip,'C4_fraction_data').
+q4_pro(mean_precip,'C3_fraction_data').
+q4_pro('SYNMAP_land_cover_map_data','Grass_fraction_data').
+q4_pro('SYNMAP_land_cover_map_data','C4_fraction_data').
+q4_pro('SYNMAP_land_cover_map_data','C3_fraction_data').

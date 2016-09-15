@@ -48,4 +48,12 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_Grass_fraction_data.gv > $RESULTS_DIR/wf_u
 ##############
 
 # list workflow outputs
-./q2-pro/q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
+./q2-q4-queries/q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
+
+
+##############
+#   Q4_pro   #
+##############
+
+# list workflow outputs
+./q2-q4-queries/q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
