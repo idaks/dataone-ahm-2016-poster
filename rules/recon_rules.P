@@ -1,0 +1,4 @@
+:- table data_uri_resource/2.
+data_uri_resource(DataId, ResourceURI) :-
+     data_resource(DataId,ResourceId),
+     resource(ResourceId, ResourceURI).
