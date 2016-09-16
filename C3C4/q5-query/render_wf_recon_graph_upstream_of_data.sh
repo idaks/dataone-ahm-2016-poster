@@ -11,6 +11,8 @@ set_prolog_flag(unknown, fail).
 ['$RULES_DIR/gv_rules'].
 ['$RULES_DIR/yw_graph_rules'].
 ['$FACTS_DIR/reconfacts'].
+['$RULES_DIR/recon_rules'].
+['rules/recon_gv_rules'].
 
 [user].
 graph :-

@@ -62,3 +62,23 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_mean_precip.gv > $RESULTS_DIR/wf_upstream_
 
 # list workflow outputs
 ./q2-q4-queries/q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
+
+
+##############
+#   Q5_pro   #
+##############
+
+
+# draw recon worfklow graph upstream of C3_fraction_data
+./q5-query/render_wf_recon_graph_upstream_of_data.sh \'C3_fraction_data\' > $RESULTS_DIR/wf_recon_upstream_of_C3_fraction_data.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_C3_fraction_data.gv > $RESULTS_DIR/wf_recon_upstream_of_C3_fraction_data.pdf
+
+
+# draw recon worfklow graph upstream of C4_fraction_data
+./q5-query/render_wf_recon_graph_upstream_of_data.sh \'C4_fraction_data\' > $RESULTS_DIR/wf_recon_upstream_of_C4_fraction_data.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_C4_fraction_data.gv > $RESULTS_DIR/wf_recon_upstream_of_C4_fraction_data.pdf
+
+
+# draw recon worfklow graph upstream of Grass_fraction_data
+./q5-query/render_wf_recon_graph_upstream_of_data.sh \'Grass_fraction_data\' > $RESULTS_DIR/wf_recon_upstream_of_Grass_fraction_data.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_Grass_fraction_data.gv > $RESULTS_DIR/wf_recon_upstream_of_Grass_fraction_data.pdf

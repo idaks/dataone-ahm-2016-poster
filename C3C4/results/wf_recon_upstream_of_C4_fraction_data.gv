@@ -10,7 +10,7 @@ examine_pixels_for_grass
 fetch_SYNMAP_land_cover_map_variable
 fetch_monthly_mean_precipitation_data
 fetch_monthly_mean_air_temperature_data
-generate_netcdf_file_for_C3_fraction
+generate_netcdf_file_for_C4_fraction
 node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
 node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
 lon_variable
@@ -19,8 +19,8 @@ lon_bnds_variable
 lat_bnds_variable
 Tair_Matrix
 Rain_Matrix
-C3_Data
-C3_fraction_data
+C4_Data
+C4_fraction_data
 node[shape=box style="rounded,filled" fillcolor="#D18E2C" peripheries=1 fontname="Helvetica-Bold"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
 }}
@@ -34,29 +34,29 @@ mean_precip_inflow [label=""]
 subgraph cluster_outflows { label=""; color=white; penwidth=2
 subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
-C3_fraction_data_outflow [label=""]
+C4_fraction_data_outflow [label=""]
 }}
-C3_Data -> generate_netcdf_file_for_C3_fraction
-lon_bnds_variable -> generate_netcdf_file_for_C3_fraction
-lat_bnds_variable -> generate_netcdf_file_for_C3_fraction
+lat_bnds_variable -> generate_netcdf_file_for_C4_fraction
 Tair_Matrix -> examine_pixels_for_grass
 SYNMAP_land_cover_map_data -> fetch_SYNMAP_land_cover_map_variable
 Rain_Matrix -> examine_pixels_for_grass
-lon_variable -> generate_netcdf_file_for_C3_fraction
+lon_variable -> generate_netcdf_file_for_C4_fraction
 mean_airtemp -> fetch_monthly_mean_air_temperature_data
-lat_variable -> generate_netcdf_file_for_C3_fraction
+lat_variable -> generate_netcdf_file_for_C4_fraction
 mean_precip -> fetch_monthly_mean_precipitation_data
+lon_bnds_variable -> generate_netcdf_file_for_C4_fraction
+C4_Data -> generate_netcdf_file_for_C4_fraction
 fetch_SYNMAP_land_cover_map_variable -> lon_variable
 fetch_SYNMAP_land_cover_map_variable -> lat_variable
 fetch_SYNMAP_land_cover_map_variable -> lon_bnds_variable
 fetch_SYNMAP_land_cover_map_variable -> lat_bnds_variable
 fetch_monthly_mean_air_temperature_data -> Tair_Matrix
 fetch_monthly_mean_precipitation_data -> Rain_Matrix
-examine_pixels_for_grass -> C3_Data
-generate_netcdf_file_for_C3_fraction -> C3_fraction_data
+examine_pixels_for_grass -> C4_Data
+generate_netcdf_file_for_C4_fraction -> C4_fraction_data
 SYNMAP_land_cover_map_data_inflow -> SYNMAP_land_cover_map_data
 mean_airtemp_inflow -> mean_airtemp
 mean_precip_inflow -> mean_precip
-C3_fraction_data -> C3_fraction_data_outflow
+C4_fraction_data -> C4_fraction_data_outflow
 }
 
