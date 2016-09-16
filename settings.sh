@@ -17,3 +17,4 @@ export SCRIPT_DIR=${EXAMPLE_DIR}/script
 export FACTS_DIR=${EXAMPLE_DIR}/facts
 export VIEWS_DIR=${EXAMPLE_DIR}/views
 export RESULTS_DIR=${EXAMPLE_DIR}/results
+export LOCALRULES_DIR=${EXAMPLE_DIR}/myLocalRules

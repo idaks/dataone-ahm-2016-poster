@@ -68,7 +68,6 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_mean_precip.gv > $RESULTS_DIR/wf_upstream_
 #   Q5_pro   #
 ##############
 
-
 # draw recon worfklow graph upstream of C3_fraction_data
 ./q5-query/render_wf_recon_graph_upstream_of_data.sh \'C3_fraction_data\' > $RESULTS_DIR/wf_recon_upstream_of_C3_fraction_data.gv
 dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_C3_fraction_data.gv > $RESULTS_DIR/wf_recon_upstream_of_C3_fraction_data.pdf

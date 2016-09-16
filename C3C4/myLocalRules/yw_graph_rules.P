@@ -1,21 +1,6 @@
-gv_record_node_open(Name, TopText) :-
-    fmt_write('%S [shape=record rankdir=LR label="{<f0> %S |<f1> ',
-               args(Name, TopText)),             
-    eol.
-
-
-gv_record_node_uri_list(DataId) :-
-    print_all_resource_uri(DataId),
-    eol.
-
-
-gv_record_node_close(DataId) :-
-    write('}"]'),
-    eol.
 
 resource_group_by_dataId(X, Ys) :-
      setof(Y, data_uri_resource(X,Y), Ys).
-
 
 print_all_resource_uri(X) :-
      data_uri_resource(X,Y),
@@ -33,7 +18,7 @@ gv_nodes__inflow_recon__upstream_of_data(WorkflowId, DownstreamDataId) :-
     concat_atom(['[data', DataId, '] ', DataName], Top),
     gv_record_node_open(DataName, Top),
     gv_record_node_uri_list(DataId),
-    gv_record_node_close(DataId),
+    gv_record_node_close,
     fail
     ;
     true.
@@ -61,4 +46,3 @@ gv_nodes__outflow_recon__upstream_of_data(WorkflowId, DownstreamDataId) :-
     fail
     ;
     true.
-

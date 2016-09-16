@@ -1,0 +1,9 @@
+gv_record_node_open(Name, TopText) :-
+    fmt_write('%S[shape=record rankdir=LR label="{<f0> %S |<f1>',
+               args(Name, TopText)).
+
+gv_record_node_uri_list(DataId) :-
+    print_all_resource_uri(DataId).
+
+gv_record_node_close() :-
+    write('}"]'), eol.

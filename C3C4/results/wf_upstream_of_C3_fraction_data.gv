@@ -38,16 +38,16 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 C3_fraction_data_outflow [label=""]
 }}
-lon_variable -> generate_netcdf_file_for_C3_fraction
+mean_airtemp -> fetch_monthly_mean_air_temperature_data
 lat_variable -> generate_netcdf_file_for_C3_fraction
+mean_precip -> fetch_monthly_mean_precipitation_data
+C3_Data -> generate_netcdf_file_for_C3_fraction
 lon_bnds_variable -> generate_netcdf_file_for_C3_fraction
 lat_bnds_variable -> generate_netcdf_file_for_C3_fraction
 Tair_Matrix -> examine_pixels_for_grass
-Rain_Matrix -> examine_pixels_for_grass
-C3_Data -> generate_netcdf_file_for_C3_fraction
 SYNMAP_land_cover_map_data -> fetch_SYNMAP_land_cover_map_variable
-mean_airtemp -> fetch_monthly_mean_air_temperature_data
-mean_precip -> fetch_monthly_mean_precipitation_data
+Rain_Matrix -> examine_pixels_for_grass
+lon_variable -> generate_netcdf_file_for_C3_fraction
 fetch_SYNMAP_land_cover_map_variable -> lon_variable
 fetch_SYNMAP_land_cover_map_variable -> lat_variable
 fetch_SYNMAP_land_cover_map_variable -> lon_bnds_variable
