@@ -311,16 +311,26 @@ gv_edges__nw_dependencies() :-
     ;
     true.
 
+resource_group_by_dataId(X, Ys) :-
+     setof(Y, data_uri_resource(X,Y), Ys).
+
+print_all_resource_uri(X) :-
+     data_uri_resource(X,Y),
+     fmt_write('%S\n', Y),
+     fail
+     ;
+     true.
+
+
 gv_nodes__inflow_recon__upstream_of_data(WorkflowId, DownstreamDataId) :-
     yw_data(DataId, DataName, WorkflowId, _),
     not yw_workflow_param(_, _, DataId, _),
     yw_inflow(WorkflowId, _, DataId, _, _, _),
     yw_data_downstream(DataId, DownstreamDataId),
-    data_resource(DataId, ResourceId),
-    resource(ResourceId, ResourceURI),
     concat_atom(['[data', DataId, '] ', DataName], Top),
-    concat_atom(['[var', ResourceId, '] ', ResourceURI], Bottom),
-    gv_record_node(DataName, Top, Bottom), 
+    gv_record_node_open(DataName, Top),
+    gv_record_node_uri_list(DataId),
+    gv_record_node_close,
     fail
     ;
     true.
@@ -344,7 +354,8 @@ gv_nodes__outflow_recon__upstream_of_data(WorkflowId, DownstreamDataId) :-
     resource(ResourceId, ResourceURI),
     concat_atom(['[data', DataId, '] ', DataName], Top),
     concat_atom(['[var', ResourceId, '] ', ResourceURI], Bottom),
-    gv_record_node(DataName, Top, Bottom), 
+    gv_record_node(DataName, Top, Bottom),
     fail
     ;
     true.
+

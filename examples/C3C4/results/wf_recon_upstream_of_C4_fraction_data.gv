@@ -1,0 +1,90 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="C3_C4_map_present_NA"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+examine_pixels_for_grass
+fetch_SYNMAP_land_cover_map_variable
+fetch_monthly_mean_precipitation_data
+fetch_monthly_mean_air_temperature_data
+generate_netcdf_file_for_C4_fraction
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+lon_variable
+lat_variable
+lon_bnds_variable
+lat_bnds_variable
+Tair_Matrix
+Rain_Matrix
+C4_Data
+C4_fraction_data
+node[shape=box style="rounded,filled" fillcolor="#D18E2C" peripheries=1 fontname="Helvetica-Bold"]
+SYNMAP_land_cover_map_data[shape=record rankdir=LR label="{<f0> [data7] SYNMAP_land_cover_map_data |<f1>inputs/land_cover/SYNMAP_NA_QD.nc
+}"]
+mean_airtemp[shape=record rankdir=LR label="{<f0> [data12] mean_airtemp |<f1>inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.9.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.2.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.6.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.10.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.3.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.7.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.11.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.4.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.8.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.1.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.5.nc
+}"]
+mean_precip[shape=record rankdir=LR label="{<f0> [data14] mean_precip |<f1>inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.5.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.9.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.2.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.6.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc
+inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc
+}"]
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+SYNMAP_land_cover_map_data_inflow [label=""]
+mean_airtemp_inflow [label=""]
+mean_precip_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+C4_fraction_data_outflow [label=""]
+}}
+Tair_Matrix -> examine_pixels_for_grass
+SYNMAP_land_cover_map_data -> fetch_SYNMAP_land_cover_map_variable
+Rain_Matrix -> examine_pixels_for_grass
+lon_variable -> generate_netcdf_file_for_C4_fraction
+mean_airtemp -> fetch_monthly_mean_air_temperature_data
+lat_variable -> generate_netcdf_file_for_C4_fraction
+mean_precip -> fetch_monthly_mean_precipitation_data
+lon_bnds_variable -> generate_netcdf_file_for_C4_fraction
+C4_Data -> generate_netcdf_file_for_C4_fraction
+lat_bnds_variable -> generate_netcdf_file_for_C4_fraction
+fetch_SYNMAP_land_cover_map_variable -> lon_variable
+fetch_SYNMAP_land_cover_map_variable -> lat_variable
+fetch_SYNMAP_land_cover_map_variable -> lon_bnds_variable
+fetch_SYNMAP_land_cover_map_variable -> lat_bnds_variable
+fetch_monthly_mean_air_temperature_data -> Tair_Matrix
+fetch_monthly_mean_precipitation_data -> Rain_Matrix
+examine_pixels_for_grass -> C4_Data
+generate_netcdf_file_for_C4_fraction -> C4_fraction_data
+SYNMAP_land_cover_map_data_inflow -> SYNMAP_land_cover_map_data
+mean_airtemp_inflow -> mean_airtemp
+mean_precip_inflow -> mean_precip
+C4_fraction_data -> C4_fraction_data_outflow
+}
+

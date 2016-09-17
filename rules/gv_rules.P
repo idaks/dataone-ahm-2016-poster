@@ -32,20 +32,19 @@ gv_unlabeled_node(Name) :-
     fmt_write('%S [label=""]', args(Name)), eol.
 
 gv_record_node(Name, TopText, BottomText) :-
-    fmt_write('%S [shape=record rankdir=LR label="{<f0> %S |<f1> %S}"]',
+    fmt_write('%S[shape=record rankdir=LR label="{<f0> %S |<f1> %S}"]',
                args(Name, TopText, BottomText)), eol.
 
 gv_unlabeled_edge(From, To) :-
     fmt_write('%S -> %S', args(From, To)), eol.
 
 gv_record_node_open(Name, TopText) :-
-    fmt_write('%S [shape=record rankdir=LR label="{<f0> %S |<f1> ',
-               args(Name, TopText)),
-    eol.
+    fmt_write('%S[shape=record rankdir=LR label="{<f0> %S |<f1>',
+               args(Name, TopText)).
 
 gv_record_node_uri_list(DataId) :-
     print_all_resource_uri(DataId).
 
-gv_record_node_close(DataId) :-
-    write('}"]'),
-    eol.
+gv_record_node_close() :-
+    write('}"]'), eol.
+

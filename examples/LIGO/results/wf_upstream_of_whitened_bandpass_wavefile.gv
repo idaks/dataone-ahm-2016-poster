@@ -1,0 +1,67 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="GRAVITATIONAL_WAVE_DETECTION"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+BANDPASSING
+WHITENING
+AMPLITUDE_SPECTRAL_DENSITY
+LOAD_DATA
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+FN_Detector
+FN_Sampling_rate
+strain_H1
+strain_L1
+PSD_H1
+PSD_L1
+strain_H1_whiten
+strain_L1_whiten
+strain_H1_whitenbp
+strain_L1_whitenbp
+whitened_bandpass_wavefile
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+fs
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+fs_inflow [label=""]
+FN_Detector_inflow [label=""]
+FN_Sampling_rate_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+whitened_bandpass_wavefile_outflow [label=""]
+}}
+strain_L1_whitenbp -> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+FN_Sampling_rate -> LOAD_DATA
+PSD_H1 -> WHITENING
+PSD_L1 -> WHITENING
+fs -> AMPLITUDE_SPECTRAL_DENSITY
+strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
+strain_H1_whiten -> BANDPASSING
+strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
+strain_L1_whiten -> BANDPASSING
+strain_H1_whitenbp -> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+FN_Detector -> LOAD_DATA
+LOAD_DATA -> strain_H1
+LOAD_DATA -> strain_L1
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_L1
+WHITENING -> strain_H1_whiten
+WHITENING -> strain_L1_whiten
+BANDPASSING -> strain_H1_whitenbp
+BANDPASSING -> strain_L1_whitenbp
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA -> whitened_bandpass_wavefile
+fs_inflow -> fs
+FN_Detector_inflow -> FN_Detector
+FN_Sampling_rate_inflow -> FN_Sampling_rate
+whitened_bandpass_wavefile -> whitened_bandpass_wavefile_outflow
+}
+
