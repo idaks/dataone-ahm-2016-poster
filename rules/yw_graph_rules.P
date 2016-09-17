@@ -29,7 +29,7 @@ gv_nodestyle__atomic_step_invocation :-
     write('node[shape=box style=filled fillcolor="#66883F" peripheries=1 fontname="Courier-Bold" fontcolor=white]'), eol.
 
 gv_nodestyle__data_value :-
-    write('node[shape=box style="rounded,filled" fillcolor="#D18E2C" peripheries=1 fontname="Helvetica-Bold"]'), eol.
+    write('node[shape=box style="rounded,filled" fillcolor="#FFFF00" peripheries=1 fontname="Helvetica-Bold"]'), eol.
 
 gv_nodestyle__param_value :-
     write('node[shape=box style="rounded,filled" fillcolor="#222222" peripheries=1 fontname="Helvetica-Bold"]'), eol.
@@ -325,7 +325,7 @@ print_all_resource_uri(X) :-
 gv_nodes__inflow_recon__upstream_of_data(WorkflowId, DownstreamDataId) :-
     yw_data(DataId, DataName, WorkflowId, _),
     not yw_workflow_param(_, _, DataId, _),
-    yw_inflow(WorkflowId, _, DataId, _, _, _),
+    yw_inflow_data(WorkflowId, _, DataId, _),
     yw_data_downstream(DataId, DownstreamDataId),
     concat_atom(['[data', DataId, '] ', DataName], Top),
     gv_record_node_open(DataName, Top),
@@ -338,23 +338,22 @@ gv_nodes__inflow_recon__upstream_of_data(WorkflowId, DownstreamDataId) :-
 gv_nodes__not_inflow_not_outflow_data__upstream_of_data(WorkflowId, DownstreamDataId) :-
     yw_data(DataId, DataName, WorkflowId, _),
     not yw_workflow_param(_, _, DataId, _),
-    not yw_inflow(WorkflowId, _, DataId, _, _, _),
+    not yw_inflow_data(WorkflowId, _, DataId, _),
+    not yw_outflow_data(WorkflowId, _, DataId, _),
     yw_data_downstream(DataId, DownstreamDataId),
     gv_labeled_node(DataName),
     fail
     ;
     true.
 
-gv_nodes__outflow_recon__upstream_of_data(WorkflowId, DownstreamDataId) :-
+gv_nodes__outflow_recon__data(WorkflowId, DataId) :-
     yw_data(DataId, DataName, WorkflowId, _),
     not yw_workflow_param(_, _, DataId, _),
-    yw_outflow(WorkflowId, _, DataId, _, _, _),
-    yw_data_downstream(DataId, DownstreamDataId),
-    data_resource(DataId, ResourceId),
-    resource(ResourceId, ResourceURI),
+    yw_outflow_data(WorkflowId, _, DataId, _),
     concat_atom(['[data', DataId, '] ', DataName], Top),
-    concat_atom(['[var', ResourceId, '] ', ResourceURI], Bottom),
-    gv_record_node(DataName, Top, Bottom),
+    gv_record_node_open(DataName, Top),
+    gv_record_node_uri_list(DataId),
+    gv_record_node_close,
     fail
     ;
     true.
