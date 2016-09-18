@@ -1,0 +1,143 @@
+digraph Workflow {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label=GRAVITATIONAL_WAVE_DETECTION
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+LOAD_DATA [shape=record rankdir=LR label="{<f0> LOAD_DATA |<f1> Load hdf5 data.}"];
+AMPLITUDE_SPECTRAL_DENSITY [shape=record rankdir=LR label="{<f0> AMPLITUDE_SPECTRAL_DENSITY |<f1> Amplitude spectral density.}"];
+WHITENING [shape=record rankdir=LR label="{<f0> WHITENING |<f1> suppress low frequencies noise.}"];
+BANDPASSING [shape=record rankdir=LR label="{<f0> BANDPASSING |<f1> remove high frequency noise.}"];
+STRAIN_WAVEFORM_FOR_WHITENED_DATA [shape=record rankdir=LR label="{<f0> STRAIN_WAVEFORM_FOR_WHITENED_DATA |<f1> plot whitened data.}"];
+SPECTROGRAMS_FOR_STRAIN_DATA [shape=record rankdir=LR label="{<f0> SPECTROGRAMS_FOR_STRAIN_DATA |<f1> plot spectrogram for strain data.}"];
+SPECTROGRAMS_FOR_WHITEND_DATA [shape=record rankdir=LR label="{<f0> SPECTROGRAMS_FOR_WHITEND_DATA |<f1> plot spectrogram for whitened data.}"];
+FILTER_COEFS [shape=record rankdir=LR label="{<f0> FILTER_COEFS |<f1> Filter signal in time domain (bandpassing).}"];
+FILTER_DATA [shape=record rankdir=LR label="{<f0> FILTER_DATA |<f1> filter data.}"];
+STRAIN_WAVEFORM_FOR_FILTERED_DATA [shape=record rankdir=LR label="{<f0> STRAIN_WAVEFORM_FOR_FILTERED_DATA |<f1> plot the filtered data.}"];
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA [shape=record rankdir=LR label="{<f0> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA |<f1> Make sound files for whitened data.}"];
+SHIFT_FREQUENCY_BANDPASSED [shape=record rankdir=LR label="{<f0> SHIFT_FREQUENCY_BANDPASSED |<f1> shift frequency of bandpassed signal.}"];
+WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA [shape=record rankdir=LR label="{<f0> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA |<f1> Make sound files for shifted data.}"];
+DOWNSAMPLING [shape=record rankdir=LR label="{<f0> DOWNSAMPLING |<f1> Downsampling from 16384 Hz to 4096 Hz.}"];
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+shifted_wavefile [shape=record rankdir=LR label="{<f0> shifted_wavefile |<f1> file\:GW150914_\{detector\}_shifted.wav}"];
+whitened_bandpass_wavefile [shape=record rankdir=LR label="{<f0> whitened_bandpass_wavefile |<f1> file\:GW150914_\{detector\}_whitenbp.wav}"];
+spectrogram_whitened [shape=record rankdir=LR label="{<f0> spectrogram_whitened |<f1> file\:GW150914_\{detector\}_spectrogram_whitened.png}"];
+spectrogram [shape=record rankdir=LR label="{<f0> spectrogram |<f1> file\:GW150914_\{detector\}_spectrogram.png}"];
+filtered_white_noise_data [shape=record rankdir=LR label="{<f0> filtered_white_noise_data |<f1> file\:GW150914_filter.png}"];
+WHITENED_strain_data [shape=record rankdir=LR label="{<f0> WHITENED_strain_data |<f1> file\:GW150914_strain_whitened.png}"];
+H1_strain_filtered [shape=record rankdir=LR label="{<f0> H1_strain_filtered |<f1> file\:GW150914_H1_strain_filtered.png}"];
+H1_strain_unfiltered [shape=record rankdir=LR label="{<f0> H1_strain_unfiltered |<f1> file\:GW150914_H1_strain_unfiltered.png}"];
+ASDs [shape=record rankdir=LR label="{<f0> ASDs |<f1> file\:GW150914_ASDs.png}"];
+H1_ASD_SamplingRate [shape=record rankdir=LR label="{<f0> H1_ASD_SamplingRate |<f1> file\:GW150914_H1_ASD_\{SamplingRate\}.png}"];
+FN_Detector [shape=record rankdir=LR label="{<f0> FN_Detector |<f1> file\:\{Detector\}_LOSC_4_V1-1126259446-32.hdf5}"];
+FN_Sampling_rate [shape=record rankdir=LR label="{<f0> FN_Sampling_rate |<f1> file\:H-H1_LOSC_\{DownSampling\}_V1-1126259446-32.hdf5}"];
+strain_H1
+strain_L1
+PSD_H1
+PSD_L1
+strain_H1_whiten
+strain_L1_whiten
+strain_H1_whitenbp
+strain_L1_whitenbp
+COEFFICIENTS
+strain_H1_filt
+strain_L1_filt
+strain_H1_shifted
+strain_L1_shifted
+strain_16
+strain_4
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+fs
+LOAD_DATA -> strain_H1
+LOAD_DATA -> strain_L1
+LOAD_DATA -> strain_16
+LOAD_DATA -> strain_4
+FN_Detector -> LOAD_DATA
+FN_Sampling_rate -> LOAD_DATA
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_L1
+AMPLITUDE_SPECTRAL_DENSITY -> ASDs
+strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
+strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
+fs -> AMPLITUDE_SPECTRAL_DENSITY
+WHITENING -> strain_H1_whiten
+WHITENING -> strain_L1_whiten
+PSD_H1 -> WHITENING
+PSD_L1 -> WHITENING
+BANDPASSING -> strain_H1_whitenbp
+BANDPASSING -> strain_L1_whitenbp
+strain_H1_whiten -> BANDPASSING
+strain_L1_whiten -> BANDPASSING
+STRAIN_WAVEFORM_FOR_WHITENED_DATA -> WHITENED_strain_data
+strain_H1_whitenbp -> STRAIN_WAVEFORM_FOR_WHITENED_DATA
+strain_L1_whitenbp -> STRAIN_WAVEFORM_FOR_WHITENED_DATA
+SPECTROGRAMS_FOR_STRAIN_DATA -> spectrogram
+strain_H1 -> SPECTROGRAMS_FOR_STRAIN_DATA
+strain_L1 -> SPECTROGRAMS_FOR_STRAIN_DATA
+fs -> SPECTROGRAMS_FOR_STRAIN_DATA
+SPECTROGRAMS_FOR_WHITEND_DATA -> spectrogram_whitened
+strain_H1_whiten -> SPECTROGRAMS_FOR_WHITEND_DATA
+strain_L1_whiten -> SPECTROGRAMS_FOR_WHITEND_DATA
+fs -> SPECTROGRAMS_FOR_WHITEND_DATA
+FILTER_COEFS -> COEFFICIENTS
+fs -> FILTER_COEFS
+FILTER_DATA -> strain_H1_filt
+FILTER_DATA -> strain_L1_filt
+FILTER_DATA -> filtered_white_noise_data
+strain_H1 -> FILTER_DATA
+strain_L1 -> FILTER_DATA
+COEFFICIENTS -> FILTER_DATA
+STRAIN_WAVEFORM_FOR_FILTERED_DATA -> H1_strain_filtered
+STRAIN_WAVEFORM_FOR_FILTERED_DATA -> H1_strain_unfiltered
+strain_H1_filt -> STRAIN_WAVEFORM_FOR_FILTERED_DATA
+strain_L1_filt -> STRAIN_WAVEFORM_FOR_FILTERED_DATA
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA -> whitened_bandpass_wavefile
+strain_H1_whitenbp -> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+strain_L1_whitenbp -> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
+SHIFT_FREQUENCY_BANDPASSED -> strain_H1_shifted
+SHIFT_FREQUENCY_BANDPASSED -> strain_L1_shifted
+strain_H1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
+strain_L1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
+WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA -> shifted_wavefile
+strain_H1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+strain_L1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
+DOWNSAMPLING -> H1_ASD_SamplingRate
+strain_16 -> DOWNSAMPLING
+strain_4 -> DOWNSAMPLING
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+FN_Detector_input_port [label=""]
+FN_Sampling_rate_input_port [label=""]
+fs_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+shifted_wavefile_output_port [label=""]
+whitened_bandpass_wavefile_output_port [label=""]
+spectrogram_whitened_output_port [label=""]
+spectrogram_output_port [label=""]
+filtered_white_noise_data_output_port [label=""]
+WHITENED_strain_data_output_port [label=""]
+H1_strain_filtered_output_port [label=""]
+H1_strain_unfiltered_output_port [label=""]
+ASDs_output_port [label=""]
+H1_ASD_SamplingRate_output_port [label=""]
+}}
+FN_Detector_input_port -> FN_Detector
+FN_Sampling_rate_input_port -> FN_Sampling_rate
+fs_input_port -> fs
+shifted_wavefile -> shifted_wavefile_output_port
+whitened_bandpass_wavefile -> whitened_bandpass_wavefile_output_port
+spectrogram_whitened -> spectrogram_whitened_output_port
+spectrogram -> spectrogram_output_port
+filtered_white_noise_data -> filtered_white_noise_data_output_port
+WHITENED_strain_data -> WHITENED_strain_data_output_port
+H1_strain_filtered -> H1_strain_filtered_output_port
+H1_strain_unfiltered -> H1_strain_unfiltered_output_port
+ASDs -> ASDs_output_port
+H1_ASD_SamplingRate -> H1_ASD_SamplingRate_output_port
+}

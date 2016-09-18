@@ -22,6 +22,13 @@ $QUERIES_DIR/materialize_yw_views.sh > $VIEWS_DIR/yw_views.P
 $QUERIES_DIR/render_complete_wf_graph.sh > $RESULTS_DIR/complete_wf_graph.gv
 dot -Tpdf $RESULTS_DIR/complete_wf_graph.gv > $RESULTS_DIR/complete_wf_graph.pdf
 
+# draw complete workflow graph with URI template
+$YW_CMD graph $SCRIPT_DIR/C3_C4_map_present_NA_with_comments.m \
+        -c graph.view=combined \
+        -c graph.layout=tb \
+        > $RESULTS_DIR/complete_wf_graph_uri.gv
+dot -Tpdf $RESULTS_DIR/complete_wf_graph_uri.gv > $RESULTS_DIR/complete_wf_graph_uri.pdf
+
 # list workflow outputs
 $QUERIES_DIR/list_workflow_outputs.sh > $RESULTS_DIR/workflow_outputs.txt
 
