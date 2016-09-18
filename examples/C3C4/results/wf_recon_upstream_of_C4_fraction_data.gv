@@ -20,7 +20,7 @@ lat_bnds_variable
 Tair_Matrix
 Rain_Matrix
 C4_Data
-node[shape=box style="rounded,filled" fillcolor="#FFFF00" peripheries=1 fontname="Helvetica-Bold"]
+node[shape=box style="rounded,filled" fillcolor="#FFEACC" peripheries=1 fontname="Courier-Bold"]
 SYNMAP_land_cover_map_data[shape=record rankdir=LR label="{<f0> [data7] SYNMAP_land_cover_map_data |<f1>inputs/land_cover/SYNMAP_NA_QD.nc
 }"]
 mean_airtemp[shape=record rankdir=LR label="{<f0> [data12] mean_airtemp |<f1>inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.6.nc
@@ -30,8 +30,8 @@ inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.7.nc
 inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.11.nc
 inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.4.nc
 inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.8.nc
-inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc
 inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.1.nc
+inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc
 inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.5.nc
 inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.9.nc
 inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.2.nc
@@ -49,7 +49,7 @@ inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc
 inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc
 inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc
 }"]
-node[shape=box style="rounded,filled" fillcolor="#FFFF00" peripheries=1 fontname="Helvetica-Bold"]
+node[shape=box style="rounded,filled" fillcolor="#FFEACC" peripheries=1 fontname="Courier-Bold"]
 C4_fraction_data[shape=record rankdir=LR label="{<f0> [data20] C4_fraction_data |<f1>outputs/SYNMAP_PRESENTVEG_C4Grass_RelaFrac_NA_v2.0.nc
 }"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
@@ -66,9 +66,6 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 C4_fraction_data_outflow [label=""]
 }}
-C4_Data -> generate_netcdf_file_for_C4_fraction
-lat_bnds_variable -> generate_netcdf_file_for_C4_fraction
-Tair_Matrix -> examine_pixels_for_grass
 SYNMAP_land_cover_map_data -> fetch_SYNMAP_land_cover_map_variable
 Rain_Matrix -> examine_pixels_for_grass
 lon_variable -> generate_netcdf_file_for_C4_fraction
@@ -76,6 +73,9 @@ mean_airtemp -> fetch_monthly_mean_air_temperature_data
 lat_variable -> generate_netcdf_file_for_C4_fraction
 mean_precip -> fetch_monthly_mean_precipitation_data
 lon_bnds_variable -> generate_netcdf_file_for_C4_fraction
+C4_Data -> generate_netcdf_file_for_C4_fraction
+lat_bnds_variable -> generate_netcdf_file_for_C4_fraction
+Tair_Matrix -> examine_pixels_for_grass
 fetch_SYNMAP_land_cover_map_variable -> lon_variable
 fetch_SYNMAP_land_cover_map_variable -> lat_variable
 fetch_SYNMAP_land_cover_map_variable -> lon_bnds_variable

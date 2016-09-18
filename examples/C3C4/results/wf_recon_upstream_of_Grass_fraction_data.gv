@@ -16,10 +16,10 @@ lat_variable
 lon_bnds_variable
 lat_bnds_variable
 Grass_variable
-node[shape=box style="rounded,filled" fillcolor="#FFFF00" peripheries=1 fontname="Helvetica-Bold"]
+node[shape=box style="rounded,filled" fillcolor="#FFEACC" peripheries=1 fontname="Courier-Bold"]
 SYNMAP_land_cover_map_data[shape=record rankdir=LR label="{<f0> [data7] SYNMAP_land_cover_map_data |<f1>inputs/land_cover/SYNMAP_NA_QD.nc
 }"]
-node[shape=box style="rounded,filled" fillcolor="#FFFF00" peripheries=1 fontname="Helvetica-Bold"]
+node[shape=box style="rounded,filled" fillcolor="#FFEACC" peripheries=1 fontname="Courier-Bold"]
 Grass_fraction_data[shape=record rankdir=LR label="{<f0> [data21] Grass_fraction_data |<f1>outputs/SYNMAP_PRESENTVEG_Grass_Fraction_NA_v2.0.nc
 }"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
