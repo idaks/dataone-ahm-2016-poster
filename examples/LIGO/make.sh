@@ -93,6 +93,21 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_FN_Detector.gv > $RESULTS_DIR/wf_upstream_
 # list workflow outputs
 $QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
 
+##############
+#   Q3_pro   #
+##############
+
+# draw worfklow graph downstream of FN_Sampling_rate
+bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'FN_Sampling_rate\' > $RESULTS_DIR/wf_downstream_of_FN_Sampling_rate.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_FN_Sampling_rate.gv > $RESULTS_DIR/wf_downstream_of_FN_Sampling_rate.pdf
+
+# draw worfklow graph upstream of FN_Detector
+bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'FN_Detector\' > $RESULTS_DIR/wf_downstream_of_FN_Detector.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_FN_Detector.gv > $RESULTS_DIR/wf_downstream_of_FN_Detector.pdf
+
+# draw worfklow graph upstream of fs
+bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh fs > $RESULTS_DIR/wf_downstream_of_fs.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_fs.gv > $RESULTS_DIR/wf_downstream_of_fs.pdf
 
 ##############
 #   Q4_pro   #
