@@ -98,16 +98,24 @@ $QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
 ##############
 
 # draw worfklow graph downstream of FN_Sampling_rate
-bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'FN_Sampling_rate\' > $RESULTS_DIR/wf_downstream_of_FN_Sampling_rate.gv
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'FN_Sampling_rate\' > $RESULTS_DIR/wf_downstream_of_FN_Sampling_rate.gv
 dot -Tpdf $RESULTS_DIR/wf_downstream_of_FN_Sampling_rate.gv > $RESULTS_DIR/wf_downstream_of_FN_Sampling_rate.pdf
 
-# draw worfklow graph upstream of FN_Detector
-bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'FN_Detector\' > $RESULTS_DIR/wf_downstream_of_FN_Detector.gv
+# draw worfklow graph downstream of FN_Detector
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'FN_Detector\' > $RESULTS_DIR/wf_downstream_of_FN_Detector.gv
 dot -Tpdf $RESULTS_DIR/wf_downstream_of_FN_Detector.gv > $RESULTS_DIR/wf_downstream_of_FN_Detector.pdf
 
-# draw worfklow graph upstream of fs
-bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh fs > $RESULTS_DIR/wf_downstream_of_fs.gv
+# draw worfklow graph downstream of fs
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh fs > $RESULTS_DIR/wf_downstream_of_fs.gv
 dot -Tpdf $RESULTS_DIR/wf_downstream_of_fs.gv > $RESULTS_DIR/wf_downstream_of_fs.pdf
+
+# draw worfklow graph downstream of shifted_wavefile
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh shifted_wavefile > $RESULTS_DIR/wf_downstream_of_shifted_wavefile.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_shifted_wavefile.gv > $RESULTS_DIR/wf_downstream_of_shifted_wavefile.pdf
+
+# draw worfklow graph downstream of strain_L1_whitenbp
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh strain_L1_whitenbp > $RESULTS_DIR/wf_downstream_of_strain_L1_whitenbp.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_strain_L1_whitenbp.gv > $RESULTS_DIR/wf_downstream_of_strain_L1_whitenbp.pdf
 
 ##############
 #   Q4_pro   #

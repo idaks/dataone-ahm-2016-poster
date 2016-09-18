@@ -42,7 +42,6 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_C4_fraction_data.gv > $RESULTS_DIR/wf_upst
 $QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh \'Grass_fraction_data\' > $RESULTS_DIR/wf_upstream_of_Grass_fraction_data.gv
 dot -Tpdf $RESULTS_DIR/wf_upstream_of_Grass_fraction_data.gv > $RESULTS_DIR/wf_upstream_of_Grass_fraction_data.pdf
 
-
 # draw worfklow graph upstream of mean_precip
 $QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh mean_precip > $RESULTS_DIR/wf_upstream_of_mean_precip.gv
 dot -Tpdf $RESULTS_DIR/wf_upstream_of_mean_precip.gv > $RESULTS_DIR/wf_upstream_of_mean_precip.pdf
@@ -62,16 +61,24 @@ $QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
 
 
 # draw worfklow graph downstream of mean_precip
-bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh mean_precip > $RESULTS_DIR/wf_downstream_of_mean_precip.gv
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh mean_precip > $RESULTS_DIR/wf_downstream_of_mean_precip.gv
 dot -Tpdf $RESULTS_DIR/wf_downstream_of_mean_precip.gv > $RESULTS_DIR/wf_downstream_of_mean_precip.pdf
 
 # draw worfklow graph downstream of mean_airtemp
-bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh mean_airtemp > $RESULTS_DIR/wf_downstream_of_mean_airtemp.gv
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh mean_airtemp > $RESULTS_DIR/wf_downstream_of_mean_airtemp.gv
 dot -Tpdf $RESULTS_DIR/wf_downstream_of_mean_airtemp.gv > $RESULTS_DIR/wf_downstream_of_mean_airtemp.pdf
 
 # draw worfklow graph downstream of SYNMAP_land_cover_map_data
-bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'SYNMAP_land_cover_map_data\'> $RESULTS_DIR/wf_downstream_of_SYNMAP_land_cover_map_data.gv
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'SYNMAP_land_cover_map_data\'> $RESULTS_DIR/wf_downstream_of_SYNMAP_land_cover_map_data.gv
 dot -Tpdf $RESULTS_DIR/wf_downstream_of_SYNMAP_land_cover_map_data.gv > $RESULTS_DIR/wf_downstream_of_SYNMAP_land_cover_map_data.pdf
+
+# draw worfklow graph downstream of lat_variable
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh lat_variable > $RESULTS_DIR/wf_downstream_of_lat_variable.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_lat_variable.gv > $RESULTS_DIR/wf_downstream_of_lat_variable.pdf
+
+# draw worfklow graph downstream of Grass_variable
+$QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'Grass_variable\' > $RESULTS_DIR/wf_downstream_of_Grass_variable.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_Grass_variable.gv > $RESULTS_DIR/wf_downstream_of_Grass_variable.pdf
 
 
 ##############

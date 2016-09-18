@@ -1,0 +1,41 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="C3_C4_map_present_NA"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+generate_netcdf_file_for_C3_fraction
+generate_netcdf_file_for_C4_fraction
+generate_netcdf_file_for_Grass_fraction
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+lat_variable
+C3_fraction_data
+C4_fraction_data
+Grass_fraction_data
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+Grass_fraction_data_outflow [label=""]
+C4_fraction_data_outflow [label=""]
+C3_fraction_data_outflow [label=""]
+}}
+generate_netcdf_file_for_Grass_fraction -> Grass_fraction_data
+generate_netcdf_file_for_C4_fraction -> C4_fraction_data
+generate_netcdf_file_for_C3_fraction -> C3_fraction_data
+lat_variable -> generate_netcdf_file_for_C3_fraction
+lat_variable -> generate_netcdf_file_for_C4_fraction
+lat_variable -> generate_netcdf_file_for_Grass_fraction
+Grass_fraction_data -> Grass_fraction_data_outflow
+C4_fraction_data -> C4_fraction_data_outflow
+C3_fraction_data -> C3_fraction_data_outflow
+}
+

@@ -4,6 +4,7 @@ ProvidedDataName=$1
 
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
+set_prolog_flag(unknown, fail).
 
 ['$VIEWS_DIR/yw_views'].
 ['$RULES_DIR/yw_rules'].
