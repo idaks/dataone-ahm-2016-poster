@@ -57,6 +57,24 @@ $QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
 
 
 ##############
+#   Q3_pro   #
+##############
+
+
+# draw worfklow graph downstream of mean_precip
+bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh mean_precip > $RESULTS_DIR/wf_downstream_of_mean_precip.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_mean_precip.gv > $RESULTS_DIR/wf_downstream_of_mean_precip.pdf
+
+# draw worfklow graph downstream of mean_airtemp
+bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh mean_airtemp > $RESULTS_DIR/wf_downstream_of_mean_airtemp.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_mean_airtemp.gv > $RESULTS_DIR/wf_downstream_of_mean_airtemp.pdf
+
+# draw worfklow graph downstream of SYNMAP_land_cover_map_data
+bash $QUERIES_DIR/render_wf_graph_downstream_of_data_q3.sh \'SYNMAP_land_cover_map_data\'> $RESULTS_DIR/wf_downstream_of_SYNMAP_land_cover_map_data.gv
+dot -Tpdf $RESULTS_DIR/wf_downstream_of_SYNMAP_land_cover_map_data.gv > $RESULTS_DIR/wf_downstream_of_SYNMAP_land_cover_map_data.pdf
+
+
+##############
 #   Q4_pro   #
 ##############
 

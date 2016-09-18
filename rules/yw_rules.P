@@ -59,6 +59,14 @@ yw_data_downstream_of_step(S1, D2) :-
     yw_step_output(S2, _, _, _, _, D2, _),
     yw_step_downstream(S1, S2).
 
+:- table yw_step_downstream_of_data/2.
+yw_step_downstream_of_data(S1,D2) :-
+    yw_step_input(S1, _, _, _, _, D2, _).
+yw_step_downstream_of_data(S2,D2) :-
+    yw_step_input(S1, _, _, _, _, D2, _),
+    yw_step_downstream(S1, S2).
+
+
 % Resource R1 is upstream of resource R2.
 :- table resource_upstream/2.
 resource_upstream(R1, R2) :-

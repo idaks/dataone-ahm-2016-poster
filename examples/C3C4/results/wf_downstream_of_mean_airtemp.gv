@@ -1,0 +1,47 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="C3_C4_map_present_NA"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+examine_pixels_for_grass
+generate_netcdf_file_for_C3_fraction
+generate_netcdf_file_for_C4_fraction
+fetch_monthly_mean_air_temperature_data
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+mean_airtemp
+Tair_Matrix
+C3_Data
+C4_Data
+C3_fraction_data
+C4_fraction_data
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+mean_airtemp_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+C4_fraction_data_outflow [label=""]
+C3_fraction_data_outflow [label=""]
+}}
+generate_netcdf_file_for_C4_fraction -> C4_fraction_data
+generate_netcdf_file_for_C3_fraction -> C3_fraction_data
+examine_pixels_for_grass -> C4_Data
+examine_pixels_for_grass -> C3_Data
+fetch_monthly_mean_air_temperature_data -> Tair_Matrix
+mean_airtemp -> fetch_monthly_mean_air_temperature_data
+Tair_Matrix -> examine_pixels_for_grass
+C3_Data -> generate_netcdf_file_for_C3_fraction
+C4_Data -> generate_netcdf_file_for_C4_fraction
+mean_airtemp_inflow -> mean_airtemp
+C4_fraction_data -> C4_fraction_data_outflow
+C3_fraction_data -> C3_fraction_data_outflow
+}
+

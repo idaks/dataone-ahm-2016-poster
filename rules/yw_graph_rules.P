@@ -64,9 +64,25 @@ gv_nodes__subworkflows(WorkflowId) :-
     ;
     true.
 
+gv_nodes__subworkflows__downstream_of_data(WorkflowId, DataId) :- 
+    yw_workflow(StepId, StepName, WorkflowId, _, _, _),
+    yw_step_downstream_of_data(StepId, DataId),
+    gv_labeled_node(StepName),
+    fail
+    ;
+    true.
+
 gv_nodes__subworkflows__upstream_of_data(WorkflowId, DataId) :-
     yw_workflow(StepId, StepName, WorkflowId, _, _, _),
     yw_data_downstream_of_step(StepId, DataId),
+    gv_labeled_node(StepName),
+    fail
+    ;
+    true.
+
+gv_nodes__atomic_steps__downstream_of_data(WorkflowId, DataId) :- 
+    yw_step_downstream_of_data(StepId, DataId), 
+    yw_workflow_step(StepId, StepName, WorkflowId, _, _, _),
     gv_labeled_node(StepName),
     fail
     ;
@@ -88,6 +104,16 @@ gv_nodes__data__upstream_of_data(WorkflowId, DownstreamDataId) :-
     yw_data(DataId, DataName, WorkflowId, _),
     not yw_workflow_param(_, _, DataId, _),
     yw_data_downstream(DataId, DownstreamDataId),
+    gv_labeled_node(DataName),
+    fail
+    ;
+    true.
+
+gv_nodes__data__downstream_of_data(WorkflowId, UpstreamDataId) :- 
+
+    yw_data(DataId, DataName, WorkflowId, _),
+    not yw_workflow_param(_, _, DataId, _),
+    yw_data_downstream(UpstreamDataId, DataId),
     gv_labeled_node(DataName),
     fail
     ;
@@ -151,6 +177,14 @@ gv_nodes__params__upstream_of_data(WorkflowId, DownstreamDataId) :-
     ;
     true.
 
+gv_nodes__params__downstream_of_data(WorkflowId, UpstreamDataId) :- 
+    yw_workflow_param(WorkflowId, _, DataId, DataName),
+    yw_data_downstream(UpstreamDataId, DataId),
+    gv_labeled_node(DataName),
+    fail
+    ;
+    true.
+
 gv_node__inflow(DataName) :-
     concat_atom([DataName,'_inflow'], InflowName),
     gv_unlabeled_node(InflowName).
@@ -170,6 +204,14 @@ gv_nodes__inflows__upstream_of_data(WorkflowId, DownstreamDataId) :-
     ;
     true.
 
+gv_nodes__outflows__downstream_of_data(WorkflowId, UpstreamDataId) :-
+    yw_outflow_data(WorkflowId, _, DataId, DataName),
+    yw_data_downstream(UpstreamDataId, DataId),
+    gv_node__outflow(DataName),
+    fail
+    ;
+    true.
+
 gv_node__outflow(DataName) :-
     concat_atom([DataName,'_outflow'], OutflowName),
     gv_unlabeled_node(OutflowName).
@@ -177,6 +219,13 @@ gv_node__outflow(DataName) :-
 gv_nodes__outflows(WorkflowId) :-
     yw_outflow_data(WorkflowId, _, _, DataName),
     gv_node__outflow(DataName),
+    fail
+    ;
+    true.
+
+gv_node__inflow_for_data(WorkflowId, DataId) :-
+    yw_inflow_data(WorkflowId, _, DataId, DataName),
+    gv_node__inflow(DataName),
     fail
     ;
     true.
@@ -222,10 +271,23 @@ yw_data_to_step_connection_upstream_of_data(WorkflowId, DownstreamDataId, DataNa
     yw_step_input(StepId, _, _, _, _, DataId, _),
     yw_data_downstream_of_step(StepId, DownstreamDataId).
 
+:- table yw_step_to_data_connection_downstream_of_data/4. 
+yw_step_to_data_connection_downstream_of_data(WorkflowId, UpstreamDataId, DataName, StepName) :-
+    yw_data(DataId, DataName, WorkflowId, _),
+    yw_workflow_step(StepId, StepName, WorkflowId, _, _, _),
+    yw_step_output(StepId, _, _, _, _, DataId, _),
+    yw_step_downstream_of_data(StepId, UpstreamDataId).
 
 gv_edges__data_to_step__upstream_of_data(WorkflowId, DownstreamDataId) :-
     yw_data_to_step_connection_upstream_of_data(WorkflowId, DownstreamDataId, DataName, StepName),
     gv_unlabeled_edge(DataName, StepName),
+    fail
+    ;
+    true.
+
+gv_edges__step_to_data__downstream_of_data(WorkflowId, UpstreamDataId) :- 
+    yw_step_to_data_connection_downstream_of_data(WorkflowId, UpstreamDataId, DataName, StepName),
+    gv_unlabeled_edge(StepName, DataName),
     fail
     ;
     true.
@@ -245,6 +307,16 @@ gv_edges__step_to_data__upstream_of_data(WorkflowId, DownstreamDataId) :-
     yw_step_output(StepId, _, _, _, _, DataId, _),
     yw_data_downstream(DataId, DownstreamDataId),
     gv_unlabeled_edge(StepName, DataName),
+    fail
+    ;
+    true.
+
+gv_edges__data_to_step__downstream_of_data(WorkflowId, UpstreamDataId) :-
+    yw_workflow_step(StepId, StepName, WorkflowId, _, _, _),
+    yw_data(DataId, DataName, WorkflowId, _),
+    yw_step_input(StepId, _, _, _, _, DataId, _),
+    yw_data_downstream(UpstreamDataId, DataId),
+    gv_unlabeled_edge(DataName, StepName),
     fail
     ;
     true.
@@ -294,6 +366,24 @@ gv_edges__data_to_outflow(WorkflowId) :-
 
 gv_edges__data_to_outflow__upstream_of_data(WorkflowId, DataId) :-
     yw_outflow_data(WorkflowId, _, DataId, DataName),
+    yw_outflow_name_for_data_name(OutflowName, DataName),
+    gv_unlabeled_edge(DataName, OutflowName),
+    fail
+    ;
+    true.
+
+
+gv_edges__inflow_to_data__downstream_of_data(WorkflowId, DataId) :-
+    yw_inflow_data(WorkflowId, _, DataId, DataName),
+    yw_inflow_name_for_data_name(InflowName, DataName),
+    gv_unlabeled_edge(InflowName, DataName),
+    fail
+    ;
+    true.
+
+gv_edges__data_to_outflow__downstream_of_data(WorkflowId, UpstreamDataId) :-
+    yw_outflow_data(WorkflowId, _, DataId, DataName),
+    yw_data_downstream(UpstreamDataId, DataId),
     yw_outflow_name_for_data_name(OutflowName, DataName),
     gv_unlabeled_edge(DataName, OutflowName),
     fail
