@@ -123,3 +123,12 @@ dot -Tpdf $RESULTS_DIR/wf_downstream_of_strain_L1_whitenbp.gv > $RESULTS_DIR/wf_
 
 # list workflow outputs
 $QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
+
+
+##############
+#   Q5_pro   #
+##############
+
+# draw recon worfklow graph upstream of shifted_wavefile
+$QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh shifted_wavefile > $RESULTS_DIR/wf_recon_upstream_of_shifted_wavefile.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_shifted_wavefile.gv > $RESULTS_DIR/wf_recon_upstream_of_shifted_wavefile.pdf

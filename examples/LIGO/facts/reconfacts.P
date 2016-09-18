@@ -1,0 +1,107 @@
+
+% FACT: resource(resource_id, resource_uri).
+resource(1, 'H-H1_LOSC_4_V1-1126259446-32.hdf5').
+resource(2, 'L-L1_LOSC_4_V1-1126259446-32.hdf5').
+resource(3, 'H-H1_LOSC_16_V1-1126259446-32.hdf5').
+resource(4, 'GW150914_H1_shifted.wav').
+resource(5, 'GW150914_L1_shifted.wav').
+resource(6, 'GW150914_NR_shifted.wav').
+resource(7, 'GW150914_H1_whitenbp.wav').
+resource(8, 'GW150914_L1_whitenbp.wav').
+resource(9, 'GW150914_NR_whitenbp.wav').
+resource(10, 'GW150914_H1_spectrogram_whitened.png').
+resource(11, 'GW150914_L1_spectrogram_whitened.png').
+resource(12, 'GW150914_H1_spectrogram.png').
+resource(13, 'GW150914_L1_spectrogram.png').
+resource(14, 'GW150914_filter.png').
+resource(15, 'GW150914_strain_whitened.png').
+resource(16, 'GW150914_H1_strain_filtered.png').
+resource(17, 'GW150914_H1_strain_unfiltered.png').
+resource(18, 'GW150914_ASDs.png').
+resource(19, 'GW150914_H1_ASD_16384.png').
+resource(20, 'GW150914_H1_ASD_16384_zoom.png').
+resource(21, 'GW150914_H1_ASD_4096_zoom.png').
+
+% FACT: data_resource(data_id, resource_id).
+data_resource(1, 1).
+data_resource(1, 2).
+data_resource(2, 3).
+data_resource(2, 1).
+data_resource(4, 4).
+data_resource(4, 5).
+data_resource(4, 6).
+data_resource(5, 7).
+data_resource(5, 8).
+data_resource(5, 9).
+data_resource(6, 10).
+data_resource(6, 11).
+data_resource(7, 12).
+data_resource(7, 13).
+data_resource(8, 14).
+data_resource(9, 15).
+data_resource(10, 16).
+data_resource(11, 17).
+data_resource(12, 18).
+data_resource(13, 19).
+data_resource(13, 20).
+data_resource(13, 21).
+data_resource(14, 1).
+data_resource(14, 2).
+data_resource(15, 3).
+data_resource(15, 1).
+data_resource(23, 18).
+data_resource(28, 15).
+data_resource(29, 12).
+data_resource(29, 13).
+data_resource(30, 10).
+data_resource(30, 11).
+data_resource(34, 14).
+data_resource(35, 16).
+data_resource(36, 17).
+data_resource(37, 7).
+data_resource(37, 8).
+data_resource(37, 9).
+data_resource(40, 4).
+data_resource(40, 5).
+data_resource(40, 6).
+data_resource(41, 19).
+data_resource(41, 20).
+data_resource(41, 21).
+
+% FACT: uri_variable_value(resource_id, uri_variable_id, uri_variable_value).
+uri_variable_value(1, 1, 'H-H1').
+uri_variable_value(2, 1, 'L-L1').
+uri_variable_value(3, 2, '16').
+uri_variable_value(1, 2, '4').
+uri_variable_value(4, 3, 'H1').
+uri_variable_value(5, 3, 'L1').
+uri_variable_value(6, 3, 'NR').
+uri_variable_value(7, 4, 'H1').
+uri_variable_value(8, 4, 'L1').
+uri_variable_value(9, 4, 'NR').
+uri_variable_value(10, 5, 'H1').
+uri_variable_value(11, 5, 'L1').
+uri_variable_value(12, 6, 'H1').
+uri_variable_value(13, 6, 'L1').
+uri_variable_value(19, 7, '16384').
+uri_variable_value(20, 7, '16384_zoom').
+uri_variable_value(21, 7, '4096_zoom').
+uri_variable_value(1, 8, 'H-H1').
+uri_variable_value(2, 8, 'L-L1').
+uri_variable_value(3, 9, '16').
+uri_variable_value(1, 9, '4').
+uri_variable_value(12, 10, 'H1').
+uri_variable_value(13, 10, 'L1').
+uri_variable_value(10, 11, 'H1').
+uri_variable_value(11, 11, 'L1').
+uri_variable_value(7, 12, 'H1').
+uri_variable_value(8, 12, 'L1').
+uri_variable_value(9, 12, 'NR').
+uri_variable_value(4, 13, 'H1').
+uri_variable_value(5, 13, 'L1').
+uri_variable_value(6, 13, 'NR').
+uri_variable_value(19, 14, '16384').
+uri_variable_value(20, 14, '16384_zoom').
+uri_variable_value(21, 14, '4096_zoom').
+
+% FACT: log_variable_value(resource_id, log_entry_id, log_variable_id, log_variable_value).
