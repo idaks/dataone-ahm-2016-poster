@@ -29,7 +29,7 @@ gv_nodestyle__atomic_step_invocation :-
     write('node[shape=box style=filled fillcolor="#66883F" peripheries=1 fontname="Courier-Bold" fontcolor=white]'), eol.
 
 gv_nodestyle__data_value :-
-    write('node[shape=box style="rounded,filled" fillcolor="#FFFF00" peripheries=1 fontname="Helvetica-Bold"]'), eol.
+        write('node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]'), eol.  
 
 gv_nodestyle__param_value :-
     write('node[shape=box style="rounded,filled" fillcolor="#222222" peripheries=1 fontname="Helvetica-Bold"]'), eol.
