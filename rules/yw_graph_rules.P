@@ -406,7 +406,7 @@ resource_group_by_dataId(X, Ys) :-
 
 print_all_resource_uri(X) :-
      data_uri_resource(X,Y),
-     fmt_write('%S\n', Y),
+     fmt_write('%S\\n', Y),
      fail
      ;
      true.
