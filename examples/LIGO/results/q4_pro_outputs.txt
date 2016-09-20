@@ -5,9 +5,6 @@ Q4_Pro : List the outputs that depend on a particular script input.
 
 q4_pro(InputDataName, OutputDataName)
 ...................................................................................................
-q4_pro('FN_Sampling_rate','H1_strain_filtered').
-q4_pro('FN_Sampling_rate',whitened_bandpass_wavefile).
-q4_pro('FN_Sampling_rate','H1_strain_unfiltered').
 q4_pro('FN_Sampling_rate',spectrogram_whitened).
 q4_pro('FN_Sampling_rate','ASDs').
 q4_pro('FN_Sampling_rate',spectrogram).
@@ -15,9 +12,9 @@ q4_pro('FN_Sampling_rate','H1_ASD_SamplingRate').
 q4_pro('FN_Sampling_rate',filtered_white_noise_data).
 q4_pro('FN_Sampling_rate','WHITENED_strain_data').
 q4_pro('FN_Sampling_rate',shifted_wavefile).
-q4_pro('FN_Detector','H1_strain_filtered').
-q4_pro('FN_Detector',whitened_bandpass_wavefile).
-q4_pro('FN_Detector','H1_strain_unfiltered').
+q4_pro('FN_Sampling_rate','H1_strain_filtered').
+q4_pro('FN_Sampling_rate',whitened_bandpass_wavefile).
+q4_pro('FN_Sampling_rate','H1_strain_unfiltered').
 q4_pro('FN_Detector',spectrogram_whitened).
 q4_pro('FN_Detector','ASDs').
 q4_pro('FN_Detector',spectrogram).
@@ -25,12 +22,15 @@ q4_pro('FN_Detector','H1_ASD_SamplingRate').
 q4_pro('FN_Detector',filtered_white_noise_data).
 q4_pro('FN_Detector','WHITENED_strain_data').
 q4_pro('FN_Detector',shifted_wavefile).
-q4_pro(fs,'H1_strain_filtered').
-q4_pro(fs,whitened_bandpass_wavefile).
-q4_pro(fs,'H1_strain_unfiltered').
+q4_pro('FN_Detector','H1_strain_filtered').
+q4_pro('FN_Detector',whitened_bandpass_wavefile).
+q4_pro('FN_Detector','H1_strain_unfiltered').
 q4_pro(fs,spectrogram_whitened).
 q4_pro(fs,'ASDs').
 q4_pro(fs,spectrogram).
 q4_pro(fs,filtered_white_noise_data).
 q4_pro(fs,'WHITENED_strain_data').
 q4_pro(fs,shifted_wavefile).
+q4_pro(fs,'H1_strain_filtered').
+q4_pro(fs,whitened_bandpass_wavefile).
+q4_pro(fs,'H1_strain_unfiltered').

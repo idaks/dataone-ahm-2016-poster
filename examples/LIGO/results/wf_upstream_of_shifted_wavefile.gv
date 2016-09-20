@@ -42,10 +42,6 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 shifted_wavefile_outflow [label=""]
 }}
-PSD_L1 -> WHITENING
-fs -> AMPLITUDE_SPECTRAL_DENSITY
-strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
-strain_H1_whiten -> BANDPASSING
 strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
 strain_L1_whiten -> BANDPASSING
 strain_H1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
@@ -55,6 +51,10 @@ FN_Detector -> LOAD_DATA
 strain_L1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
 FN_Sampling_rate -> LOAD_DATA
 PSD_H1 -> WHITENING
+PSD_L1 -> WHITENING
+fs -> AMPLITUDE_SPECTRAL_DENSITY
+strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
+strain_H1_whiten -> BANDPASSING
 LOAD_DATA -> strain_H1
 LOAD_DATA -> strain_L1
 AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1

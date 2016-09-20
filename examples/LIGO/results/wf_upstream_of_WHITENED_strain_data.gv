@@ -39,17 +39,17 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 WHITENED_strain_data_outflow [label=""]
 }}
-FN_Sampling_rate -> LOAD_DATA
+strain_L1_whitenbp -> STRAIN_WAVEFORM_FOR_WHITENED_DATA
+FN_Detector -> LOAD_DATA
 PSD_H1 -> WHITENING
 PSD_L1 -> WHITENING
+FN_Sampling_rate -> LOAD_DATA
+strain_H1_whiten -> BANDPASSING
 fs -> AMPLITUDE_SPECTRAL_DENSITY
 strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
-strain_H1_whiten -> BANDPASSING
-strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
 strain_L1_whiten -> BANDPASSING
+strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
 strain_H1_whitenbp -> STRAIN_WAVEFORM_FOR_WHITENED_DATA
-FN_Detector -> LOAD_DATA
-strain_L1_whitenbp -> STRAIN_WAVEFORM_FOR_WHITENED_DATA
 LOAD_DATA -> strain_H1
 LOAD_DATA -> strain_L1
 AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1

@@ -24,14 +24,14 @@ strain_H1_whitenbp
 strain_L1_whitenbp
 strain_H1_shifted
 strain_L1_shifted
-node[shape=box style="rounded,filled" fillcolor="#FFEACC" peripheries=1 fontname="Courier-Bold"]
+node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
 FN_Detector[shape=record rankdir=LR label="{<f0> [data14] FN_Detector |<f1>L-L1_LOSC_4_V1-1126259446-32.hdf5
 H-H1_LOSC_4_V1-1126259446-32.hdf5
 }"]
 FN_Sampling_rate[shape=record rankdir=LR label="{<f0> [data15] FN_Sampling_rate |<f1>H-H1_LOSC_4_V1-1126259446-32.hdf5
 H-H1_LOSC_16_V1-1126259446-32.hdf5
 }"]
-node[shape=box style="rounded,filled" fillcolor="#FFEACC" peripheries=1 fontname="Courier-Bold"]
+node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
 shifted_wavefile[shape=record rankdir=LR label="{<f0> [data40] shifted_wavefile |<f1>GW150914_NR_shifted.wav
 GW150914_L1_shifted.wav
 GW150914_H1_shifted.wav
@@ -51,6 +51,10 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 shifted_wavefile_outflow [label=""]
 }}
+strain_H1_whiten -> BANDPASSING
+strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
+strain_L1_whiten -> BANDPASSING
+strain_H1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
 strain_H1_whitenbp -> SHIFT_FREQUENCY_BANDPASSED
 strain_L1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
 FN_Detector -> LOAD_DATA
@@ -60,10 +64,6 @@ PSD_H1 -> WHITENING
 PSD_L1 -> WHITENING
 fs -> AMPLITUDE_SPECTRAL_DENSITY
 strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
-strain_H1_whiten -> BANDPASSING
-strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
-strain_L1_whiten -> BANDPASSING
-strain_H1_shifted -> WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA
 LOAD_DATA -> strain_H1
 LOAD_DATA -> strain_L1
 AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1
