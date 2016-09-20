@@ -31,10 +31,10 @@ $QUERIES_DIR/list_workflow_outputs.sh > $RESULTS_DIR/workflow_outputs.txt
 ##############
 
 # draw worfklow graph upstream of corrected_image
-$QUERIES_DIR/render_wf_graph_upstream_of_data.sh corrected_image > $RESULTS_DIR/wf_upstream_of_corrected_image.gv
+$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh corrected_image > $RESULTS_DIR/wf_upstream_of_corrected_image.gv
 dot -Tpdf $RESULTS_DIR/wf_upstream_of_corrected_image.gv > $RESULTS_DIR/wf_upstream_of_corrected_image.pdf
 
 # draw worfklow graph upstream of rejection_log
-$QUERIES_DIR/render_wf_graph_upstream_of_data.sh rejection_log > $RESULTS_DIR/wf_upstream_of_rejection_log.gv
+$QUERIES_DIR/render_wf_graph_upstream_of_data_q1.sh rejection_log > $RESULTS_DIR/wf_upstream_of_rejection_log.gv
 dot -Tpdf $RESULTS_DIR/wf_upstream_of_rejection_log.gv > $RESULTS_DIR/wf_upstream_of_rejection_log.pdf
 
