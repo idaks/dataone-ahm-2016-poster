@@ -1,4 +1,4 @@
-**Simple Generic Queries**
+##Simple Generic Queries
 - render_complete_wf_graph.sh
   - *Create a Graphviz-generated layout of the complete workflow.*
 - list_workflow_outputs.sh
@@ -7,7 +7,7 @@
   - *Auxiliary script to materialize YW views for subsequent queries.*
 
 
-**Advanced Generic Queries**
+##Advanced Generic Queries
 - render_wf_graph_upstream_of_data_q1.sh 
   - *Show the workflow that is upstream of a given data item.*
 - list_dependent_inputs_q2.sh 
