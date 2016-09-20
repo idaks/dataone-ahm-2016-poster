@@ -1,0 +1,236 @@
+
+% FACT: resource(resource_id, resource_uri).
+resource(1, 'inputs/land_cover/SYNMAP_NA_QD.nc').
+resource(2, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.1.nc').
+resource(3, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.2.nc').
+resource(4, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.3.nc').
+resource(5, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.4.nc').
+resource(6, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.5.nc').
+resource(7, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.6.nc').
+resource(8, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.7.nc').
+resource(9, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.8.nc').
+resource(10, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.9.nc').
+resource(11, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.10.nc').
+resource(12, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.11.nc').
+resource(13, 'inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc').
+resource(14, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc').
+resource(15, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.2.nc').
+resource(16, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc').
+resource(17, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc').
+resource(18, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.5.nc').
+resource(19, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.6.nc').
+resource(20, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc').
+resource(21, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc').
+resource(22, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.9.nc').
+resource(23, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc').
+resource(24, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc').
+resource(25, 'inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc').
+resource(26, 'outputs/SYNMAP_PRESENTVEG_C3Grass_RelaFrac_NA_v2.0.nc').
+resource(27, 'outputs/SYNMAP_PRESENTVEG_C4Grass_RelaFrac_NA_v2.0.nc').
+resource(28, 'outputs/SYNMAP_PRESENTVEG_Grass_Fraction_NA_v2.0.nc').
+
+% FACT: data_resource(data_id, resource_id).
+data_resource(1, 1).
+data_resource(2, 2).
+data_resource(2, 3).
+data_resource(2, 4).
+data_resource(2, 5).
+data_resource(2, 6).
+data_resource(2, 7).
+data_resource(2, 8).
+data_resource(2, 9).
+data_resource(2, 10).
+data_resource(2, 11).
+data_resource(2, 12).
+data_resource(2, 13).
+data_resource(3, 14).
+data_resource(3, 15).
+data_resource(3, 16).
+data_resource(3, 17).
+data_resource(3, 18).
+data_resource(3, 19).
+data_resource(3, 20).
+data_resource(3, 21).
+data_resource(3, 22).
+data_resource(3, 23).
+data_resource(3, 24).
+data_resource(3, 25).
+data_resource(4, 26).
+data_resource(5, 27).
+data_resource(6, 28).
+data_resource(7, 1).
+data_resource(12, 2).
+data_resource(12, 3).
+data_resource(12, 4).
+data_resource(12, 5).
+data_resource(12, 6).
+data_resource(12, 7).
+data_resource(12, 8).
+data_resource(12, 9).
+data_resource(12, 10).
+data_resource(12, 11).
+data_resource(12, 12).
+data_resource(12, 13).
+data_resource(14, 14).
+data_resource(14, 15).
+data_resource(14, 16).
+data_resource(14, 17).
+data_resource(14, 18).
+data_resource(14, 19).
+data_resource(14, 20).
+data_resource(14, 21).
+data_resource(14, 22).
+data_resource(14, 23).
+data_resource(14, 24).
+data_resource(14, 25).
+data_resource(19, 26).
+data_resource(20, 27).
+data_resource(21, 28).
+
+% FACT: uri_variable_value(resource_id, uri_variable_id, uri_variable_value).
+uri_variable_value(2, 1, '2000').
+uri_variable_value(2, 2, '2010').
+uri_variable_value(2, 3, '1').
+uri_variable_value(3, 1, '2000').
+uri_variable_value(3, 2, '2010').
+uri_variable_value(3, 3, '2').
+uri_variable_value(4, 1, '2000').
+uri_variable_value(4, 2, '2010').
+uri_variable_value(4, 3, '3').
+uri_variable_value(5, 1, '2000').
+uri_variable_value(5, 2, '2010').
+uri_variable_value(5, 3, '4').
+uri_variable_value(6, 1, '2000').
+uri_variable_value(6, 2, '2010').
+uri_variable_value(6, 3, '5').
+uri_variable_value(7, 1, '2000').
+uri_variable_value(7, 2, '2010').
+uri_variable_value(7, 3, '6').
+uri_variable_value(8, 1, '2000').
+uri_variable_value(8, 2, '2010').
+uri_variable_value(8, 3, '7').
+uri_variable_value(9, 1, '2000').
+uri_variable_value(9, 2, '2010').
+uri_variable_value(9, 3, '8').
+uri_variable_value(10, 1, '2000').
+uri_variable_value(10, 2, '2010').
+uri_variable_value(10, 3, '9').
+uri_variable_value(11, 1, '2000').
+uri_variable_value(11, 2, '2010').
+uri_variable_value(11, 3, '10').
+uri_variable_value(12, 1, '2000').
+uri_variable_value(12, 2, '2010').
+uri_variable_value(12, 3, '11').
+uri_variable_value(13, 1, '2000').
+uri_variable_value(13, 2, '2010').
+uri_variable_value(13, 3, '12').
+uri_variable_value(14, 4, '2000').
+uri_variable_value(14, 5, '2010').
+uri_variable_value(14, 6, '1').
+uri_variable_value(15, 4, '2000').
+uri_variable_value(15, 5, '2010').
+uri_variable_value(15, 6, '2').
+uri_variable_value(16, 4, '2000').
+uri_variable_value(16, 5, '2010').
+uri_variable_value(16, 6, '3').
+uri_variable_value(17, 4, '2000').
+uri_variable_value(17, 5, '2010').
+uri_variable_value(17, 6, '4').
+uri_variable_value(18, 4, '2000').
+uri_variable_value(18, 5, '2010').
+uri_variable_value(18, 6, '5').
+uri_variable_value(19, 4, '2000').
+uri_variable_value(19, 5, '2010').
+uri_variable_value(19, 6, '6').
+uri_variable_value(20, 4, '2000').
+uri_variable_value(20, 5, '2010').
+uri_variable_value(20, 6, '7').
+uri_variable_value(21, 4, '2000').
+uri_variable_value(21, 5, '2010').
+uri_variable_value(21, 6, '8').
+uri_variable_value(22, 4, '2000').
+uri_variable_value(22, 5, '2010').
+uri_variable_value(22, 6, '9').
+uri_variable_value(23, 4, '2000').
+uri_variable_value(23, 5, '2010').
+uri_variable_value(23, 6, '10').
+uri_variable_value(24, 4, '2000').
+uri_variable_value(24, 5, '2010').
+uri_variable_value(24, 6, '11').
+uri_variable_value(25, 4, '2000').
+uri_variable_value(25, 5, '2010').
+uri_variable_value(25, 6, '12').
+uri_variable_value(2, 7, '2000').
+uri_variable_value(2, 8, '2010').
+uri_variable_value(2, 9, '1').
+uri_variable_value(3, 7, '2000').
+uri_variable_value(3, 8, '2010').
+uri_variable_value(3, 9, '2').
+uri_variable_value(4, 7, '2000').
+uri_variable_value(4, 8, '2010').
+uri_variable_value(4, 9, '3').
+uri_variable_value(5, 7, '2000').
+uri_variable_value(5, 8, '2010').
+uri_variable_value(5, 9, '4').
+uri_variable_value(6, 7, '2000').
+uri_variable_value(6, 8, '2010').
+uri_variable_value(6, 9, '5').
+uri_variable_value(7, 7, '2000').
+uri_variable_value(7, 8, '2010').
+uri_variable_value(7, 9, '6').
+uri_variable_value(8, 7, '2000').
+uri_variable_value(8, 8, '2010').
+uri_variable_value(8, 9, '7').
+uri_variable_value(9, 7, '2000').
+uri_variable_value(9, 8, '2010').
+uri_variable_value(9, 9, '8').
+uri_variable_value(10, 7, '2000').
+uri_variable_value(10, 8, '2010').
+uri_variable_value(10, 9, '9').
+uri_variable_value(11, 7, '2000').
+uri_variable_value(11, 8, '2010').
+uri_variable_value(11, 9, '10').
+uri_variable_value(12, 7, '2000').
+uri_variable_value(12, 8, '2010').
+uri_variable_value(12, 9, '11').
+uri_variable_value(13, 7, '2000').
+uri_variable_value(13, 8, '2010').
+uri_variable_value(13, 9, '12').
+uri_variable_value(14, 10, '2000').
+uri_variable_value(14, 11, '2010').
+uri_variable_value(14, 12, '1').
+uri_variable_value(15, 10, '2000').
+uri_variable_value(15, 11, '2010').
+uri_variable_value(15, 12, '2').
+uri_variable_value(16, 10, '2000').
+uri_variable_value(16, 11, '2010').
+uri_variable_value(16, 12, '3').
+uri_variable_value(17, 10, '2000').
+uri_variable_value(17, 11, '2010').
+uri_variable_value(17, 12, '4').
+uri_variable_value(18, 10, '2000').
+uri_variable_value(18, 11, '2010').
+uri_variable_value(18, 12, '5').
+uri_variable_value(19, 10, '2000').
+uri_variable_value(19, 11, '2010').
+uri_variable_value(19, 12, '6').
+uri_variable_value(20, 10, '2000').
+uri_variable_value(20, 11, '2010').
+uri_variable_value(20, 12, '7').
+uri_variable_value(21, 10, '2000').
+uri_variable_value(21, 11, '2010').
+uri_variable_value(21, 12, '8').
+uri_variable_value(22, 10, '2000').
+uri_variable_value(22, 11, '2010').
+uri_variable_value(22, 12, '9').
+uri_variable_value(23, 10, '2000').
+uri_variable_value(23, 11, '2010').
+uri_variable_value(23, 12, '10').
+uri_variable_value(24, 10, '2000').
+uri_variable_value(24, 11, '2010').
+uri_variable_value(24, 12, '11').
+uri_variable_value(25, 10, '2000').
+uri_variable_value(25, 11, '2010').
+uri_variable_value(25, 12, '12').
+
+% FACT: log_variable_value(resource_id, log_entry_id, log_variable_id, log_variable_value).
