@@ -18,6 +18,10 @@ $YW_CMD model $SCRIPT_DIR/GW150914_tutorial_uri.py \
 # materialize views of YW facts
 $QUERIES_DIR/materialize_yw_views.sh > $VIEWS_DIR/yw_views.P
 
+
+# copy reconfacts.P  into facts folder
+cp -f recon/reconfacts.P facts
+
 # draw complete workflow graph
 $QUERIES_DIR/render_complete_wf_graph.sh > $RESULTS_DIR/complete_wf_graph.gv
 dot -Tpdf $RESULTS_DIR/complete_wf_graph.gv > $RESULTS_DIR/complete_wf_graph.pdf
