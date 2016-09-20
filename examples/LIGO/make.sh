@@ -143,3 +143,7 @@ $QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
 # draw recon worfklow graph upstream of shifted_wavefile
 $QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh shifted_wavefile > $RESULTS_DIR/wf_recon_upstream_of_shifted_wavefile.gv
 dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_shifted_wavefile.gv > $RESULTS_DIR/wf_recon_upstream_of_shifted_wavefile.pdf
+
+# draw recon worfklow graph upstream of whitened_bandpass_wavefile
+$QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh whitened_bandpass_wavefile > $RESULTS_DIR/wf_recon_upstream_of_whitened_bandpass_wavefile.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_whitened_bandpass_wavefile.gv > $RESULTS_DIR/wf_recon_upstream_of_whitened_bandpass_wavefile.pdf
