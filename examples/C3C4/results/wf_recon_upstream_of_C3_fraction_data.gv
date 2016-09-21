@@ -23,7 +23,7 @@ C3_Data
 node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
 SYNMAP_land_cover_map_data[shape=record rankdir=LR label="{<f0> [data7] SYNMAP_land_cover_map_data |<f1>inputs/land_cover/SYNMAP_NA_QD.nc\l}"]
 mean_airtemp[shape=record rankdir=LR label="{<f0> [data12] mean_airtemp |<f1>inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.5.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.6.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.7.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.1.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.8.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.2.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.9.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.3.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.10.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.4.nc\linputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.11.nc\l}"]
-mean_precip[shape=record rankdir=LR label="{<f0> [data14] mean_precip |<f1>inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.6.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.2.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.9.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.5.nc\l}"]
+mean_precip[shape=record rankdir=LR label="{<f0> [data14] mean_precip |<f1>inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.6.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.2.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.9.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.5.nc\linputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc\l}"]
 node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
 C3_fraction_data[shape=record rankdir=LR label="{<f0> [data19] C3_fraction_data |<f1>outputs/SYNMAP_PRESENTVEG_C3Grass_RelaFrac_NA_v2.0.nc\l}"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
@@ -40,9 +40,6 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 C3_fraction_data_outflow [label=""]
 }}
-Rain_Matrix -> examine_pixels_for_grass
-lon_variable -> generate_netcdf_file_for_C3_fraction
-mean_airtemp -> fetch_monthly_mean_air_temperature_data
 lat_variable -> generate_netcdf_file_for_C3_fraction
 mean_precip -> fetch_monthly_mean_precipitation_data
 C3_Data -> generate_netcdf_file_for_C3_fraction
@@ -50,6 +47,9 @@ lon_bnds_variable -> generate_netcdf_file_for_C3_fraction
 lat_bnds_variable -> generate_netcdf_file_for_C3_fraction
 Tair_Matrix -> examine_pixels_for_grass
 SYNMAP_land_cover_map_data -> fetch_SYNMAP_land_cover_map_variable
+Rain_Matrix -> examine_pixels_for_grass
+lon_variable -> generate_netcdf_file_for_C3_fraction
+mean_airtemp -> fetch_monthly_mean_air_temperature_data
 fetch_SYNMAP_land_cover_map_variable -> lon_variable
 fetch_SYNMAP_land_cover_map_variable -> lat_variable
 fetch_SYNMAP_land_cover_map_variable -> lon_bnds_variable

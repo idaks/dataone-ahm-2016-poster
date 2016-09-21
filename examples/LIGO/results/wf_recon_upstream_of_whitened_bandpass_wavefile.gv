@@ -22,10 +22,10 @@ strain_L1_whiten
 strain_H1_whitenbp
 strain_L1_whitenbp
 node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
-FN_Detector[shape=record rankdir=LR label="{<f0> [data14] FN_Detector |<f1>L-L1_LOSC_4_V1-1126259446-32.hdf5\nH-H1_LOSC_4_V1-1126259446-32.hdf5\n}"]
-FN_Sampling_rate[shape=record rankdir=LR label="{<f0> [data15] FN_Sampling_rate |<f1>H-H1_LOSC_4_V1-1126259446-32.hdf5\nH-H1_LOSC_16_V1-1126259446-32.hdf5\n}"]
+FN_Detector[shape=record rankdir=LR label="{<f0> [data14] FN_Detector |<f1>L-L1_LOSC_4_V1-1126259446-32.hdf5\lH-H1_LOSC_4_V1-1126259446-32.hdf5\l}"]
+FN_Sampling_rate[shape=record rankdir=LR label="{<f0> [data15] FN_Sampling_rate |<f1>H-H1_LOSC_4_V1-1126259446-32.hdf5\lH-H1_LOSC_16_V1-1126259446-32.hdf5\l}"]
 node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
-whitened_bandpass_wavefile[shape=record rankdir=LR label="{<f0> [data37] whitened_bandpass_wavefile |<f1>GW150914_NR_whitenbp.wav\nGW150914_L1_whitenbp.wav\nGW150914_H1_whitenbp.wav\n}"]
+whitened_bandpass_wavefile[shape=record rankdir=LR label="{<f0> [data37] whitened_bandpass_wavefile |<f1>GW150914_NR_whitenbp.wav\lGW150914_L1_whitenbp.wav\lGW150914_H1_whitenbp.wav\l}"]
 node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
 fs
 }}
@@ -41,8 +41,6 @@ subgraph cluster_outflows_inner { label=""; color=white
 node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
 whitened_bandpass_wavefile_outflow [label=""]
 }}
-PSD_L1 -> WHITENING
-fs -> AMPLITUDE_SPECTRAL_DENSITY
 strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
 strain_H1_whiten -> BANDPASSING
 strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
@@ -52,6 +50,8 @@ FN_Detector -> LOAD_DATA
 strain_L1_whitenbp -> WAVE_FILE_GENERATOR_FOR_WHITENED_DATA
 FN_Sampling_rate -> LOAD_DATA
 PSD_H1 -> WHITENING
+PSD_L1 -> WHITENING
+fs -> AMPLITUDE_SPECTRAL_DENSITY
 LOAD_DATA -> strain_H1
 LOAD_DATA -> strain_L1
 AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1

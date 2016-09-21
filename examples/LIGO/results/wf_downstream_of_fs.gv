@@ -61,11 +61,6 @@ H1_strain_unfiltered_outflow [label=""]
 whitened_bandpass_wavefile_outflow [label=""]
 shifted_wavefile_outflow [label=""]
 }}
-AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1
-FILTER_COEFS -> COEFFICIENTS
-FILTER_DATA -> filtered_white_noise_data
-AMPLITUDE_SPECTRAL_DENSITY -> PSD_L1
-FILTER_DATA -> strain_H1_filt
 WHITENING -> strain_H1_whiten
 WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA -> shifted_wavefile
 STRAIN_WAVEFORM_FOR_WHITENED_DATA -> WHITENED_strain_data
@@ -81,6 +76,11 @@ SHIFT_FREQUENCY_BANDPASSED -> strain_L1_shifted
 BANDPASSING -> strain_L1_whitenbp
 AMPLITUDE_SPECTRAL_DENSITY -> ASDs
 SPECTROGRAMS_FOR_STRAIN_DATA -> spectrogram
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_H1
+FILTER_COEFS -> COEFFICIENTS
+FILTER_DATA -> filtered_white_noise_data
+AMPLITUDE_SPECTRAL_DENSITY -> PSD_L1
+FILTER_DATA -> strain_H1_filt
 fs -> AMPLITUDE_SPECTRAL_DENSITY
 PSD_H1 -> WHITENING
 PSD_L1 -> WHITENING

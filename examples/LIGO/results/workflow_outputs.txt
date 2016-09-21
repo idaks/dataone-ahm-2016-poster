@@ -1,10 +1,10 @@
-q(shifted_wavefile).
+q(spectrogram).
 q(filtered_white_noise_data).
 q('WHITENED_strain_data').
-q(whitened_bandpass_wavefile).
 q('H1_strain_filtered').
-q(spectrogram_whitened).
-q(spectrogram).
 q('H1_strain_unfiltered').
 q('ASDs').
 q('H1_ASD_SamplingRate').
+q(shifted_wavefile).
+q(whitened_bandpass_wavefile).
+q(spectrogram_whitened).

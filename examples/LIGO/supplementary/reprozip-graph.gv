@@ -1,0 +1,67 @@
+digraph G {
+    rankdir= LR
+    /* programs */
+    node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];
+    run0 [label="0: /usr/bin/python"];
+
+    node [shape=box fontcolor="#131C39" fillcolor="#C9D2ED" fontname=Courier];
+
+    /* other files */
+    "/home/ducvu/.Xauthority" [fillcolor="#A3B4E0", label=".Xauthority\n/home/ducvu/.Xauthority"];
+    "/home/ducvu/.cache/matplotlib/fontList.cache" [fillcolor="#A3B4E0", label="fontList.cache\n/home/ducvu/.cache/matplotlib/fontList.cache"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_4_NR_waveform.txt" [fillcolor="#A3B4E0", label="GW150914_4_NR_waveform.txt\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_4_NR_waveform.txt"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_ASDs.png" [fillcolor="#A3B4E0", label="GW150914_ASDs.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_ASDs.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_16384.png" [fillcolor="#A3B4E0", label="GW150914_H1_ASD_16384.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_16384.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_16384_zoom.png" [fillcolor="#A3B4E0", label="GW150914_H1_ASD_16384_zoom.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_16384_zoom.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_4096_zoom.png" [fillcolor="#A3B4E0", label="GW150914_H1_ASD_4096_zoom.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_4096_zoom.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_shifted.wav" [fillcolor="#A3B4E0", label="GW150914_H1_shifted.wav\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_shifted.wav"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_spectrogram.png" [fillcolor="#A3B4E0", label="GW150914_H1_spectrogram.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_spectrogram.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_spectrogram_whitened.png" [fillcolor="#A3B4E0", label="GW150914_H1_spectrogram_whitened.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_spectrogram_whitened.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_strain_filtered.png" [fillcolor="#A3B4E0", label="GW150914_H1_strain_filtered.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_strain_filtered.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_strain_unfiltered.png" [fillcolor="#A3B4E0", label="GW150914_H1_strain_unfiltered.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_strain_unfiltered.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_whitenbp.wav" [fillcolor="#A3B4E0", label="GW150914_H1_whitenbp.wav\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_whitenbp.wav"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_shifted.wav" [fillcolor="#A3B4E0", label="GW150914_L1_shifted.wav\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_shifted.wav"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_spectrogram.png" [fillcolor="#A3B4E0", label="GW150914_L1_spectrogram.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_spectrogram.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_spectrogram_whitened.png" [fillcolor="#A3B4E0", label="GW150914_L1_spectrogram_whitened.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_spectrogram_whitened.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_whitenbp.wav" [fillcolor="#A3B4E0", label="GW150914_L1_whitenbp.wav\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_whitenbp.wav"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_NR_shifted.wav" [fillcolor="#A3B4E0", label="GW150914_NR_shifted.wav\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_NR_shifted.wav"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_NR_whitenbp.wav" [fillcolor="#A3B4E0", label="GW150914_NR_whitenbp.wav\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_NR_whitenbp.wav"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_filter.png" [fillcolor="#A3B4E0", label="GW150914_filter.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_filter.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_strain.png" [fillcolor="#A3B4E0", label="GW150914_strain.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_strain.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_strain_whitened.png" [fillcolor="#A3B4E0", label="GW150914_strain_whitened.png\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_strain_whitened.png"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_tutorial.py" [fillcolor="#A3B4E0", label="arg\n/home/ducvu/Documents/LIGO_DATAONE/GW150914_tutorial.py"];
+    "/home/ducvu/Documents/LIGO_DATAONE/H-H1_LOSC_16_V1-1126259446-32.hdf5" [fillcolor="#A3B4E0", label="H-H1_LOSC_16_V1-1126259446-32.hdf5\n/home/ducvu/Documents/LIGO_DATAONE/H-H1_LOSC_16_V1-1126259446-32.hdf5"];
+    "/home/ducvu/Documents/LIGO_DATAONE/H-H1_LOSC_4_V1-1126259446-32.hdf5" [fillcolor="#A3B4E0", label="H-H1_LOSC_4_V1-1126259446-32.hdf5\n/home/ducvu/Documents/LIGO_DATAONE/H-H1_LOSC_4_V1-1126259446-32.hdf5"];
+    "/home/ducvu/Documents/LIGO_DATAONE/L-L1_LOSC_4_V1-1126259446-32.hdf5" [fillcolor="#A3B4E0", label="L-L1_LOSC_4_V1-1126259446-32.hdf5\n/home/ducvu/Documents/LIGO_DATAONE/L-L1_LOSC_4_V1-1126259446-32.hdf5"];
+    "/home/ducvu/Documents/LIGO_DATAONE/readligo.py" [fillcolor="#A3B4E0", label="readligo.py\n/home/ducvu/Documents/LIGO_DATAONE/readligo.py"];
+    "/home/ducvu/Documents/LIGO_DATAONE/readligo.pyc" [fillcolor="#A3B4E0", label="readligo.pyc\n/home/ducvu/Documents/LIGO_DATAONE/readligo.pyc"];
+
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_tutorial.py" -> run0 [color="#8888CC"];
+    "/home/ducvu/.cache/matplotlib/fontList.cache" -> run0 [color="#8888CC"];
+    "/home/ducvu/Documents/LIGO_DATAONE/readligo.py" -> run0 [color="#8888CC"];
+    "/home/ducvu/Documents/LIGO_DATAONE/readligo.pyc" -> run0 [color="#8888CC"];
+    "/home/ducvu/Documents/LIGO_DATAONE/H-H1_LOSC_4_V1-1126259446-32.hdf5" -> run0 [color="#8888CC"];
+    "/home/ducvu/Documents/LIGO_DATAONE/L-L1_LOSC_4_V1-1126259446-32.hdf5" -> run0 [color="#8888CC"];
+    "/home/ducvu/Documents/LIGO_DATAONE/GW150914_4_NR_waveform.txt" -> run0 [color="#8888CC"];
+    "/home/ducvu/.Xauthority" -> run0 [color="#8888CC"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_strain.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_ASDs.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_strain_whitened.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_spectrogram.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_spectrogram.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_spectrogram_whitened.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_spectrogram_whitened.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_filter.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_strain_unfiltered.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_strain_filtered.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_whitenbp.wav" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_whitenbp.wav" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_NR_whitenbp.wav" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_shifted.wav" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_L1_shifted.wav" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_NR_shifted.wav" [color="#000088"];
+    "/home/ducvu/Documents/LIGO_DATAONE/H-H1_LOSC_16_V1-1126259446-32.hdf5" -> run0 [color="#8888CC"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_16384.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_16384_zoom.png" [color="#000088"];
+    run0 -> "/home/ducvu/Documents/LIGO_DATAONE/GW150914_H1_ASD_4096_zoom.png" [color="#000088"];
+}

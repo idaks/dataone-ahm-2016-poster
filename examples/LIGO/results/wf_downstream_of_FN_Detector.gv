@@ -67,14 +67,6 @@ whitened_bandpass_wavefile_outflow [label=""]
 shifted_wavefile_outflow [label=""]
 H1_ASD_SamplingRate_outflow [label=""]
 }}
-FILTER_DATA -> strain_L1_filt
-LOAD_DATA -> strain_L1
-WHITENING -> strain_L1_whiten
-WAVE_FILE_GENERATOR_FOR_WHITENED_DATA -> whitened_bandpass_wavefile
-STRAIN_WAVEFORM_FOR_FILTERED_DATA -> H1_strain_filtered
-SHIFT_FREQUENCY_BANDPASSED -> strain_H1_shifted
-LOAD_DATA -> strain_16
-BANDPASSING -> strain_H1_whitenbp
 STRAIN_WAVEFORM_FOR_FILTERED_DATA -> H1_strain_unfiltered
 SPECTROGRAMS_FOR_WHITEND_DATA -> spectrogram_whitened
 SHIFT_FREQUENCY_BANDPASSED -> strain_L1_shifted
@@ -91,6 +83,14 @@ LOAD_DATA -> strain_H1
 WHITENING -> strain_H1_whiten
 WAVE_FILE_GENERATOR_FOR_SHIFTED_DATA -> shifted_wavefile
 STRAIN_WAVEFORM_FOR_WHITENED_DATA -> WHITENED_strain_data
+FILTER_DATA -> strain_L1_filt
+LOAD_DATA -> strain_L1
+WHITENING -> strain_L1_whiten
+WAVE_FILE_GENERATOR_FOR_WHITENED_DATA -> whitened_bandpass_wavefile
+STRAIN_WAVEFORM_FOR_FILTERED_DATA -> H1_strain_filtered
+SHIFT_FREQUENCY_BANDPASSED -> strain_H1_shifted
+LOAD_DATA -> strain_16
+BANDPASSING -> strain_H1_whitenbp
 FN_Detector -> LOAD_DATA
 strain_H1 -> AMPLITUDE_SPECTRAL_DENSITY
 strain_L1 -> AMPLITUDE_SPECTRAL_DENSITY
