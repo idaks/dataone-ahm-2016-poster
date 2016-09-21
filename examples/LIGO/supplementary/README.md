@@ -24,7 +24,8 @@ graph.dot is modidified into graph-variant.gv
     run0 [label="0: /usr/bin/python"];
 
     <font color='red'>  node [shape=box fontcolor="#131C39" fillcolor="#C9D2ED" fontname=Courier]; </font>
-    <font color='green'>text</font>
+    
+<font color='green'>text</font>
 
 
 
