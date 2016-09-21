@@ -62,7 +62,16 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_mean_precip.gv > $RESULTS_DIR/wf_upstream_
 ##############
 
 # list workflow outputs
-$QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
+#$QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
+
+# list script inputs upstream of output data C3_fraction_data 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'C3_fraction_data\' > $RESULTS_DIR/inputs_upstream_of_C3_fraction_data.txt
+ 
+# list script inputs upstream of intermediate data C4_fraction_data
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'C4_fraction_data\' > $RESULTS_DIR/inputs_upstream_of_C4_fraction_data.txt
+
+# list script inputs upstream of intermediate data Grass_fraction_data
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'Grass_fraction_data\' > $RESULTS_DIR/inputs_upstream_of_Grass_fraction_data.txt
 
 
 ##############
