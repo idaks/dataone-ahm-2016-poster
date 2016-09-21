@@ -13,8 +13,9 @@ graph.dot is modidified into graph-variant.gv
     node [shape=box fontcolor=white fillcolor=black style=filled];
     run0 [label="0: /usr/bin/python"];
 
-    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];</span>
-
+    node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
+    
+    
 
 ####   Updated graph ([graph-variant.gv](https://github.com/idaks/ligo/blob/master/reprozip/graph-variant.gv "graph-variant.gv"))
     digraph G {
