@@ -1,0 +1,10 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q4_Pro : List the outputs that depend on cassette_id.
+
+q4_pro(UpstreamDataName, OutputDataName)
+...................................................................................................
+q4_pro(cassette_id,collection_log).
+q4_pro(cassette_id,corrected_image).
+q4_pro(cassette_id,rejection_log).

@@ -1,0 +1,12 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product corrected_image.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
+q2_pro(corrected_image,calibration_image).
+q2_pro(corrected_image,data_redundancy).
+q2_pro(corrected_image,sample_score_cutoff).
+q2_pro(corrected_image,sample_spreadsheet).
+q2_pro(corrected_image,cassette_id).
