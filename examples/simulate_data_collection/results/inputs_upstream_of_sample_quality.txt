@@ -1,0 +1,9 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product sample_quality.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
+q2_pro(sample_quality,sample_spreadsheet).
+q2_pro(sample_quality,cassette_id).

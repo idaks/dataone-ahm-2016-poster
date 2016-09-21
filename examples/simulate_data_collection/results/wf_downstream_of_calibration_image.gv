@@ -1,0 +1,43 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="simulate_data_collection"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+log_average_image_intensity
+transform_images
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+calibration_image
+corrected_image
+total_intensity
+pixel_count
+collection_log
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+calibration_image_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+collection_log_outflow [label=""]
+corrected_image_outflow [label=""]
+}}
+log_average_image_intensity -> collection_log
+transform_images -> pixel_count
+transform_images -> total_intensity
+transform_images -> corrected_image
+calibration_image -> transform_images
+corrected_image -> log_average_image_intensity
+total_intensity -> log_average_image_intensity
+pixel_count -> log_average_image_intensity
+calibration_image_inflow -> calibration_image
+collection_log -> collection_log_outflow
+corrected_image -> corrected_image_outflow
+}
+
