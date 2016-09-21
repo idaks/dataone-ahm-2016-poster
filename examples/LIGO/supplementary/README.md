@@ -7,7 +7,7 @@ The output in [ReproZip](https://github.com/idaks/ligo/tree/master/reprozip "Rep
 
 graph.dot is modidified into graph-variant.gv
 
-#### [graph.dot](https://github.com/idaks/ligo/blob/master/reprozip/graph.dot "graph.dot")
+#### Original graph ([graph.dot](https://github.com/idaks/ligo/blob/master/reprozip/graph.dot "graph.dot"))
     digraph G {
     /* programs */
     node [shape=box fontcolor=white fillcolor=black style=filled];
@@ -16,7 +16,7 @@ graph.dot is modidified into graph-variant.gv
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
 
 
-####   [graph-variant.gv](https://github.com/idaks/ligo/blob/master/reprozip/graph-variant.gv "graph-variant.gv")
+####   Updated graph ([graph-variant.gv](https://github.com/idaks/ligo/blob/master/reprozip/graph-variant.gv "graph-variant.gv"))
     digraph G {
     rankdir= LR
     /* programs */
