@@ -5,7 +5,7 @@ The updated output in ([ReproZip](https://github.com/idaks/ligo/tree/master/repr
 
 ## Modification 
 
-#### graph.dot ([graph.dot](https://github.com/idaks/ligo/blob/master/reprozip/graph.dot "graph.dot"))
+#### [graph.dot](https://github.com/idaks/ligo/blob/master/reprozip/graph.dot "graph.dot")
     digraph G {
     /* programs */
     node [shape=box fontcolor=white fillcolor=black style=filled];
@@ -14,7 +14,7 @@ The updated output in ([ReproZip](https://github.com/idaks/ligo/tree/master/repr
     node [shape=ellipse fontcolor="#131C39" fillcolor="#C9D2ED"];
 
 
-####   ([graph-variant.gv](https://github.com/idaks/ligo/blob/master/reprozip/graph-variant.gv "graph-variant.gv"))
+####   [graph-variant.gv](https://github.com/idaks/ligo/blob/master/reprozip/graph-variant.gv "graph-variant.gv")
     digraph G {
     rankdir= LR
     /* programs */
