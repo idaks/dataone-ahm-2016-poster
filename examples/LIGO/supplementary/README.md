@@ -25,7 +25,7 @@ graph.dot is modidified into graph-variant.gv
 
     <font color='red'>  node [shape=box fontcolor="#131C39" fillcolor="#C9D2ED" fontname=Courier]; </font>
     
-<span style="color:red"> text </span>
+<p style="color:red"> text </p>
 
 
 
