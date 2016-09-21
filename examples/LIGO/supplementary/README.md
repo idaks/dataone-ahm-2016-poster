@@ -23,8 +23,8 @@ graph.dot is modidified into graph-variant.gv
     <span style="color:red"> node [shape=box fontcolor=white fillcolor=black style="filled,rounded"];</span>
     run0 [label="0: /usr/bin/python"];
 
-    <span style="color:red"> node [shape=box fontcolor="#131C39" fillcolor="#C9D2ED" fontname=Courier];</span>
+    <font color='red'>  node [shape=box fontcolor="#131C39" fillcolor="#C9D2ED" fontname=Courier]; </font>
 
 
-**---> <span style="color:red"> no change</span> **
+
  
