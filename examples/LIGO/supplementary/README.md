@@ -1,8 +1,5 @@
-# YesWorkflow-NoWorkflow using the Python script “LIGO gravitational wave detection”
 
-======================
-
-Overview
+# Overview
 -------- 
 The updated output in ([ReproZip](https://github.com/idaks/ligo/tree/master/reprozip "ReproZip"))
 
