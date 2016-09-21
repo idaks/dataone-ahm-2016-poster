@@ -30,5 +30,8 @@ graph.dot is modidified into graph-variant.gv
 <p style="color:red"> text </p>
 
 
+<span style="color:red">red</span>, violets are <span style="color:blue">blue</span>
+
+
 
  
