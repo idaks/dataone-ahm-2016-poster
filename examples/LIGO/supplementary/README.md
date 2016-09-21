@@ -1,9 +1,11 @@
 
 # Overview
 -------- 
-The updated output in ([ReproZip](https://github.com/idaks/ligo/tree/master/reprozip "ReproZip"))
+The output in [ReproZip](https://github.com/idaks/ligo/tree/master/reprozip "ReproZip") is updated to get a better visualization.
 
 ## Modification 
+
+graph.dot is modidified into graph-variant.gv
 
 #### [graph.dot](https://github.com/idaks/ligo/blob/master/reprozip/graph.dot "graph.dot")
     digraph G {
