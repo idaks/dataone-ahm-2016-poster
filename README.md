@@ -36,14 +36,6 @@ Subfolders that all `<my_example>` folders have:
 
 Note: after running `clean.sh` and `make.sh`, you can use git status to see what demo artifacts have just been created.
 
-# Installing, Browsing, and Running the Demo
-
-1. Clone the `dataone-ahm-2016` git repo to your local machine using the command:`git clone https://github.com/idaks/dataone-ahm-2016-poster.git`
-
-2. Copy your example folder under examples/ folder. There are already three examples there:  `C3C4`, `LIGO`, and `simulate_data_collection`.
-
-3. Reorganize your directory layout for your twitter use case to be the same as `C3C4`, `LIGO`, and `simulate_data_collection`. Create a `recon/` folder which contains your `reconfacts.P`.
-
 ```
 simulate_data_collection/
 ├── clean.sh
@@ -60,6 +52,14 @@ simulate_data_collection/
     └── yw_views.P
  ```
  
+# Installing, Browsing, and Running the Demo
+
+1. Clone the `dataone-ahm-2016` git repo to your local machine using the command:`git clone https://github.com/idaks/dataone-ahm-2016-poster.git`
+
+2. Copy your example folder under examples/ folder. There are already three examples there:  `C3C4`, `LIGO`, and `simulate_data_collection`.
+
+3. Reorganize your directory layout for your twitter use case to be the same as `C3C4`, `LIGO`, and `simulate_data_collection`. Create a `recon/` folder which contains your `reconfacts.P`.
+
 4. Copy two script files `clean.sh` and `make.sh` from the `simulate_data_collection` of the existing three examples to your own example folder. 
 
 5. Open `make.sh` and customize the scripting name, outputfile name, parameter data object name to your example.
