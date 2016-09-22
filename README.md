@@ -38,8 +38,7 @@ Note: after running `clean.sh` and `make.sh`, you can use git status to see what
 
 # Installing, Browsing, and Running the Demo
 
-1. Clone the `dataone-ahm-2016` git repo to your local machine using the command. 
-`git clone https://github.com/idaks/dataone-ahm-2016-poster.git`
+1. Clone the `dataone-ahm-2016` git repo to your local machine using the command:`git clone https://github.com/idaks/dataone-ahm-2016-poster.git`
 
 2. Copy your example folder under examples/ folder. There are already three examples there:  `C3C4`, `LIGO`, and `simulate_data_collection`.
 
