@@ -60,7 +60,7 @@ simulate_data_collection/
     └── yw_views.P
  ```
  
- 4. Copy two script files `clean.sh` and `make.sh` from the `simulate_data_collection` of the existing three examples to your own example folder. 
+4. Copy two script files `clean.sh` and `make.sh` from the `simulate_data_collection` of the existing three examples to your own example folder. 
 
 5. Open `make.sh` and customize the scripting name, outputfile name, parameter data object name to your example.
 
