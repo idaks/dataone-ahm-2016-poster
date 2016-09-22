@@ -3,13 +3,14 @@ Runnable examples of YW provenance queries highlighted in poster for DataONE AHM
 
 # Introduction
 
-The purpose of this demo is to demonstrate the Yesworkflow (YW) query ability to use the prospective provenance created by YW and the retrospective provenance together to answer queries that can not be answered solely by prospective provenance or retrospective provenance.
+The purpose of this demo is to demonstrate the `Yesworkflow` (YW) query ability to use the `prospective provenance` created by YW and the `retrospective provenance` together to answer queries that can not be answered solely by prospective provenance or retrospective provenance.
 
 The prospective provenance in this demo is created by YW which models conventional scripts and programs as scientific workflows. YW can provide a number of the benefits of using a scientific workflow management system without having to rewrite scripts and other scientific software. A YW user simply adds special YW comments to existing scripts. These comments declare how data is used and results produced, step by step, by the script. Then, YW interprets these comments and produces graphical output that reveals the stages of computation and the flow of data in the script.
 
 There are various approaches to capture the retrospective provenance. Retrospective Provenance Observables, e.g., from `DataONE RunManagers` (file-level), `ReproZip` (OS-level), or `noWorkflow` (Python code-level) only yield isolated fragments of the overall data lineage and processing history. In this demo, two types of retrospective provenance observables are used: `yw-reon` and `DataONE RunManager`. The `yw-recon` can search the file system for files that match the URI templates declared for @IN and @OUT ports in the script. On the other hand, `DataONE RunManager` can authorize a list of input and output files for a script run. 
 
 # Layouts of Repository
+
 | Directory | Description                                                          |
 |-----------| :--------------------------------------------------------------------|
 |examples/ |   Contains examples demonstrating the queries in the queries folder |
@@ -33,13 +34,14 @@ Subfolders that all `<my_example>` folders have:
 | clean.sh | removes generated demo artifacts for <my_example> |
 | make.sh | creates demo artifacts for <my_example> |
 
-Note: after running clean.sh and make.sh, you can use git status to see what demo artifacts have just been created.
+Note: after running `clean.sh` and `make.sh`, you can use git status to see what demo artifacts have just been created.
+
 # Installing, Browsing, and Running the Demo
 
 1. Clone the `dataone-ahm-2016` git repo to your local machine using the command. 
 `git clone https://github.com/idaks/dataone-ahm-2016-poster.git`
 
-2. Copy your use case root folder under examples/ folder. There are already three examples there:  `C3C4`, `LIGO`, and `simulate_data_collection`.
+2. Copy your example folder under examples/ folder. There are already three examples there:  `C3C4`, `LIGO`, and `simulate_data_collection`.
 
 3. Reorganize your directory layout for your twitter use case to be the same as `C3C4`, `LIGO`, and `simulate_data_collection`. Create a `recon/` folder which contains your `reconfacts.P`.
 
@@ -66,4 +68,6 @@ simulate_data_collection/
 6. Run `bash make.sh`.
     
 
+# Demo Queries
 
+Please read [Query README](https://github.com/idaks/dataone-ahm-2016-poster/blob/master/queries/README.md) in the demo repo.
