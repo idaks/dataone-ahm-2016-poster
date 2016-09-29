@@ -18,3 +18,5 @@
   - *Given a data item, which outputs does it contribute to?*
 - render_wf_recon_graph_upstream_of_data_q5.sh 
   - *Hybrid "Make-this-product" query: show reconstructed upstream provenance in context of the workflow.*
+- render_wf_recon_graph_complete_graph_all_observables_q6.sh 
+  - *Hybrid "Make-all-product" query: show reconstructed provenance with all observables in context of the workflow.*
