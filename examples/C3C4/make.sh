@@ -125,3 +125,15 @@ dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_C4_fraction_data.gv > $RESULTS_DIR/w
 # draw recon worfklow graph upstream of Grass_fraction_data
 $QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh \'Grass_fraction_data\' > $RESULTS_DIR/wf_recon_upstream_of_Grass_fraction_data.gv
 dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_Grass_fraction_data.gv > $RESULTS_DIR/wf_recon_upstream_of_Grass_fraction_data.pdf
+
+
+##############
+#   Q6_pro   #
+##############
+
+
+# draw recon workflow graph with all observables
+
+$QUERIES_DIR/render_recon_complete_wf_graph_q6.sh > $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv > $RESULTS_DIR/wf_recon_complete_graph_all_observables.pdf
+

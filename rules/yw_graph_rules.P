@@ -30,7 +30,6 @@ gv_nodestyle__atomic_step_invocation :-
 
 gv_nodestyle__data_value :-
         write('node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]'), eol.  
-
 gv_nodestyle__param_value :-
     write('node[shape=box style="rounded,filled" fillcolor="#222222" peripheries=1 fontname="Helvetica-Bold"]'), eol.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -448,3 +447,36 @@ gv_nodes__outflow_recon__data(WorkflowId, DataId) :-
     ;
     true.
 
+
+gv_nodes__recon_not_input_not_output_data(WorkflowId) :-
+    yw_data(DataId, DataName, WorkflowId, _),
+    not yw_workflow_param(_, _, DataId, _),
+    not yw_inflow_data(WorkflowId, _, DataId, _),
+    not yw_outflow_data(WorkflowId, _, DataId, _),
+    gv_labeled_node(DataName),
+    fail
+    ;
+    true.
+
+gv_nodes__input_recon_data(WorkflowId) :-
+    yw_data_used_as_in(DataId),
+    yw_inflow_data(WorkflowId, _, DataId, DataName),
+    concat_atom(['[data', DataId, '] ', DataName], Top),
+    gv_record_node_open(DataName, Top),
+    gv_record_node_uri_list(DataId),
+    gv_record_node_close,
+    fail
+    ;
+    true.
+
+gv_nodes__output_recon_data(WorkflowId) :-
+    yw_data(DataId, DataName, WorkflowId, _),
+    not yw_workflow_param(_, _, DataId, _),
+    yw_outflow_data(WorkflowId, _, DataId, _),
+    concat_atom(['[data', DataId, '] ', DataName], Top),
+    gv_record_node_open(DataName, Top),
+    gv_record_node_uri_list(DataId),
+    gv_record_node_close,
+    fail
+    ;
+    true.

@@ -147,3 +147,13 @@ dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_shifted_wavefile.gv > $RESULTS_DIR/w
 # draw recon worfklow graph upstream of whitened_bandpass_wavefile
 $QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh whitened_bandpass_wavefile > $RESULTS_DIR/wf_recon_upstream_of_whitened_bandpass_wavefile.gv
 dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_whitened_bandpass_wavefile.gv > $RESULTS_DIR/wf_recon_upstream_of_whitened_bandpass_wavefile.pdf
+
+##############
+#   Q6_pro   #
+##############
+
+
+# draw recon workflow graph with all observables
+
+$QUERIES_DIR/render_recon_complete_wf_graph_q6.sh > $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv > $RESULTS_DIR/wf_recon_complete_graph_all_observables.pdf
