@@ -1,0 +1,1 @@
+q2_pro('Sentiment_Result','Static_Tweets').

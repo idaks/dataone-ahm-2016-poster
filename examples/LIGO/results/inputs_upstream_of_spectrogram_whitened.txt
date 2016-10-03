@@ -1,0 +1,10 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product spectrogram_whitened.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
+q2_pro(spectrogram_whitened,fs).
+q2_pro(spectrogram_whitened,'FN_Sampling_rate').
+q2_pro(spectrogram_whitened,'FN_Detector').

@@ -72,6 +72,11 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_Sizes.gv > $RESULTS_DIR/wf_upstream_of_Siz
 # list workflow outputs
 #$QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/#q2_pro_outputs.txt
 
+
+# list script inputs upstream of output data Sentiment_Result 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'Sentiment_Result\' > $RESULTS_DIR/inputs_upstream_of_Sentiment_Result.txt
+ 
+
 ##############
 #   Q3_pro   #
 ##############
@@ -105,7 +110,10 @@ dot -Tpdf $RESULTS_DIR/wf_downstream_of_Sizes.gv > $RESULTS_DIR/wf_downstream_of
 ##############
 
 # list workflow outputs
-$QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
+#$QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
+
+# list script outputs downstream of input data Static_Tweets 
+$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh \'Static_Tweets\' > $RESULTS_DIR/outputs_downstream_of_Static_Tweets.txt
 
 ##############
 #   Q5_pro   #
@@ -114,3 +122,14 @@ $QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
 # draw recon worfklow graph upstream of Sentiment_Result
 $QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh \'Sentiment_Result\' > $RESULTS_DIR/wf_recon_upstream_of_Sentiment_Result.gv
 dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_Sentiment_Result.gv > $RESULTS_DIR/wf_recon_upstream_of_Sentiment_Result.pdf
+
+
+##############
+#   Q6_pro   #
+##############
+
+
+# draw recon workflow graph with all observables
+
+$QUERIES_DIR/render_recon_complete_wf_graph_q6.sh > $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv > $RESULTS_DIR/wf_recon_complete_graph_all_observables.pdf

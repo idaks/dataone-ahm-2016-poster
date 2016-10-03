@@ -1,0 +1,10 @@
+q4_pro('FN_Sampling_rate','H1_ASD_SamplingRate').
+q4_pro('FN_Sampling_rate',filtered_white_noise_data).
+q4_pro('FN_Sampling_rate','WHITENED_strain_data').
+q4_pro('FN_Sampling_rate',shifted_wavefile).
+q4_pro('FN_Sampling_rate','H1_strain_filtered').
+q4_pro('FN_Sampling_rate',whitened_bandpass_wavefile).
+q4_pro('FN_Sampling_rate','H1_strain_unfiltered').
+q4_pro('FN_Sampling_rate',spectrogram_whitened).
+q4_pro('FN_Sampling_rate','ASDs').
+q4_pro('FN_Sampling_rate',spectrogram).

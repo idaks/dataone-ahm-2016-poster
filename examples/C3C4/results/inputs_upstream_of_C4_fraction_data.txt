@@ -1,0 +1,3 @@
+q2_pro('C4_fraction_data',mean_precip).
+q2_pro('C4_fraction_data',mean_airtemp).
+q2_pro('C4_fraction_data','SYNMAP_land_cover_map_data').

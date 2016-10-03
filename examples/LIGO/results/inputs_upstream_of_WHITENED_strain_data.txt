@@ -1,0 +1,3 @@
+q2_pro('WHITENED_strain_data',fs).
+q2_pro('WHITENED_strain_data','FN_Sampling_rate').
+q2_pro('WHITENED_strain_data','FN_Detector').

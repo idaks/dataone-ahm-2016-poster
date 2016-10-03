@@ -1,0 +1,3 @@
+q4_pro('SYNMAP_land_cover_map_data','Grass_fraction_data').
+q4_pro('SYNMAP_land_cover_map_data','C4_fraction_data').
+q4_pro('SYNMAP_land_cover_map_data','C3_fraction_data').

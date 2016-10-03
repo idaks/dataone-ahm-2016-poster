@@ -1,7 +1,9 @@
 
 
 ---------------------------------------------------------------------------------------------------
-Q4_Pro : List the outputs that depend on a particular script input.
+Q4_Pro : List the outputs that depend on mean_precip.
 
-q4_pro(InputDataName, OutputDataName)
+q4_pro(UpstreamDataName, OutputDataName)
 ...................................................................................................
+q4_pro(mean_precip,'C4_fraction_data').
+q4_pro(mean_precip,'C3_fraction_data').

@@ -1,0 +1,3 @@
+q2_pro('H1_strain_filtered',fs).
+q2_pro('H1_strain_filtered','FN_Sampling_rate').
+q2_pro('H1_strain_filtered','FN_Detector').

@@ -102,7 +102,32 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_FN_Detector.gv > $RESULTS_DIR/wf_upstream_
 ##############
 
 # list workflow outputs
-$QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
+#$QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
+
+# list script inputs upstream of output data shifted_wavefile 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh shifted_wavefile > $RESULTS_DIR/inputs_upstream_of_shifted_wavefile.txt
+
+# list script inputs upstream of output data WHITENED_strain_data 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'WHITENED_strain_data\' > $RESULTS_DIR/inputs_upstream_of_WHITENED_strain_data.txt
+
+# list script inputs upstream of output data whitened_bandpass_wavefile 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh whitened_bandpass_wavefile > $RESULTS_DIR/inputs_upstream_of_whitened_bandpass_wavefile.txt
+
+# list script inputs upstream of output data spectrogram_whitened 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh spectrogram_whitened > $RESULTS_DIR/inputs_upstream_of_spectrogram_whitened.txt
+
+# list script inputs upstream of output data H1_strain_filtered 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'H1_strain_filtered\' > $RESULTS_DIR/inputs_upstream_of_H1_strain_filtered.txt
+
+# list script inputs upstream of output data H1_strain_unfiltered 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'H1_strain_unfiltered\' > $RESULTS_DIR/inputs_upstream_of_H1_strain_unfiltered.txt
+
+# list script inputs upstream of output data filtered_white_noise_data 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh filtered_white_noise_data > $RESULTS_DIR/inputs_upstream_of_filtered_white_noise_data.txt
+
+# list script inputs upstream of output data ASDs 
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'ASDs\' > $RESULTS_DIR/inputs_upstream_of_ASDs.txt
+
 
 ##############
 #   Q3_pro   #
@@ -133,7 +158,16 @@ dot -Tpdf $RESULTS_DIR/wf_downstream_of_strain_L1_whitenbp.gv > $RESULTS_DIR/wf_
 ##############
 
 # list workflow outputs
-$QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
+#$QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
+
+# list script outputs downstream of input data FN_Sampling_rate 
+$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh \'FN_Sampling_rate\' > $RESULTS_DIR/outputs_downstream_of_FN_Sampling_rate.txt
+
+# list script outputs downstream of input data FN_Detector 
+$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh \'FN_Detector\' > $RESULTS_DIR/outputs_downstream_of_FN_Detector.txt
+
+# list script outputs downstream of input data fs 
+$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh fs > $RESULTS_DIR/outputs_downstream_of_fs.txt
 
 
 ##############

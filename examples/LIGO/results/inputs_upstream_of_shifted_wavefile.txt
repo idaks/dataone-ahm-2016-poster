@@ -1,0 +1,10 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product shifted_wavefile.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
+q2_pro(shifted_wavefile,fs).
+q2_pro(shifted_wavefile,'FN_Sampling_rate').
+q2_pro(shifted_wavefile,'FN_Detector').

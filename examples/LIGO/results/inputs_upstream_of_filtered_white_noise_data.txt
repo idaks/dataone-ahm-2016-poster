@@ -1,0 +1,10 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product filtered_white_noise_data.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
+q2_pro(filtered_white_noise_data,fs).
+q2_pro(filtered_white_noise_data,'FN_Sampling_rate').
+q2_pro(filtered_white_noise_data,'FN_Detector').

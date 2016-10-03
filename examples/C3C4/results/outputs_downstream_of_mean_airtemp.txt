@@ -1,0 +1,9 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q4_Pro : List the outputs that depend on mean_airtemp.
+
+q4_pro(UpstreamDataName, OutputDataName)
+...................................................................................................
+q4_pro(mean_airtemp,'C4_fraction_data').
+q4_pro(mean_airtemp,'C3_fraction_data').
