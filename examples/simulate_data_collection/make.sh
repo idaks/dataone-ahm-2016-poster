@@ -18,6 +18,9 @@ $YW_CMD model $SCRIPT_DIR/simulate_data_collection.py \
 # materialize views of YW facts
 $QUERIES_DIR/materialize_yw_views.sh > $VIEWS_DIR/yw_views.P
 
+# copy reconfacts.P into facts/ folder
+cp -f recon/reconfacts.P facts/
+
 # draw complete workflow graph
 $QUERIES_DIR/render_complete_wf_graph.sh > $RESULTS_DIR/complete_wf_graph.gv
 dot -Tpdf $RESULTS_DIR/complete_wf_graph.gv > $RESULTS_DIR/complete_wf_graph.pdf
@@ -65,3 +68,13 @@ $QUERIES_DIR/list_outputs_downstream_of_data_q4.sh cassette_id > $RESULTS_DIR/ou
 
 # list workflow outputs downstream of pixel_count
 $QUERIES_DIR/list_outputs_downstream_of_data_q4.sh pixel_count > $RESULTS_DIR/outputs_downstream_of_pixel_count.txt
+
+##############
+#   Q6_pro   #
+##############
+
+
+# draw recon workflow graph with all observables
+
+$QUERIES_DIR/render_recon_complete_wf_graph_q6.sh > $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv
+dot -Tpdf $RESULTS_DIR/wf_recon_complete_graph_all_observables.gv > $RESULTS_DIR/wf_recon_complete_graph_all_observables.pdf
