@@ -1,0 +1,95 @@
+
+% FACT: extract_source(source_id, source_path).
+extract_source(1, './script/Sentiment_NLTK.py').
+
+% FACT: annotation(annotation_id, source_id, line_number, tag, keyword, value).
+annotation(1, 1, 1, 'begin', '@BEGIN', 'Sentiment_NLTK').
+annotation(2, 1, 1, 'desc', '@desc', 'Exercise YW for Analysing Tweets with NLTK').
+annotation(3, 1, 2, 'in', '@in', 'Static_Tweets').
+annotation(4, 1, 2, 'uri', '@uri', 'file:static_tweet.csv').
+annotation(5, 1, 3, 'out', '@out', 'Sentiment_Result').
+annotation(6, 1, 3, 'desc', '@desc', 'jpg file which contains sentiment score in pie chart').
+annotation(7, 1, 3, 'uri', '@uri', 'file:Scores_NLTK.jpg').
+annotation(8, 1, 12, 'begin', '@BEGIN', 'AccessTweets').
+annotation(9, 1, 12, 'desc', '@desc', 'To read the tweets from tweet.csv file').
+annotation(10, 1, 13, 'in', '@in', 'tweets_data_path').
+annotation(11, 1, 13, 'as', '@as', 'Static_Tweets').
+annotation(12, 1, 13, 'desc', '@desc', 'CSV file which contains static tweets').
+annotation(13, 1, 13, 'uri', '@uri', 'file:static_tweet.csv').
+annotation(14, 1, 14, 'out', '@out', 'tweets_file').
+annotation(15, 1, 14, 'as', '@as', 'TweetRead').
+annotation(16, 1, 18, 'end', '@END', 'AccessTweets').
+annotation(17, 1, 24, 'begin', '@BEGIN', 'CountSentiments').
+annotation(18, 1, 24, 'desc', '@desc', 'Calculate sentiments with NLTK').
+annotation(19, 1, 25, 'in', '@in', 'tweets_file').
+annotation(20, 1, 25, 'as', '@as', 'TweetRead').
+annotation(21, 1, 26, 'out', '@out', 'positive').
+annotation(22, 1, 26, 'as', '@as', 'PositiveCount').
+annotation(23, 1, 27, 'out', '@out', 'negative').
+annotation(24, 1, 27, 'as', '@as', 'NegativeCount').
+annotation(25, 1, 28, 'out', '@out', 'neutral').
+annotation(26, 1, 28, 'as', '@as', 'NeutralCount').
+annotation(27, 1, 43, 'end', '@END', 'CountSentiments').
+annotation(28, 1, 45, 'begin', '@BEGIN', 'Measures').
+annotation(29, 1, 45, 'desc', '@desc', 'SetPieChartMeasures').
+annotation(30, 1, 46, 'in', '@in', 'positive').
+annotation(31, 1, 46, 'as', '@as', 'PositiveCount').
+annotation(32, 1, 47, 'in', '@in', 'negative').
+annotation(33, 1, 47, 'as', '@as', 'NegativeCount').
+annotation(34, 1, 48, 'in', '@in', 'neutral').
+annotation(35, 1, 48, 'as', '@as', 'NeutralCount').
+annotation(36, 1, 49, 'out', '@out', 'explode').
+annotation(37, 1, 49, 'as', '@as', 'Explode').
+annotation(38, 1, 50, 'out', '@out', 'labels').
+annotation(39, 1, 50, 'as', '@as', 'Labels').
+annotation(40, 1, 51, 'out', '@out', 'sizes').
+annotation(41, 1, 51, 'as', '@as', 'Sizes').
+annotation(42, 1, 52, 'out', '@out', 'colors').
+annotation(43, 1, 52, 'as', '@as', 'Colors').
+annotation(44, 1, 57, 'end', '@END', 'SetPieChartMeasures').
+annotation(45, 1, 59, 'begin', '@BEGIN', 'DrawPieChart').
+annotation(46, 1, 59, 'desc', '@desc', 'Pie chart saved in Scores_NLTK.jpeg').
+annotation(47, 1, 60, 'param', '@param', 'explode').
+annotation(48, 1, 60, 'as', '@as', 'Explode').
+annotation(49, 1, 61, 'param', '@param', 'labels').
+annotation(50, 1, 61, 'as', '@as', 'Labels').
+annotation(51, 1, 62, 'in', '@in', 'sizes').
+annotation(52, 1, 62, 'as', '@as', 'Sizes').
+annotation(53, 1, 63, 'param', '@param', 'colors').
+annotation(54, 1, 63, 'as', '@as', 'Colors').
+annotation(55, 1, 64, 'out', '@out', 'plt').
+annotation(56, 1, 64, 'as', '@as', 'Sentiment_Result').
+annotation(57, 1, 64, 'uri', '@uri', 'file:Scores_NLTK.jpg').
+annotation(58, 1, 70, 'end', '@END', 'DrawPieChart').
+annotation(59, 1, 72, 'end', '@END', 'Sentiment_NLTK').
+
+% FACT: annotation_qualifies(qualifying_annotation_id, primary_annotation_id).
+annotation_qualifies(2, 1).
+annotation_qualifies(4, 3).
+annotation_qualifies(6, 5).
+annotation_qualifies(7, 5).
+annotation_qualifies(9, 8).
+annotation_qualifies(11, 10).
+annotation_qualifies(12, 10).
+annotation_qualifies(13, 10).
+annotation_qualifies(15, 14).
+annotation_qualifies(18, 17).
+annotation_qualifies(20, 19).
+annotation_qualifies(22, 21).
+annotation_qualifies(24, 23).
+annotation_qualifies(26, 25).
+annotation_qualifies(29, 28).
+annotation_qualifies(31, 30).
+annotation_qualifies(33, 32).
+annotation_qualifies(35, 34).
+annotation_qualifies(37, 36).
+annotation_qualifies(39, 38).
+annotation_qualifies(41, 40).
+annotation_qualifies(43, 42).
+annotation_qualifies(46, 45).
+annotation_qualifies(48, 47).
+annotation_qualifies(50, 49).
+annotation_qualifies(52, 51).
+annotation_qualifies(54, 53).
+annotation_qualifies(56, 55).
+annotation_qualifies(57, 55).

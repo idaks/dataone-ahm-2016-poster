@@ -1,0 +1,60 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="Sentiment_NLTK"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+Measures
+CountSentiments
+AccessTweets
+DrawPieChart
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+TweetRead
+PositiveCount
+NegativeCount
+NeutralCount
+Explode
+Labels
+Sizes
+Colors
+node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
+Static_Tweets[shape=record rankdir=LR label="{<f0> [data3] Static_Tweets |<f1>static_tweet.csv\l}"]
+node[shape=box style="rounded,filled" fillcolor="#FFE4B5" peripheries=1 fontname="Courier-Bold" fontsize=9]
+Sentiment_Result[shape=record rankdir=LR label="{<f0> [data12] Sentiment_Result |<f1>Scores_NLTK.jpg\l}"]
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+Static_Tweets_inflow [label=""]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+Sentiment_Result_outflow [label=""]
+}}
+Static_Tweets -> AccessTweets
+NegativeCount -> Measures
+Sizes -> DrawPieChart
+NeutralCount -> Measures
+Colors -> DrawPieChart
+TweetRead -> CountSentiments
+Explode -> DrawPieChart
+PositiveCount -> Measures
+Labels -> DrawPieChart
+AccessTweets -> TweetRead
+CountSentiments -> PositiveCount
+CountSentiments -> NegativeCount
+CountSentiments -> NeutralCount
+Measures -> Explode
+Measures -> Labels
+Measures -> Sizes
+Measures -> Colors
+DrawPieChart -> Sentiment_Result
+Static_Tweets_inflow -> Static_Tweets
+Sentiment_Result -> Sentiment_Result_outflow
+}
+

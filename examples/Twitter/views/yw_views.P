@@ -1,0 +1,168 @@
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_source_file(SourceId, SourceFile).
+%...................................................................................................
+yw_source_file(1,'./script/Sentiment_NLTK.py').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow_script(WorkflowId, WorkflowName, SourceId, SourceFile).
+%...................................................................................................
+yw_workflow_script(1,'Sentiment_NLTK',1,'./script/Sentiment_NLTK.py').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_program(WorkflowId, ProgramName, WorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_program(1,'Sentiment_NLTK',nil,1,1,72).
+yw_program(2,'AccessTweets',1,1,12,18).
+yw_program(3,'CountSentiments',1,1,24,43).
+yw_program(4,'Measures',1,1,45,57).
+yw_program(5,'DrawPieChart',1,1,59,70).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow(WorkflowId, WorkflowName, ParentWorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_workflow(1,'Sentiment_NLTK',nil,1,1,72).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_workflow_step(StepId, StepName, WorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+yw_workflow_step(2,'AccessTweets',1,1,12,18).
+yw_workflow_step(3,'CountSentiments',1,1,24,43).
+yw_workflow_step(4,'Measures',1,1,45,57).
+yw_workflow_step(5,'DrawPieChart',1,1,59,70).
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_function(FunctionId, FunctionName, ParentWorkflowId, SourceId, BeginLine, EndLine).
+%...................................................................................................
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_data(DataId, DataName, WorkflowId, WorkflowName).
+%...................................................................................................
+yw_data(1,'Static_Tweets',nil,nil).
+yw_data(2,'Sentiment_Result',nil,nil).
+yw_data(3,'Static_Tweets',1,'Sentiment_NLTK').
+yw_data(4,'TweetRead',1,'Sentiment_NLTK').
+yw_data(5,'PositiveCount',1,'Sentiment_NLTK').
+yw_data(6,'NegativeCount',1,'Sentiment_NLTK').
+yw_data(7,'NeutralCount',1,'Sentiment_NLTK').
+yw_data(8,'Explode',1,'Sentiment_NLTK').
+yw_data(9,'Labels',1,'Sentiment_NLTK').
+yw_data(10,'Sizes',1,'Sentiment_NLTK').
+yw_data(11,'Colors',1,'Sentiment_NLTK').
+yw_data(12,'Sentiment_Result',1,'Sentiment_NLTK').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_step_input(ProgramId, ProgramName, PortType, PortId, PortName, DataId, DataName).
+%...................................................................................................
+yw_step_input(5,'DrawPieChart',param,19,colors,11,'Colors').
+yw_step_input(5,'DrawPieChart',param,17,labels,9,'Labels').
+yw_step_input(5,'DrawPieChart',param,16,explode,8,'Explode').
+yw_step_input(5,'DrawPieChart',in,18,sizes,10,'Sizes').
+yw_step_input(4,'Measures',in,11,neutral,7,'NeutralCount').
+yw_step_input(4,'Measures',in,10,negative,6,'NegativeCount').
+yw_step_input(4,'Measures',in,9,positive,5,'PositiveCount').
+yw_step_input(3,'CountSentiments',in,5,tweets_file,4,'TweetRead').
+yw_step_input(2,'AccessTweets',in,3,tweets_data_path,3,'Static_Tweets').
+yw_step_input(1,'Sentiment_NLTK',in,1,'Static_Tweets',1,'Static_Tweets').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_step_output(ProgramId, ProgramName, PortType, PortId, PortName, DataId, DataName).
+%...................................................................................................
+yw_step_output(1,'Sentiment_NLTK',out,2,'Sentiment_Result',2,'Sentiment_Result').
+yw_step_output(2,'AccessTweets',out,4,tweets_file,4,'TweetRead').
+yw_step_output(3,'CountSentiments',out,6,positive,5,'PositiveCount').
+yw_step_output(3,'CountSentiments',out,7,negative,6,'NegativeCount').
+yw_step_output(3,'CountSentiments',out,8,neutral,7,'NeutralCount').
+yw_step_output(4,'Measures',out,12,explode,8,'Explode').
+yw_step_output(4,'Measures',out,13,labels,9,'Labels').
+yw_step_output(4,'Measures',out,14,sizes,10,'Sizes').
+yw_step_output(4,'Measures',out,15,colors,11,'Colors').
+yw_step_output(5,'DrawPieChart',out,20,plt,12,'Sentiment_Result').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_inflow(WorkflowId, WorkflowName, DataId, DataName, ProgramId, ProgramName).
+%...................................................................................................
+yw_inflow(1,'Sentiment_NLTK',3,'Static_Tweets',2,'AccessTweets').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_flow(SourceProgramId, SourceProgramName, SourcePortId, SourcePortName, DataId, DataName, SinkPortId, SinkPortName, SinkProgramId, SinkProgramName).
+%...................................................................................................
+yw_flow(2,'AccessTweets',4,tweets_file,4,'TweetRead',5,tweets_file,3,'CountSentiments').
+yw_flow(3,'CountSentiments',6,positive,5,'PositiveCount',9,positive,4,'Measures').
+yw_flow(3,'CountSentiments',7,negative,6,'NegativeCount',10,negative,4,'Measures').
+yw_flow(3,'CountSentiments',8,neutral,7,'NeutralCount',11,neutral,4,'Measures').
+yw_flow(4,'Measures',12,explode,8,'Explode',16,explode,5,'DrawPieChart').
+yw_flow(4,'Measures',13,labels,9,'Labels',17,labels,5,'DrawPieChart').
+yw_flow(4,'Measures',14,sizes,10,'Sizes',18,sizes,5,'DrawPieChart').
+yw_flow(4,'Measures',15,colors,11,'Colors',19,colors,5,'DrawPieChart').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_outflow(StepId, StepName, StepOutDataId, StepOutDataName, WorkflowId, WorkflowName, WorkflowOutDataId, WorkflowOutDataName).
+%...................................................................................................
+yw_outflow(5,'DrawPieChart',12,'Sentiment_Result',1,'Sentiment_NLTK',2,'Sentiment_Result').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_qualified_name(EntityType, Id, QualifiedName).
+%...................................................................................................
+yw_qualified_name(program,1,'Sentiment_NLTK').
+yw_qualified_name(program,2,'Sentiment_NLTK.AccessTweets').
+yw_qualified_name(program,3,'Sentiment_NLTK.CountSentiments').
+yw_qualified_name(program,4,'Sentiment_NLTK.Measures').
+yw_qualified_name(program,5,'Sentiment_NLTK.DrawPieChart').
+yw_qualified_name(port,1,'Sentiment_NLTK<-Static_Tweets').
+yw_qualified_name(port,2,'Sentiment_NLTK->Sentiment_Result').
+yw_qualified_name(port,3,'Sentiment_NLTK.AccessTweets<-tweets_data_path').
+yw_qualified_name(port,4,'Sentiment_NLTK.AccessTweets->tweets_file').
+yw_qualified_name(port,5,'Sentiment_NLTK.CountSentiments<-tweets_file').
+yw_qualified_name(port,6,'Sentiment_NLTK.CountSentiments->positive').
+yw_qualified_name(port,7,'Sentiment_NLTK.CountSentiments->negative').
+yw_qualified_name(port,8,'Sentiment_NLTK.CountSentiments->neutral').
+yw_qualified_name(port,9,'Sentiment_NLTK.Measures<-positive').
+yw_qualified_name(port,10,'Sentiment_NLTK.Measures<-negative').
+yw_qualified_name(port,11,'Sentiment_NLTK.Measures<-neutral').
+yw_qualified_name(port,12,'Sentiment_NLTK.Measures->explode').
+yw_qualified_name(port,13,'Sentiment_NLTK.Measures->labels').
+yw_qualified_name(port,14,'Sentiment_NLTK.Measures->sizes').
+yw_qualified_name(port,15,'Sentiment_NLTK.Measures->colors').
+yw_qualified_name(port,16,'Sentiment_NLTK.DrawPieChart<-explode').
+yw_qualified_name(port,17,'Sentiment_NLTK.DrawPieChart<-labels').
+yw_qualified_name(port,18,'Sentiment_NLTK.DrawPieChart<-sizes').
+yw_qualified_name(port,19,'Sentiment_NLTK.DrawPieChart<-colors').
+yw_qualified_name(port,20,'Sentiment_NLTK.DrawPieChart->plt').
+yw_qualified_name(data,1,'[Static_Tweets]').
+yw_qualified_name(data,2,'[Sentiment_Result]').
+yw_qualified_name(data,3,'Sentiment_NLTK[Static_Tweets]').
+yw_qualified_name(data,4,'Sentiment_NLTK[TweetRead]').
+yw_qualified_name(data,5,'Sentiment_NLTK[PositiveCount]').
+yw_qualified_name(data,6,'Sentiment_NLTK[NegativeCount]').
+yw_qualified_name(data,7,'Sentiment_NLTK[NeutralCount]').
+yw_qualified_name(data,8,'Sentiment_NLTK[Explode]').
+yw_qualified_name(data,9,'Sentiment_NLTK[Labels]').
+yw_qualified_name(data,10,'Sentiment_NLTK[Sizes]').
+yw_qualified_name(data,11,'Sentiment_NLTK[Colors]').
+yw_qualified_name(data,12,'Sentiment_NLTK[Sentiment_Result]').
+
+
+%---------------------------------------------------------------------------------------------------
+% FACT: yw_description(EntityType, Id, Name, Description)).
+%...................................................................................................
+yw_description(program,1,'Sentiment_NLTK','Exercise YW for Analysing Tweets with NLTK').
+yw_description(program,2,'AccessTweets','To read the tweets from tweet.csv file').
+yw_description(program,3,'CountSentiments','Calculate sentiments with NLTK').
+yw_description(program,4,'Measures','SetPieChartMeasures').
+yw_description(program,5,'DrawPieChart','Pie chart saved in Scores_NLTK.jpeg').
+yw_description(port,2,'Sentiment_Result','jpg file which contains sentiment score in pie chart').
+yw_description(port,3,tweets_data_path,'CSV file which contains static tweets').
