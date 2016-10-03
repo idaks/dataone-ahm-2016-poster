@@ -1,0 +1,42 @@
+
+digraph yw_data_view {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label="Sentiment_NLTK"
+subgraph cluster_workflow { label=""; color=black; penwidth=2
+subgraph cluster_workflow_inner { label=""; color=white
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+DrawPieChart
+Measures
+node[shape=box style="filled" fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+NeutralCount
+Explode
+Labels
+Sizes
+Colors
+Sentiment_Result
+node[shape=box style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica]
+}}
+subgraph cluster_inflows { label=""; color=white; penwidth=2
+subgraph cluster_inflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+}}
+subgraph cluster_outflows { label=""; color=white; penwidth=2
+subgraph cluster_outflows_inner { label=""; color=white
+node[shape=circle fillcolor="#FFFFFF" peripheries=1 width=0.2]
+Sentiment_Result_outflow [label=""]
+}}
+DrawPieChart -> Sentiment_Result
+Measures -> Colors
+Measures -> Sizes
+Measures -> Labels
+Measures -> Explode
+NeutralCount -> Measures
+Explode -> DrawPieChart
+Labels -> DrawPieChart
+Sizes -> DrawPieChart
+Colors -> DrawPieChart
+Sentiment_Result -> Sentiment_Result_outflow
+}
+

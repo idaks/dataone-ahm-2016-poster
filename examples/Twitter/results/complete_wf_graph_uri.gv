@@ -1,0 +1,55 @@
+digraph Workflow {
+rankdir=TB
+fontname=Courier; fontsize=18; labelloc=t
+label=Sentiment_NLTK
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+AccessTweets [shape=record rankdir=LR label="{<f0> AccessTweets |<f1> To read the tweets from tweet.csv file}"];
+CountSentiments [shape=record rankdir=LR label="{<f0> CountSentiments |<f1> Calculate sentiments with NLTK}"];
+Measures [shape=record rankdir=LR label="{<f0> Measures |<f1> SetPieChartMeasures}"];
+DrawPieChart [shape=record rankdir=LR label="{<f0> DrawPieChart |<f1> Pie chart saved in Scores_NLTK.jpeg}"];
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+Sentiment_Result [shape=record rankdir=LR label="{<f0> Sentiment_Result |<f1> file\:Scores_NLTK.jpg}"];
+Static_Tweets [shape=record rankdir=LR label="{<f0> Static_Tweets |<f1> file\:static_tweet.csv}"];
+TweetRead
+PositiveCount
+NegativeCount
+NeutralCount
+Sizes
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+Explode
+Labels
+Colors
+AccessTweets -> TweetRead
+Static_Tweets -> AccessTweets
+CountSentiments -> PositiveCount
+CountSentiments -> NegativeCount
+CountSentiments -> NeutralCount
+TweetRead -> CountSentiments
+Measures -> Explode
+Measures -> Labels
+Measures -> Sizes
+Measures -> Colors
+PositiveCount -> Measures
+NegativeCount -> Measures
+NeutralCount -> Measures
+DrawPieChart -> Sentiment_Result
+Explode -> DrawPieChart
+Labels -> DrawPieChart
+Sizes -> DrawPieChart
+Colors -> DrawPieChart
+}}
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+Static_Tweets_input_port [label=""]
+}}
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+Sentiment_Result_output_port [label=""]
+}}
+Static_Tweets_input_port -> Static_Tweets
+Sentiment_Result -> Sentiment_Result_output_port
+}
