@@ -120,7 +120,7 @@ $QUERIES_DIR/list_outputs_downstream_of_data_q4.sh Static_Tweets > $RESULTS_DIR/
 ##############
 
 # draw recon worfklow graph upstream of Sentiment_Result
-$QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh Sentiment_Result > $RESULTS_DIR/wf_recon_upstream_of_Sentiment_Result.gv
+$QUERIES_DIR/render_wf_recon_graph_upstream_of_data_q5.sh \'Sentiment_Result\' > $RESULTS_DIR/wf_recon_upstream_of_Sentiment_Result.gv
 dot -Tpdf $RESULTS_DIR/wf_recon_upstream_of_Sentiment_Result.gv > $RESULTS_DIR/wf_recon_upstream_of_Sentiment_Result.pdf
 
 
