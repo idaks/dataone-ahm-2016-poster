@@ -113,7 +113,7 @@ dot -Tpdf $RESULTS_DIR/wf_downstream_of_Sizes.gv > $RESULTS_DIR/wf_downstream_of
 #$QUERIES_DIR/list_dependent_outputs_q4.sh > $RESULTS_DIR/q4_pro_outputs.txt
 
 # list script outputs downstream of input data Static_Tweets 
-$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh \'Static_Tweets\' > $RESULTS_DIR/outputs_downstream_of_Static_Tweets.txt
+$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh Static_Tweets > $RESULTS_DIR/outputs_downstream_of_Static_Tweets.txt
 
 ##############
 #   Q5_pro   #
