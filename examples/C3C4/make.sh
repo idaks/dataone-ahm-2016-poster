@@ -18,8 +18,7 @@ $YW_CMD model $SCRIPT_DIR/C3_C4_map_present_NA_with_comments.m \
 # materialize views of YW facts
 $QUERIES_DIR/materialize_yw_views.sh > $VIEWS_DIR/yw_views.P
 
-# copy reconfacts.P into facts/ folder
-#cp -f recon/reconfacts.P facts/
+# generate reconfacts.P to facts/ folder from the run.yaml which is decoded by yw-matlab bridge
 $YW_MATLAB_RECON_CMD recon $SCRIPT_DIR/C3_C4_map_present_NA_with_comments.m \
         -c extract.language=matlab \
         -c recon.matlab.exportfile=recon/run.yaml \
