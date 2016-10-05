@@ -54,32 +54,30 @@ simulate_data_collection/
  
 # Installing, Browsing, and Running the Demo
 
-## Installing and Running the Existing Demo
-1. Clone the `dataone-ahm-2016` git repo to your local machine using the command:
+## Installing
+1.  Clone the `dataone-ahm-2016` git repo to your local machine using the command:
   `git clone https://github.com/idaks/dataone-ahm-2016-poster.git`.
   
-2. Go to the examples/ folder. We have provided four examples here:  
+## Running the Demo 
+1. Go to the examples/ folder. We have provided four examples here:  
    * a MATLAT example (`C3C4/`)
    * two Python examples (`LIGO` and `simulate_data_collection/`) 
-   *  a Twitter example 
+   *  a Twitter example  (`Twitter`)
    
-3. Go to  one of the above example. First, run the cleaning script by calling `bash clean.sh` or `./clean.sh`
+2. Go to  one of the above example. First, run the cleaning script by calling `bash clean.sh` or `./clean.sh`
 
-4.  Run the demo example by calling `bash make.sh` or `./make.sh`.
+3.  Run the demo example by calling `bash make.sh` or `./make.sh`.
     
 ## Developing your own Demo
-1. Clone the `dataone-ahm-2016` git repo to your local machine using the command:
-`git clone https://github.com/idaks/dataone-ahm-2016-poster.git`
+1. Copy your example folder under examples/ folder. There are already four examples there:  `C3C4`, `LIGO`, `Twitter`, and `simulate_data_collection`.
 
-2. Copy your example folder under examples/ folder. There are already three examples there:  `C3C4`, `LIGO`, and `simulate_data_collection`.
+2. Reorganize your directory layout for your example to be the same as `C3C4`, `LIGO`, and `simulate_data_collection`. Create a `recon/` folder which contains your `reconfacts.P`.
 
-3. Reorganize your directory layout for your example to be the same as `C3C4`, `LIGO`, and `simulate_data_collection`. Create a `recon/` folder which contains your `reconfacts.P`.
+3. Copy two script files `clean.sh` and `make.sh` from the `simulate_data_collection` of the existing three examples to your own example folder. 
 
-4. Copy two script files `clean.sh` and `make.sh` from the `simulate_data_collection` of the existing three examples to your own example folder. 
+4. Open `make.sh` and customize the scripting name, outputfile name, parameter data object name to your example.
 
-5. Open `make.sh` and customize the scripting name, outputfile name, parameter data object name to your example.
-
-6. Run `bash make.sh`.
+5. Run `bash make.sh`.
     
 
 # Demo Queries
