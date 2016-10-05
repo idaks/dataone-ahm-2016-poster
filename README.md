@@ -82,5 +82,4 @@ simulate_data_collection/
 
 # Demo Queries
 
-Please read [Query README](https://github.com/idaks/dataone-ahm-2016-poster/blob/master/queries/README.md) in the demo repo. A sample result of Query 5  using the `LIGO` example is shown below.
-![LIGO Q5](examples/LIGO/results/wf_recon_complete_graph_all_observables.pdf)
+Please read [Query README](https://github.com/idaks/dataone-ahm-2016-poster/blob/master/queries/README.md) in the demo repo. 
