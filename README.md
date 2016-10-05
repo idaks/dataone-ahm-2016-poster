@@ -55,13 +55,18 @@ simulate_data_collection/
 # Installing, Browsing, and Running the Demo
 
 ## Installing
-1.  Clone the `dataone-ahm-2016` git repo to your local machine using the command:
+1.The following software are required in order to run  this demo.
+  * XSB: a Logic Programming and Deductive Database system for Unix and Windows.  It is available at [XSB homepage] (http://xsb.sourceforge.net). The download and installation page for XSB is at [here] (http://xsb.sourceforge.net/downloads/downloads.html).
+  
+   * Graphviz:  a Graph Visuzlization Software for Unix and Windows.  It is available at [Graphviz homepage](http://www.graphviz.org). The download and installation page for Graphviz is at  [here](http://www.graphviz.org/Download.php).
+ 
+2.  Clone the `dataone-ahm-2016` git repo to your local machine using the command:
   `git clone https://github.com/idaks/dataone-ahm-2016-poster.git`.
   
 ## Running the Demo 
 1. Go to the examples/ folder. We have provided four examples here:  
-   * a MATLAT example (`C3C4/`)
-   * three Python examples (`LIGO/`, `Twitter/`and `simulate_data_collection/`) 
+   * One MATLAT example (`C3C4/`)
+   * Three Python examples (`LIGO/`, `Twitter/`and `simulate_data_collection/`) 
    
 2. Go to  one of the above example. First, run the cleaning script by calling `bash clean.sh` or `./clean.sh`
 
