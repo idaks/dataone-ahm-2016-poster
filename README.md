@@ -60,12 +60,15 @@ simulate_data_collection/
 
   * XSB: a Logic Programming and Deductive Database system for Unix and Windows.  It is available at [XSB homepage] (http://xsb.sourceforge.net). The download and installation page for XSB is at [here] (http://xsb.sourceforge.net/downloads/downloads.html). 
   
-  * Graphviz:  a Graph Visuzlization Software for Unix and Windows.  It is available at [Graphviz homepage](http://www.graphviz.org). The download and installation page for Graphviz is at  [here](http://www.graphviz.org/Download.php). 
+  * Graphviz:  a Graph Visuzlization Software for Unix and Windows.  It is available at [Graphviz homepage](http://www.graphviz.org). The download and installation page for Graphviz is at  [here](http://www.graphviz.org/Download.php).  The download page is  at [here](https://www.sqlite.org/download.html).
+  
+  *  SQLite:  a high-reliability, embedded, zero-configuration, public-domain, SQL database engine.  It is availabe at [SQLite homepage](https://www.sqlite.org). 
 
 2. The  following open-source packages are used  in our demo project.
-  *  YesWorkflow:
-  *  yw-matlab bridge:
-  *  noworkflow:
+  *  [YesWorkflow](https://github.com/yesworkflow-org/yw-prototypes)
+  *  [noworkflow](https://github.com/gems-uff/noworkflow)
+  *  [yw-recon](https://github.com/yesworkflow-org/yw-tapp-15-recon)  
+  *  [yw-matlab bridge](https://github.com/yesworkflow-org/yw-matlab)
   
 
 3.  Clone the `dataone-ahm-2016` git repo to your local machine using the command:
