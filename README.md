@@ -66,7 +66,7 @@ simulate_data_collection/
 
 2. The  following open-source packages are used  in our demo project.
   *  [YesWorkflow](https://github.com/yesworkflow-org/yw-prototypes)
-  *  [noworkflow](https://github.com/gems-uff/noworkflow)
+  *  [noWorkflow](https://github.com/gems-uff/noworkflow)
   *  [yw-recon](https://github.com/yesworkflow-org/yw-tapp-15-recon)  
   *  [yw-matlab bridge](https://github.com/yesworkflow-org/yw-matlab)
   
