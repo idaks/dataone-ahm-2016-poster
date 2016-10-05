@@ -54,15 +54,18 @@ simulate_data_collection/
  
 # Installing, Browsing, and Running the Demo
 
-## Installing and Running the Demo
+## Installing and Running the Existing Demo
 1. Clone the `dataone-ahm-2016` git repo to your local machine using the command:
   `git clone https://github.com/idaks/dataone-ahm-2016-poster.git`.
+  
 2. Go to the examples/ folder. We have provided four examples here:  
    * a MATLAT example (`C3C4/`)
    * two Python examples (`LIGO` and `simulate_data_collection/`) 
    *  a Twitter example 
-3. Go to  one of the above example. First, run the cleaning script by calling `bash clean.sh`
-4.  Run the demo example by calling `bash make.sh`.
+   
+3. Go to  one of the above example. First, run the cleaning script by calling `bash clean.sh` or `./clean.sh`
+
+4.  Run the demo example by calling `bash make.sh` or `./make.sh`.
     
 ## Developing your own Demo
 1. Clone the `dataone-ahm-2016` git repo to your local machine using the command:
