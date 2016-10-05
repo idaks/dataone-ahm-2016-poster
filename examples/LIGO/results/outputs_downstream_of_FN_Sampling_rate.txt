@@ -1,10 +1,17 @@
-q4_pro('FN_Sampling_rate','ASDs').
-q4_pro('FN_Sampling_rate',spectrogram).
-q4_pro('FN_Sampling_rate','H1_ASD_SamplingRate').
-q4_pro('FN_Sampling_rate',filtered_white_noise_data).
+
+
+---------------------------------------------------------------------------------------------------
+Q4_Pro : List the outputs that depend on FN_Sampling_rate.
+
+q4_pro(UpstreamDataName, OutputDataName)
+...................................................................................................
 q4_pro('FN_Sampling_rate','WHITENED_strain_data').
 q4_pro('FN_Sampling_rate',shifted_wavefile).
 q4_pro('FN_Sampling_rate','H1_strain_filtered').
 q4_pro('FN_Sampling_rate',whitened_bandpass_wavefile).
 q4_pro('FN_Sampling_rate','H1_strain_unfiltered').
 q4_pro('FN_Sampling_rate',spectrogram_whitened).
+q4_pro('FN_Sampling_rate','ASDs').
+q4_pro('FN_Sampling_rate',spectrogram).
+q4_pro('FN_Sampling_rate','H1_ASD_SamplingRate').
+q4_pro('FN_Sampling_rate',filtered_white_noise_data).

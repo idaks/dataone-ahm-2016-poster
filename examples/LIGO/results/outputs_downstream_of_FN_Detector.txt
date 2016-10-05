@@ -1,10 +1,17 @@
-q4_pro('FN_Detector','WHITENED_strain_data').
-q4_pro('FN_Detector',shifted_wavefile).
-q4_pro('FN_Detector','H1_strain_filtered').
-q4_pro('FN_Detector',whitened_bandpass_wavefile).
-q4_pro('FN_Detector','H1_strain_unfiltered').
+
+
+---------------------------------------------------------------------------------------------------
+Q4_Pro : List the outputs that depend on FN_Detector.
+
+q4_pro(UpstreamDataName, OutputDataName)
+...................................................................................................
 q4_pro('FN_Detector',spectrogram_whitened).
 q4_pro('FN_Detector','ASDs').
 q4_pro('FN_Detector',spectrogram).
 q4_pro('FN_Detector','H1_ASD_SamplingRate').
 q4_pro('FN_Detector',filtered_white_noise_data).
+q4_pro('FN_Detector','WHITENED_strain_data').
+q4_pro('FN_Detector',shifted_wavefile).
+q4_pro('FN_Detector','H1_strain_filtered').
+q4_pro('FN_Detector',whitened_bandpass_wavefile).
+q4_pro('FN_Detector','H1_strain_unfiltered').

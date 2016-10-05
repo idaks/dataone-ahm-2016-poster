@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
 ProvidedDataName=$1
+PrintProvidedDataName=$2
 
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
@@ -12,7 +13,7 @@ set_prolog_flag(unknown, fail).
 
 %-------------------------------------------------------------------------------
 banner( 'Q2_Pro',
-        'List the script inputs that are upstream of data product $ProvidedDataName.',
+        'List the script inputs that are upstream of data product $PrintProvidedDataName.',
         'q2_pro(DataProduct, InputDataName)').
 [user].
 :- table q2_pro/2.

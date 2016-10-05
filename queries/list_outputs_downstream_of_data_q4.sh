@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
 ProvidedDataName=$1
+PrintProvidedDataName=$2
 
 xsb --quietload --noprompt --nofeedback --nobanner << END_XSB_STDIN
 
@@ -12,7 +13,7 @@ set_prolog_flag(unknown, fail).
 
 %-------------------------------------------------------------------------------
 banner( 'Q4_Pro',
-        'List the outputs that depend on $ProvidedDataName.',
+        'List the outputs that depend on $PrintProvidedDataName.',
         'q4_pro(UpstreamDataName, OutputDataName)').
 [user].
 :- table q4_pro/2.

@@ -1,3 +1,10 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product ASDs.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
 q2_pro('ASDs',fs).
 q2_pro('ASDs','FN_Sampling_rate').
 q2_pro('ASDs','FN_Detector').

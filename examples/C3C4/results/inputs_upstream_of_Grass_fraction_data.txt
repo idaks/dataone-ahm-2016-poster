@@ -1,1 +1,8 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product Grass_fraction_data.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
 q2_pro('Grass_fraction_data','SYNMAP_land_cover_map_data').

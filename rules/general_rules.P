@@ -35,3 +35,4 @@ printall(Q) :-
 count(Goal, Count) :-
     findall(_, Goal, List),
     llength(List, Count).
+

@@ -1,3 +1,10 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q2_Pro : List the script inputs that are upstream of data product WHITENED_strain_data.
+
+q2_pro(DataProduct, InputDataName)
+...................................................................................................
 q2_pro('WHITENED_strain_data',fs).
 q2_pro('WHITENED_strain_data','FN_Sampling_rate').
 q2_pro('WHITENED_strain_data','FN_Detector').
