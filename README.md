@@ -61,8 +61,7 @@ simulate_data_collection/
 ## Running the Demo 
 1. Go to the examples/ folder. We have provided four examples here:  
    * a MATLAT example (`C3C4/`)
-   * two Python examples (`LIGO` and `simulate_data_collection/`) 
-   *  a Twitter example  (`Twitter/`)
+   * three Python examples (`LIGO/`, `Twitter/`and `simulate_data_collection/`) 
    
 2. Go to  one of the above example. First, run the cleaning script by calling `bash clean.sh` or `./clean.sh`
 
