@@ -19,7 +19,13 @@ $YW_CMD model $SCRIPT_DIR/C3_C4_map_present_NA_with_comments.m \
 $QUERIES_DIR/materialize_yw_views.sh > $VIEWS_DIR/yw_views.P
 
 # copy reconfacts.P into facts/ folder
-cp -f recon/reconfacts.P facts/
+#cp -f recon/reconfacts.P facts/
+$YW_MATLAB_RECON_CMD recon $SCRIPT_DIR/C3_C4_map_present_NA_with_comments.m \
+        -c extract.language=matlab \
+        -c recon.matlab.exportfile=recon/run.yaml \
+        -c recon.factsfile=facts/reconfacts.P \
+        -c recon.finderclass=org.yesworkflow.matlab.MatlabResourceFinder \
+        -c query.engine=xsb
 
 # draw complete workflow graph
 $QUERIES_DIR/render_complete_wf_graph.sh > $RESULTS_DIR/complete_wf_graph.gv
@@ -65,13 +71,13 @@ dot -Tpdf $RESULTS_DIR/wf_upstream_of_mean_precip.gv > $RESULTS_DIR/wf_upstream_
 #$QUERIES_DIR/list_dependent_inputs_q2.sh > $RESULTS_DIR/q2_pro_outputs.txt
 
 # list script inputs upstream of output data C3_fraction_data 
-$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'C3_fraction_data\' > $RESULTS_DIR/inputs_upstream_of_C3_fraction_data.txt
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh C3_fraction_data > $RESULTS_DIR/inputs_upstream_of_C3_fraction_data.txt
  
 # list script inputs upstream of output data C4_fraction_data
-$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'C4_fraction_data\' > $RESULTS_DIR/inputs_upstream_of_C4_fraction_data.txt
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh C4_fraction_data > $RESULTS_DIR/inputs_upstream_of_C4_fraction_data.txt
 
 # list script inputs upstream of output data Grass_fraction_data
-$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh \'Grass_fraction_data\' > $RESULTS_DIR/inputs_upstream_of_Grass_fraction_data.txt
+$QUERIES_DIR/list_inputs_upstream_of_data_q2.sh Grass_fraction_data > $RESULTS_DIR/inputs_upstream_of_Grass_fraction_data.txt
 
 
 ##############
@@ -114,7 +120,7 @@ $QUERIES_DIR/list_outputs_downstream_of_data_q4.sh mean_airtemp > $RESULTS_DIR/o
 $QUERIES_DIR/list_outputs_downstream_of_data_q4.sh mean_precip > $RESULTS_DIR/outputs_downstream_of_mean_precip.txt
 
 # list script outputs downstream of input data SYNMAP_land_cover_map_data 
-$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh \'SYNMAP_land_cover_map_data\' > $RESULTS_DIR/outputs_downstream_of_SYNMAP_land_cover_map_data.txt
+$QUERIES_DIR/list_outputs_downstream_of_data_q4.sh SYNMAP_land_cover_map_data > $RESULTS_DIR/outputs_downstream_of_SYNMAP_land_cover_map_data.txt
 
 
 ##############

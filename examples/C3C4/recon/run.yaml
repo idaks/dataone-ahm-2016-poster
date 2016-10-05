@@ -1,0 +1,36 @@
+
+inputs:
+  - inputs/land_cover/SYNMAP_NA_QD.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.1.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.2.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.3.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.4.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.5.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.6.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.7.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.8.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.9.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.10.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.11.nc
+  - inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.2.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.5.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.6.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.9.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc
+  - inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc
+
+outputs:
+  - outputs/SYNMAP_PRESENTVEG_C3Grass_RelaFrac_NA_v2.0.nc
+  - outputs/SYNMAP_PRESENTVEG_C4Grass_RelaFrac_NA_v2.0.nc
+  - outputs/SYNMAP_PRESENTVEG_Grass_Fraction_NA_v2.0.nc
+  - /Users/syc/.d1/provenance/runs/2c281c96-307c-4eaa-822c-6da0cb39f84d/Bob_GrasslandWUE_workflow_comb_diagram__0.pdf
+  - /Users/syc/.d1/provenance/runs/2c281c96-307c-4eaa-822c-6da0cb39f84d/Bob_GrasslandWUE_workflow_process_diagram_0.pdf
+  - /Users/syc/.d1/provenance/runs/2c281c96-307c-4eaa-822c-6da0cb39f84d/Bob_GrasslandWUE_workflow_data_diagram_0.pdf
+  - /Users/syc/.d1/provenance/runs/2c281c96-307c-4eaa-822c-6da0cb39f84d/metadata_2c281c96-307c-4eaa-822c-6da0cb39f84d.xml
