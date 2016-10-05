@@ -5,6 +5,8 @@ Q4_Pro : List the outputs that depend on fs.
 
 q4_pro(UpstreamDataName, OutputDataName)
 ...................................................................................................
+q4_pro(fs,'H1_strain_filtered').
+q4_pro(fs,whitened_bandpass_wavefile).
 q4_pro(fs,'H1_strain_unfiltered').
 q4_pro(fs,spectrogram_whitened).
 q4_pro(fs,'ASDs').
@@ -12,5 +14,3 @@ q4_pro(fs,spectrogram).
 q4_pro(fs,filtered_white_noise_data).
 q4_pro(fs,'WHITENED_strain_data').
 q4_pro(fs,shifted_wavefile).
-q4_pro(fs,'H1_strain_filtered').
-q4_pro(fs,whitened_bandpass_wavefile).
