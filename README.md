@@ -56,8 +56,10 @@ simulate_data_collection/
 
 ## Installing
 1.The following software are required in order to run  this demo.
+
   * XSB: a Logic Programming and Deductive Database system for Unix and Windows.  It is available at [XSB homepage] (http://xsb.sourceforge.net). The download and installation page for XSB is at [here] (http://xsb.sourceforge.net/downloads/downloads.html). 
   * Graphviz:  a Graph Visuzlization Software for Unix and Windows.  It is available at [Graphviz homepage](http://www.graphviz.org). The download and installation page for Graphviz is at  [here](http://www.graphviz.org/Download.php). 
+
 2.  Clone the `dataone-ahm-2016` git repo to your local machine using the command:
   `git clone https://github.com/idaks/dataone-ahm-2016-poster.git`.
   
