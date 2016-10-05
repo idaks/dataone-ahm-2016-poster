@@ -62,7 +62,7 @@ simulate_data_collection/
 1. Go to the examples/ folder. We have provided four examples here:  
    * a MATLAT example (`C3C4/`)
    * two Python examples (`LIGO` and `simulate_data_collection/`) 
-   *  a Twitter example  (`Twitter`)
+   *  a Twitter example  (`Twitter/`)
    
 2. Go to  one of the above example. First, run the cleaning script by calling `bash clean.sh` or `./clean.sh`
 
