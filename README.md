@@ -14,7 +14,7 @@ There are various approaches to capture retrospective provenance. Retrospective 
 | Directory | Description                                                          |
 |-----------| :--------------------------------------------------------------------|
 |examples/ |   Contains examples demonstrating the queries in the queries folder |
-|queries/ | it stores the scripts to the five demo queries we asked.|
+|queries/ | it stores the scripts to the six demo queries we asked.|
 |rules/| it contains a set of Prolog rules for generating prospective yesworkflow views rules (`yw_rules.P` and `yw_views.P`), retrospective reconstructed rules (`recon_rules.P`), graph rendering rules (`gv_rules.P`), and populating graph rules (`yw_graph_rules.P`).|
 
 The example subfolders also have a typical folder structure:
