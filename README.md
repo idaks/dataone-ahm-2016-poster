@@ -14,7 +14,7 @@ There are various approaches to capture retrospective provenance. Retrospective 
 | Directory | Description                                                          |
 |-----------| :--------------------------------------------------------------------|
 |examples/ |   Contains examples demonstrating the queries in the queries folder |
-|queries/ | it stores the scripts to the six demo queries we asked.|
+|queries/ | it stores the scripts to the nine demo queries we asked.|
 |rules/| it contains a set of Prolog rules for generating prospective yesworkflow views rules (`yw_rules.P` and `yw_views.P`), retrospective reconstructed rules (`recon_rules.P`), graph rendering rules (`gv_rules.P`), and populating graph rules (`yw_graph_rules.P`).|
 
 The example subfolders also have a typical folder structure:
@@ -99,7 +99,7 @@ simulate_data_collection/
 
 Please read [Query README](https://github.com/idaks/dataone-ahm-2016-poster/blob/master/queries/README.md) in the demo repo.
 
-# How to run the demo using docker
+# How to run the Demo using Docker
 
 We have created a Docker image (`yesworkflow/provenance-demo`) to help readers to explore the YesWorkflow demonstrated provenance queries. In the `yesworkflow/provenance-demo` image, the XSB, Graphivz, YesWorkflow, noWorkflow, dataone demo queries are installed. Users can boot up a Docker container to run the demo provenance queries using this image within seconds, without the need to manually install packages. 
 
@@ -124,7 +124,22 @@ Users can use the following command to download the image from Docker Hub. The c
 
 This will download the image from `Docker Hub` for Docker images.
 
-## Running the Docker image
+## Running a container from a Docker image
+
+Once uses download the image, they can run it using `docker run`. There are some useful options for configuration.
+
+  * `-i`: interactive session
+  * `-t`: 
+  * `-v H:C`: mount the host path on your computer `H` at the path `c` inside the Docker container
+  
+  The full command to run the provenance query looks like:
+  
+  `docker run -it -v H:C yesworkflow/provenance-demo`
+  
+  H: is the 
+  
+
+
 
 
 
