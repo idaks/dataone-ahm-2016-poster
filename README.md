@@ -103,7 +103,7 @@ Please read [Query README](https://github.com/idaks/dataone-ahm-2016-poster/blob
 
 We have created a Docker image (`yesworkflow/provenance-demo`) to help readers to explore the YesWorkflow demonstrated provenance queries. In the `yesworkflow/provenance-demo` image, the XSB, Graphivz, YesWorkflow, noWorkflow, dataone demo queries are installed. Users can boot up a Docker container to run the demo provenance queries using this image within seconds, without the need to manually install packages. 
 
-## The first step is installing Docker. 
+## Installing Docker
 
 Here are instructions for each OS: 
   * [Mac OS](https://docs.docker.com/engine/installation/mac/)
@@ -116,7 +116,7 @@ As part of this installation process, you’ll need to use a shell prompt. There
   * Linux – Launch any bash shell prompt, and `docker` will already be available.
   * Windows – click the `Docker Quickstart Terminal` icon on your desktop. 
 
-## The second step is downloading `yesworkflow/provenance-query` image. 
+## Downloading Docker image
 
 Users can use the following command to download the image from Docker Hub. The command syntax is `docker pull IMAGE_NAME`. The name of our current provenance query image is yesworkflow/provenance-demo. Users can type the following command into a shell prompt.
 
@@ -124,7 +124,7 @@ Users can use the following command to download the image from Docker Hub. The c
 
 This will download the image from `Docker Hub` for Docker images.
 
-## The third step is running the image
+## Running the Docker image
 
 
 
