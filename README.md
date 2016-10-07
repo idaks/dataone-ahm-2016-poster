@@ -129,7 +129,7 @@ This will download the image from `Docker Hub` for Docker images.
 Once downloaded the image, users can run it using the command `docker run`. Here are some configuration options for `docker run`.
 
   * `-i`: interactive session
-  * `-t`: 
+  * `-t`: TTY
   * `-v H:C`: mount the host path on your computer `H` at the path `C` inside the Docker container. 
   
 The full command to run the provenance query looks like:
