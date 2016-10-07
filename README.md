@@ -126,7 +126,7 @@ This will download the image from `Docker Hub` for Docker images.
 
 ## Running a container from a Docker image
 
-Once downloaded the image, users can run it using the command `docker run`. Here are some configuration options for `docker run`.
+Once downloaded the image, users can run it using the command `docker run`. Executing `docker run` will create a Docker container which is isolated from the user's local computer. Here are some configuration options for `docker run`.
 
   * `-i`: interactive session
   * `-t`: TTY
