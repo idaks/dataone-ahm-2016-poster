@@ -130,14 +130,13 @@ Once downloaded the image, users can run it using the command `docker run`. Here
 
   * `-i`: interactive session
   * `-t`: 
-  * `-v H:C`: mount the host path on your computer `H` at the path `c` inside the Docker container
+  * `-v H:C`: mount the host path on your computer `H` at the path `C` inside the Docker container. 
   
-  The full command to run the provenance query looks like:
+The full command to run the provenance query looks like:
   
-  `docker run -it -v H:C yesworkflow/provenance-demo`
+  `docker run -it -v /Users/syc/:/home/yw/syc yesworkflow/provenance-demo`  
   
-  H: is the 
-  
+Then, users can go to ... to check the query results.
 
 
 
