@@ -108,12 +108,11 @@ The first step is installing Docker. Here are instructions for each OS:
   * [Linux](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
   * [Windows](https://docs.docker.com/engine/installation/windows/)
   
-As part of this installation process, you’ll need to use a shell prompt. There’s a special version of the shell that comes pre-configured for using Docker commands. Here’s how to open it:
+As part of this installation process, you’ll need to use a shell prompt. There’s a special version of the shell that comes pre-configured for using Docker commands. Users nee to use the above shell prompt in order to run a Docker command or type a specific Docker command. Here is how to open it:
 
   * Mac OS – launch the `Docker Quickstart Terminal` application from Launchpad. 
   * Linux – Launch any bash shell prompt, and `docker` will already be available.
   * Windows – click the `Docker Quickstart Terminal` icon on your desktop. 
-Users nee to use the above shell prompt in order to run a Docker command or type a specific Docker command.
 
 The second step is downloading `yesworkflow/provenance-query` image. Users can use the following command to download the image from Docker Hub. The command syntax is `docker pull IMAGE_NAME`.
 
