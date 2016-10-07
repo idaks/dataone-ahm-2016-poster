@@ -118,7 +118,7 @@ As part of this installation process, you’ll need to use a shell prompt. There
 
 ## Downloading Docker image
 
-Users can use the following command to download the image from Docker Hub. The command syntax is `docker pull IMAGE_NAME`. The name of our current provenance query image is yesworkflow/provenance-demo. Users can type the following command into a shell prompt.
+Users can use the following command to download the image from Docker Hub which is similar to GitHub. The command syntax is `docker pull IMAGE_NAME`. The name of our current provenance query image is yesworkflow/provenance-demo. Users can type the following command into a shell prompt.
 
 `docker pull yesworkflow/provenance-demo` 
 
