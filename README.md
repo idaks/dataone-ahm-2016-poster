@@ -113,7 +113,7 @@ Here are instructions for each OS:
 As part of this installation process, you’ll need to use a shell prompt. There’s a special version of the shell that comes pre-configured for using Docker commands. Users need to use the above shell prompt in order to run a Docker command or type a specific Docker command. Here is how to open it:
 
   * Mac OS – launch the `Docker Quickstart Terminal` application from Launchpad. 
-  * Linux – Launch any bash shell prompt, and `docker` will already be available.
+  * Linux – launch any bash shell prompt, and `docker` will already be available.
   * Windows – click the `Docker Quickstart Terminal` icon on your desktop. 
 
 ## Downloading Docker image
@@ -134,7 +134,7 @@ Once downloaded the image, users can run it using the command `docker run`. Exec
   
 The full command to run the provenance query looks like:
   
-  `docker run -it -v /Users/syc/:/home/yw/syc yesworkflow/provenance-demo`  
+  `docker run -it -v $HOME:$HOME yesworkflow/provenance-demo`  
   
 Then, users can go to ... to check the query results.
 
