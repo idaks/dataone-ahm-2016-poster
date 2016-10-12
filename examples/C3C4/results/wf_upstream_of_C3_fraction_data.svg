@@ -139,27 +139,27 @@
 <text text-anchor="middle" x="552" y="-379.8" font-family="Helvetica,sans-Serif" font-size="14.00">SYNMAP_land_cover_map_data</text>
 </g>
 <!-- SYNMAP_land_cover_map_data&#45;&gt;fetch_SYNMAP_land_cover_map_variable -->
-<g id="edge9" class="edge"><title>SYNMAP_land_cover_map_data&#45;&gt;fetch_SYNMAP_land_cover_map_variable</title>
+<g id="edge4" class="edge"><title>SYNMAP_land_cover_map_data&#45;&gt;fetch_SYNMAP_land_cover_map_variable</title>
 <path fill="none" stroke="black" d="M539.888,-365.697C534.132,-357.474 527.138,-347.483 520.794,-338.421"/>
 <polygon fill="black" stroke="black" points="523.575,-336.29 514.973,-330.104 517.84,-340.304 523.575,-336.29"/>
 </g>
 <!-- lon_variable&#45;&gt;generate_netcdf_file_for_C3_fraction -->
-<g id="edge1" class="edge"><title>lon_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
+<g id="edge6" class="edge"><title>lon_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
 <path fill="none" stroke="black" d="M294.42,-221.876C308.41,-212.808 325.776,-201.552 340.886,-191.759"/>
 <polygon fill="black" stroke="black" points="342.991,-194.566 349.479,-186.19 339.183,-188.692 342.991,-194.566"/>
 </g>
 <!-- lat_variable&#45;&gt;generate_netcdf_file_for_C3_fraction -->
-<g id="edge3" class="edge"><title>lat_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
+<g id="edge8" class="edge"><title>lat_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
 <path fill="none" stroke="black" d="M376,-221.697C376,-213.983 376,-204.712 376,-196.112"/>
 <polygon fill="black" stroke="black" points="379.5,-196.104 376,-186.104 372.5,-196.104 379.5,-196.104"/>
 </g>
 <!-- lon_bnds_variable&#45;&gt;generate_netcdf_file_for_C3_fraction -->
-<g id="edge6" class="edge"><title>lon_bnds_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
+<g id="edge1" class="edge"><title>lon_bnds_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
 <path fill="none" stroke="black" d="M471.932,-221.876C455.173,-212.639 434.294,-201.131 416.298,-191.212"/>
 <polygon fill="black" stroke="black" points="417.634,-187.952 407.187,-186.19 414.255,-194.082 417.634,-187.952"/>
 </g>
 <!-- lat_bnds_variable&#45;&gt;generate_netcdf_file_for_C3_fraction -->
-<g id="edge7" class="edge"><title>lat_bnds_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
+<g id="edge2" class="edge"><title>lat_bnds_variable&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
 <path fill="none" stroke="black" d="M586.026,-222.853C546.227,-212.648 494.543,-199.396 452.406,-188.591"/>
 <polygon fill="black" stroke="black" points="453.022,-185.136 442.466,-186.043 451.284,-191.917 453.022,-185.136"/>
 </g>
@@ -169,12 +169,12 @@
 <text text-anchor="middle" x="540" y="-523.8" font-family="Helvetica,sans-Serif" font-size="14.00">mean_airtemp</text>
 </g>
 <!-- mean_airtemp&#45;&gt;fetch_monthly_mean_air_temperature_data -->
-<g id="edge2" class="edge"><title>mean_airtemp&#45;&gt;fetch_monthly_mean_air_temperature_data</title>
+<g id="edge7" class="edge"><title>mean_airtemp&#45;&gt;fetch_monthly_mean_air_temperature_data</title>
 <path fill="none" stroke="black" d="M540,-509.697C540,-501.983 540,-492.712 540,-484.112"/>
 <polygon fill="black" stroke="black" points="543.5,-484.104 540,-474.104 536.5,-484.104 543.5,-484.104"/>
 </g>
 <!-- Tair_Matrix&#45;&gt;examine_pixels_for_grass -->
-<g id="edge8" class="edge"><title>Tair_Matrix&#45;&gt;examine_pixels_for_grass</title>
+<g id="edge3" class="edge"><title>Tair_Matrix&#45;&gt;examine_pixels_for_grass</title>
 <path fill="none" stroke="black" d="M318.435,-365.876C294.437,-356.222 264.272,-344.087 238.896,-333.878"/>
 <polygon fill="black" stroke="black" points="240.011,-330.554 229.427,-330.068 237.398,-337.048 240.011,-330.554"/>
 </g>
@@ -184,17 +184,17 @@
 <text text-anchor="middle" x="304" y="-523.8" font-family="Helvetica,sans-Serif" font-size="14.00">mean_precip</text>
 </g>
 <!-- mean_precip&#45;&gt;fetch_monthly_mean_precipitation_data -->
-<g id="edge4" class="edge"><title>mean_precip&#45;&gt;fetch_monthly_mean_precipitation_data</title>
+<g id="edge9" class="edge"><title>mean_precip&#45;&gt;fetch_monthly_mean_precipitation_data</title>
 <path fill="none" stroke="black" d="M275.379,-509.876C260.081,-500.724 241.057,-489.342 224.582,-479.485"/>
 <polygon fill="black" stroke="black" points="226.11,-476.32 215.731,-474.19 222.516,-482.327 226.11,-476.32"/>
 </g>
 <!-- Rain_Matrix&#45;&gt;examine_pixels_for_grass -->
-<g id="edge10" class="edge"><title>Rain_Matrix&#45;&gt;examine_pixels_for_grass</title>
+<g id="edge5" class="edge"><title>Rain_Matrix&#45;&gt;examine_pixels_for_grass</title>
 <path fill="none" stroke="black" d="M187,-365.697C187,-357.983 187,-348.712 187,-340.112"/>
 <polygon fill="black" stroke="black" points="190.5,-340.104 187,-330.104 183.5,-340.104 190.5,-340.104"/>
 </g>
 <!-- C3_Data&#45;&gt;generate_netcdf_file_for_C3_fraction -->
-<g id="edge5" class="edge"><title>C3_Data&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
+<g id="edge10" class="edge"><title>C3_Data&#45;&gt;generate_netcdf_file_for_C3_fraction</title>
 <path fill="none" stroke="black" d="M204.959,-224.924C207.674,-223.917 210.376,-222.933 213,-222 245.258,-210.534 281.442,-198.669 311.51,-189.08"/>
 <polygon fill="black" stroke="black" points="312.574,-192.415 321.044,-186.05 310.454,-185.743 312.574,-192.415"/>
 </g>

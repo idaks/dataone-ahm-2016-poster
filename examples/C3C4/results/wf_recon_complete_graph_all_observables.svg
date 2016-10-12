@@ -211,18 +211,18 @@
 <path fill="#ffe4b5" stroke="black" d="M431.628,-515.7C431.628,-515.7 758.372,-515.7 758.372,-515.7 764.372,-515.7 770.372,-521.7 770.372,-527.7 770.372,-527.7 770.372,-660.1 770.372,-660.1 770.372,-666.1 764.372,-672.1 758.372,-672.1 758.372,-672.1 431.628,-672.1 431.628,-672.1 425.628,-672.1 419.628,-666.1 419.628,-660.1 419.628,-660.1 419.628,-527.7 419.628,-527.7 419.628,-521.7 425.628,-515.7 431.628,-515.7"/>
 <text text-anchor="middle" x="595" y="-660" font-family="Courier,monospace" font-weight="bold" font-size="9.00">[data12] mean_airtemp</text>
 <polyline fill="none" stroke="black" points="419.628,-653.3 770.372,-653.3 "/>
-<text text-anchor="start" x="427.628" y="-641.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.8.nc</text>
-<text text-anchor="start" x="427.628" y="-630.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc</text>
-<text text-anchor="start" x="427.628" y="-619.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.5.nc</text>
-<text text-anchor="start" x="427.628" y="-608.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.9.nc</text>
-<text text-anchor="start" x="427.628" y="-598" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.1.nc</text>
-<text text-anchor="start" x="427.628" y="-587.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.2.nc</text>
-<text text-anchor="start" x="427.628" y="-576.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.6.nc</text>
-<text text-anchor="start" x="427.628" y="-565.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.10.nc</text>
-<text text-anchor="start" x="427.628" y="-554.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.3.nc</text>
-<text text-anchor="start" x="427.628" y="-544" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.7.nc</text>
-<text text-anchor="start" x="427.628" y="-533.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.11.nc</text>
-<text text-anchor="start" x="427.628" y="-522.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.4.nc</text>
+<text text-anchor="start" x="427.628" y="-641.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.6.nc</text>
+<text text-anchor="start" x="427.628" y="-630.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.10.nc</text>
+<text text-anchor="start" x="427.628" y="-619.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.3.nc</text>
+<text text-anchor="start" x="427.628" y="-608.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.7.nc</text>
+<text text-anchor="start" x="427.628" y="-598" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.11.nc</text>
+<text text-anchor="start" x="427.628" y="-587.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.4.nc</text>
+<text text-anchor="start" x="427.628" y="-576.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.8.nc</text>
+<text text-anchor="start" x="427.628" y="-565.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.12.nc</text>
+<text text-anchor="start" x="427.628" y="-554.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.5.nc</text>
+<text text-anchor="start" x="427.628" y="-544" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.9.nc</text>
+<text text-anchor="start" x="427.628" y="-533.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.1.nc</text>
+<text text-anchor="start" x="427.628" y="-522.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_air.2m_monthly/air.2m_monthly_2000_2010_mean.2.nc</text>
 </g>
 <!-- mean_airtemp&#45;&gt;fetch_monthly_mean_air_temperature_data -->
 <g id="edge14" class="edge"><title>mean_airtemp&#45;&gt;fetch_monthly_mean_air_temperature_data</title>
@@ -234,18 +234,18 @@
 <path fill="#ffe4b5" stroke="black" d="M36.1301,-515.7C36.1301,-515.7 389.87,-515.7 389.87,-515.7 395.87,-515.7 401.87,-521.7 401.87,-527.7 401.87,-527.7 401.87,-660.1 401.87,-660.1 401.87,-666.1 395.87,-672.1 389.87,-672.1 389.87,-672.1 36.1301,-672.1 36.1301,-672.1 30.1301,-672.1 24.1301,-666.1 24.1301,-660.1 24.1301,-660.1 24.1301,-527.7 24.1301,-527.7 24.1301,-521.7 30.1301,-515.7 36.1301,-515.7"/>
 <text text-anchor="middle" x="213" y="-660" font-family="Courier,monospace" font-weight="bold" font-size="9.00">[data14] mean_precip</text>
 <polyline fill="none" stroke="black" points="24.1301,-653.3 401.87,-653.3 "/>
-<text text-anchor="start" x="32.1301" y="-641.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc</text>
-<text text-anchor="start" x="32.1301" y="-630.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc</text>
-<text text-anchor="start" x="32.1301" y="-619.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc</text>
-<text text-anchor="start" x="32.1301" y="-608.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc</text>
-<text text-anchor="start" x="32.1301" y="-598" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc</text>
-<text text-anchor="start" x="32.1301" y="-587.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc</text>
-<text text-anchor="start" x="32.1301" y="-576.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc</text>
-<text text-anchor="start" x="32.1301" y="-565.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc</text>
-<text text-anchor="start" x="32.1301" y="-554.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.5.nc</text>
-<text text-anchor="start" x="32.1301" y="-544" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.9.nc</text>
-<text text-anchor="start" x="32.1301" y="-533.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.2.nc</text>
-<text text-anchor="start" x="32.1301" y="-522.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.6.nc</text>
+<text text-anchor="start" x="32.1301" y="-641.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.12.nc</text>
+<text text-anchor="start" x="32.1301" y="-630.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.5.nc</text>
+<text text-anchor="start" x="32.1301" y="-619.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.9.nc</text>
+<text text-anchor="start" x="32.1301" y="-608.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.2.nc</text>
+<text text-anchor="start" x="32.1301" y="-598" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.6.nc</text>
+<text text-anchor="start" x="32.1301" y="-587.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.10.nc</text>
+<text text-anchor="start" x="32.1301" y="-576.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.3.nc</text>
+<text text-anchor="start" x="32.1301" y="-565.6" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.7.nc</text>
+<text text-anchor="start" x="32.1301" y="-554.8" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.11.nc</text>
+<text text-anchor="start" x="32.1301" y="-544" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.4.nc</text>
+<text text-anchor="start" x="32.1301" y="-533.2" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.8.nc</text>
+<text text-anchor="start" x="32.1301" y="-522.4" font-family="Courier,monospace" font-weight="bold" font-size="9.00">inputs/narr_apcp_rescaled_monthly/apcp_monthly_2000_2010_mean.1.nc</text>
 </g>
 <!-- mean_precip&#45;&gt;fetch_monthly_mean_precipitation_data -->
 <g id="edge16" class="edge"><title>mean_precip&#45;&gt;fetch_monthly_mean_precipitation_data</title>
