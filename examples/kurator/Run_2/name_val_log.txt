@@ -1,0 +1,76 @@
+2016-11-04-14:29:02  Reading input records from '../all_inputs/demo_input_1.csv'
+
+2016-11-04-14:29:02  Reading input record '14727511'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Placopecten magellanicus'
+2016-11-04-14:29:02  EXACT match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  UPDATING record '14727511': scientificNameAuthorship from 'Gmelin, 1791' to '(Gmelin, 1791)'
+2016-11-04-14:29:02  ACCEPTED the record '14727511'
+
+2016-11-04-14:29:02  Reading input record '14388799'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Placopecten magellanicus'
+2016-11-04-14:29:02  EXACT match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  ACCEPTED the record '14388799'
+
+2016-11-04-14:29:02  Reading input record '23851999'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'magellanicus placopecten'
+2016-11-04-14:29:02  EXACT match was FAILED, compliant with local_authority_source: FAILED
+2016-11-04-14:29:02  Trying external_check local_authority_source FUZZY match for validating scientificName: 'magellanicus placopecten'
+2016-11-04-14:29:02  FUZZY match was FAILED, compliant with local_authority_source: FAILED
+2016-11-04-14:29:02  UNABLE-to-validate the record '23851999'
+
+2016-11-04-14:29:02  Reading input record '61671061'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Placopecten magellanicus'
+2016-11-04-14:29:02  EXACT match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  UPDATING record '61671061': scientificNameAuthorship from '' to '(Gmelin, 1791)'
+2016-11-04-14:29:02  ACCEPTED the record '61671061'
+
+2016-11-04-14:29:02  Reading input record '10376353'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Placopecten magellanicus'
+2016-11-04-14:29:02  EXACT match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  ACCEPTED the record '10376353'
+
+2016-11-04-14:29:02  Reading input record '45893459'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'YES'
+2016-11-04-14:29:02  UNABLE-to-validate the record '45893459'
+
+2016-11-04-14:29:02  Reading input record '14995906'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Placopcten magellanicus'
+2016-11-04-14:29:02  EXACT match was FAILED, compliant with local_authority_source: FAILED
+2016-11-04-14:29:02  Trying external_check local_authority_source FUZZY match for validating scientificName: 'Placopcten magellanicus'
+2016-11-04-14:29:02  FUZZY match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  UPDATING record '14995906': scientificName from 'Placopcten magellanicus' to 'Placopecten magellanicus'
+2016-11-04-14:29:02  UPDATING record '14995906': scientificNameAuthorship from 'Gmellin' to '(Gmelin, 1791)'
+2016-11-04-14:29:02  ACCEPTED the record '14995906'
+
+2016-11-04-14:29:02  Reading input record '25833465'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Placopecten magellanicus'
+2016-11-04-14:29:02  EXACT match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  ACCEPTED the record '25833465'
+
+2016-11-04-14:29:02  Reading input record '24610226'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Nodipecten nodsus'
+2016-11-04-14:29:02  EXACT match was FAILED, compliant with local_authority_source: FAILED
+2016-11-04-14:29:02  Trying external_check local_authority_source FUZZY match for validating scientificName: 'Nodipecten nodsus'
+2016-11-04-14:29:02  FUZZY match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  UPDATING record '24610226': scientificName from 'Nodipecten nodsus' to 'Nodipecten nodosus'
+2016-11-04-14:29:02  ACCEPTED the record '24610226'
+
+2016-11-04-14:29:02  Reading input record '55410692'
+2016-11-04-14:29:02  Checking if scientificName value is Empty - 'NO'
+2016-11-04-14:29:02  Trying external_check local_authority_source EXACT match for validating scientificName: 'Pecten nodosus'
+2016-11-04-14:29:02  EXACT match was FAILED, compliant with local_authority_source: FAILED
+2016-11-04-14:29:02  Trying external_check local_authority_source FUZZY match for validating scientificName: 'Pecten nodosus'
+2016-11-04-14:29:02  FUZZY match was SUCCESSFUL, compliant with local_authority_source: SUCCESSFUL
+2016-11-04-14:29:02  UPDATING record '55410692': scientificName from 'Pecten nodosus' to 'Nodipecten nodosus'
+2016-11-04-14:29:02  ACCEPTED the record '55410692'
+
+2016-11-04-14:29:02  Wrote 8 ACCEPTED records to ../Run_2/demo_output_name_val.csv
+2016-11-04-14:29:02  Wrote 2 UNABLE-to-validate records to ../Run_2/demo_output_name_val.csv

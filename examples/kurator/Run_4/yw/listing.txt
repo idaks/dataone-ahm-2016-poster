@@ -1,0 +1,106 @@
+######################################################################
+@begin clean_event_date_workflow @desc Clean eventDate field
+@in output1_data  @uri file:{CurrentRunDir}/demo_output_name_val.csv @as data_with_cleaned_names
+@param record_id_data @uri file:{CurrentRunDir}/record_id.txt
+@out output2_data  @uri file:{CurrentRunDir}/demo_output_name_date_val.csv @as data_with_cleaned_names_and_dates
+@out date_val_log @uri file:{CurrentRunDir}/date_val_log.txt @as date_cleaning_log
+@begin create_RunID_directory @desc create a separate directory for individual run
+@param RunIDList @as existing_RunID_structure
+@out CurrentRunDir @as newly_created_RunID_directory
+@end create_RunID_directory
+@begin copy_file @desc copy related file (script, data file, script, etc.) into a designated directory
+@param filename @as source_file_to_be_copied
+@param CurrentRunDir @as newly_created_RunID_directory
+@out record_id_data @uri file:{CurrentRunDir}/record_id.txt
+@out output1_data  @uri file:{CurrentRunDir}/demo_output_name_val.csv @as data_with_cleaned_names
+copy file into RunID directory
+@end copy_file
+@begin clean_event_date @desc Clean eventDate field
+@param CurrentRunDir @as newly_created_RunID_directory
+@in input2_data  @uri file:{CurrentRunDir}/demo_output_name_val.csv @as data_with_cleaned_names
+@param record_id_data @uri file:{CurrentRunDir}/record_id.txt
+@out output2_data  @uri file:{CurrentRunDir}/demo_output_name_date_val.csv @as data_with_cleaned_names_and_dates
+@out date_val_log @uri file:{CurrentRunDir}/date_val_log.txt @as date_cleaning_log
+'../Run_1/demo_output_name_val.csv'
+'../Run_1/record_id.txt'
+create log file
+@begin initialize_run @desc Create the run log file
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} Reading input records from {input2_data_file_name}
+@end initialize_run
+@begin read_data_records @desc Read data with cleaned names
+@in input2_data  @uri file:demo_output_name_val.csv @as data_with_cleaned_names
+@in record_id_data @uri file:record_id.txt
+@out original2_eventDate @as eventDate
+@out RecordID
+@out original2_others @as other_fields
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} Reading input record {RecordID}
+iterate over input data records
+open file for storing output data if not already open
+extract values of fields to be validated
+@end read_input2_data_records
+@begin check_if_date_is_nonempty @desc Check if eventDate value is present
+@in original2_eventDate @as eventDate
+@out original2_eventDate @as empty_eventDate
+@out original2_eventDate @as nonEmpty_eventDate
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} Checking if {field_name} value is Empty: {check_result}
+reject the currect record if no value
+@end check_if_date_is_nonempty
+@begin log_date_is_empty @desc Log records of empty event date with final status as unable to validate
+@param RecordID
+@in original2_eventDate @as empty_eventDate
+@out rejected2_record_count @as unable-to-validate_record_count
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} {final_result} the record {RecordID}
+write output record to output file
+skip to processing of next record in input file
+@end log_date_is_empty
+@begin check_ISO_date_compliant
+@desc Check if the eventDate is compliant with ISO date format (YYYY-MM-DD)
+@in original2_eventDate @as nonEmpty_eventDate
+@out original2_eventDate @as compliant_eventDate
+@out original2_eventDate @as nonCompliant_eventDate
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} Trying {check_type} {source_used} {match_method} match for validating {field_name}: {field_name_value}
+@log {timestamp} {match_method} match was {match_result}, compliant with {source_used}: {match_result}.
+date format: xxxx-xx-xx
+date format: xxxx-xx-xx/xxxx-xx-xx
+@end check_ISO_date_compliant
+@begin update_event_date @desc Update eventDate by date format conversion
+@in original2_eventDate @as nonCompliant_eventDate
+@out updated2_eventDate @as updated_eventDate
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} UPDATING record {Record}: {field_name} from {original_value} to {updated_value}
+date format: xx/xx/xx
+@end update_event_date
+@begin log_accepted_record @desc Log record final status as accepted
+@param RecordID
+@in updated2_eventDate @as updated_eventDate
+@in original2_eventDate @as compliant_eventDate
+@out accepted2_record_count @as accepted_record_count
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} {final_result} the record {RecordID}
+@end log_accepted_record
+write output record to output file
+@begin write_data_into_file @desc Write data into a new file
+@in original2_others @as other_fields
+@in updated2_eventDate @as updated_eventDate
+@in original2_eventDate @as eventDate
+@out output2_data  @uri file:demo_output_name_date_val.csv @as data_with_cleaned_names_and_dates
+@end write_output2_data
+@begin log_summary @desc Summarize on all the records
+@in accepted2_record_count @as accepted_record_count
+@in rejected2_record_count @as unable-to-validate_record_count
+@out date_val_log @uri file:date_val_log.txt @as date_cleaning_log
+@log {timestamp} Wrote {accepted2_record_count} accepted records to {output2_data_file_name}
+@log {timestamp} Wrote {rejected2_record_count} UNABLE-to-validate records to {rejected2_data_file_name}
+@end log_summary
+@end clean_event_date
+@end clean_event_date_workflow
+@begin timestamp
+@param message
+@return timestamp_message
+@end timestamp
+Demo of clean_name_and_date_workflow script

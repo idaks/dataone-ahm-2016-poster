@@ -1,0 +1,128 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Courier; fontsize=18; labelloc=t
+label="clean_event_date_workflow.clean_event_date"
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+
+/* Nodes representing atomic programs in workflow */
+initialize_run [shape=record rankdir=LR label="{<f0> initialize_run |<f1> Create the run log file}"];
+read_data_records [shape=record rankdir=LR label="{<f0> read_data_records |<f1> Read data with cleaned names}"];
+check_if_date_is_nonempty [shape=record rankdir=LR label="{<f0> check_if_date_is_nonempty |<f1> Check if eventDate value is present}"];
+log_date_is_empty [shape=record rankdir=LR label="{<f0> log_date_is_empty |<f1> Log records of empty event date with final status as unable to validate}"];
+check_ISO_date_compliant [shape=record rankdir=LR label="{<f0> check_ISO_date_compliant |<f1> Check if the eventDate is compliant with ISO date format (YYYY-MM-DD)}"];
+update_event_date [shape=record rankdir=LR label="{<f0> update_event_date |<f1> Update eventDate by date format conversion}"];
+log_accepted_record [shape=record rankdir=LR label="{<f0> log_accepted_record |<f1> Log record final status as accepted}"];
+write_data_into_file [shape=record rankdir=LR label="{<f0> write_data_into_file |<f1> Write data into a new file}"];
+log_summary [shape=record rankdir=LR label="{<f0> log_summary |<f1> Summarize on all the records}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+data_with_cleaned_names_and_dates [shape=record rankdir=LR label="{<f0> data_with_cleaned_names_and_dates |<f1> file\:demo_output_name_date_val.csv}"];
+date_cleaning_log [shape=record rankdir=LR label="{<f0> date_cleaning_log |<f1> file\:date_val_log.txt}"];
+data_with_cleaned_names [shape=record rankdir=LR label="{<f0> data_with_cleaned_names |<f1> file\:\{CurrentRunDir\}/demo_output_name_val.csv}"];
+record_id_data [shape=record rankdir=LR label="{<f0> record_id_data |<f1> file\:\{CurrentRunDir\}/record_id.txt}"];
+eventDate
+empty_eventDate
+nonEmpty_eventDate
+nonCompliant_eventDate
+updated_eventDate
+compliant_eventDate
+other_fields
+accepted_record_count
+"unable-to-validate_record_count"
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+RecordID
+
+/* Edges representing connections between programs and channels */
+initialize_run -> date_cleaning_log
+read_data_records -> eventDate
+read_data_records -> RecordID
+read_data_records -> other_fields
+read_data_records -> date_cleaning_log
+data_with_cleaned_names -> read_data_records
+record_id_data -> read_data_records
+check_if_date_is_nonempty -> empty_eventDate
+check_if_date_is_nonempty -> nonEmpty_eventDate
+check_if_date_is_nonempty -> date_cleaning_log
+eventDate -> check_if_date_is_nonempty
+log_date_is_empty -> "unable-to-validate_record_count"
+log_date_is_empty -> date_cleaning_log
+RecordID -> log_date_is_empty
+empty_eventDate -> log_date_is_empty
+check_ISO_date_compliant -> compliant_eventDate
+check_ISO_date_compliant -> nonCompliant_eventDate
+check_ISO_date_compliant -> date_cleaning_log
+nonEmpty_eventDate -> check_ISO_date_compliant
+update_event_date -> updated_eventDate
+update_event_date -> date_cleaning_log
+nonCompliant_eventDate -> update_event_date
+log_accepted_record -> accepted_record_count
+log_accepted_record -> date_cleaning_log
+RecordID -> log_accepted_record
+updated_eventDate -> log_accepted_record
+compliant_eventDate -> log_accepted_record
+write_data_into_file -> data_with_cleaned_names_and_dates
+other_fields -> write_data_into_file
+updated_eventDate -> write_data_into_file
+eventDate -> write_data_into_file
+log_summary -> date_cleaning_log
+accepted_record_count -> log_summary
+"unable-to-validate_record_count" -> log_summary
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* Hidden double-cluster for grouping workflow input ports */
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+
+/* Style for nodes representing workflow input ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow input ports */
+data_with_cleaned_names_input_port [label=""]
+record_id_data_input_port [label=""]
+
+/* End of double-cluster for grouping workflow input ports */
+}}
+
+/* Hidden double-cluster for grouping workflow output ports */
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+
+/* Style for nodes representing workflow output ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow output ports */
+data_with_cleaned_names_and_dates_output_port [label=""]
+date_cleaning_log_output_port [label=""]
+
+/* End of double-cluster for grouping workflow output ports */
+}}
+
+/* Edges from input ports to channels */
+data_with_cleaned_names_input_port -> data_with_cleaned_names
+record_id_data_input_port -> record_id_data
+
+/* Edges from channels to output ports */
+data_with_cleaned_names_and_dates -> data_with_cleaned_names_and_dates_output_port
+date_cleaning_log -> date_cleaning_log_output_port
+
+/* End of top-level graph */
+}

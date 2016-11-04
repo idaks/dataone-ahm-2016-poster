@@ -1,0 +1,51 @@
+2016-11-04-14:37:58  Reading input records from '../Run_3/demo_output_name_val.csv'
+
+2016-11-04-14:37:58  Reading input record '18390631'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'NO'
+2016-11-04-14:37:58  Trying self_check ISO_date_format-(YYYY-MM-DD) EXACT match for validating eventDate: '5/27/50'
+2016-11-04-14:37:58  EXACT match was FAILED, compliant with ISO_date_format-(YYYY-MM-DD): FAILED
+2016-11-04-14:37:58  UPDATING record '18390631': eventDate from '5/27/50' to '1950-05-27'
+2016-11-04-14:37:58  ACCEPTED the record '18390631'
+
+2016-11-04-14:37:58  Reading input record '10273799'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'NO'
+2016-11-04-14:37:58  Trying self_check ISO_date_format-(YYYY-MM-DD) EXACT match for validating eventDate: '1880-01-01/1880-12-31'
+2016-11-04-14:37:58  EXACT match was SUCESSFUL, compliant with ISO_date_format-(YYYY-MM-DD): SUCCESSFUL
+2016-11-04-14:37:58  ACCEPTED the record '10273799'
+
+2016-11-04-14:37:58  Reading input record '15700061'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'NO'
+2016-11-04-14:37:58  Trying self_check ISO_date_format-(YYYY-MM-DD) EXACT match for validating eventDate: '1963-09-01/1963-09-30'
+2016-11-04-14:37:58  EXACT match was SUCESSFUL, compliant with ISO_date_format-(YYYY-MM-DD): SUCCESSFUL
+2016-11-04-14:37:58  ACCEPTED the record '15700061'
+
+2016-11-04-14:37:58  Reading input record '81847239'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'NO'
+2016-11-04-14:37:58  Trying self_check ISO_date_format-(YYYY-MM-DD) EXACT match for validating eventDate: '1880-01-01/1880-12-31'
+2016-11-04-14:37:58  EXACT match was SUCESSFUL, compliant with ISO_date_format-(YYYY-MM-DD): SUCCESSFUL
+2016-11-04-14:37:58  ACCEPTED the record '81847239'
+
+2016-11-04-14:37:58  Reading input record '16481007'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'NO'
+2016-11-04-14:37:58  Trying self_check ISO_date_format-(YYYY-MM-DD) EXACT match for validating eventDate: '1904-06-01/1904-06-30'
+2016-11-04-14:37:58  EXACT match was SUCESSFUL, compliant with ISO_date_format-(YYYY-MM-DD): SUCCESSFUL
+2016-11-04-14:37:58  ACCEPTED the record '16481007'
+
+2016-11-04-14:37:58  Reading input record '22717845'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'YES'
+2016-11-04-14:37:58  UNABLE-to-validate the record '22717845'
+
+2016-11-04-14:37:58  Reading input record '45250744'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'YES'
+2016-11-04-14:37:58  UNABLE-to-validate the record '45250744'
+
+2016-11-04-14:37:58  Reading input record '19073976'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'YES'
+2016-11-04-14:37:58  UNABLE-to-validate the record '19073976'
+
+2016-11-04-14:37:58  Reading input record '93383834'
+2016-11-04-14:37:58  Checking if eventDate value is Empty: 'YES'
+2016-11-04-14:37:58  UNABLE-to-validate the record '93383834'
+
+2016-11-04-14:37:58  Wrote 5 accepted records to ../Run_6/demo_output_name_date_val.csv
+2016-11-04-14:37:58  Wrote 4 UNABLE-to-validate records to ../Run_6/demo_output_name_date_val.csv

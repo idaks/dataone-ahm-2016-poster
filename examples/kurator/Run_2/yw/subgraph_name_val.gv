@@ -1,0 +1,162 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Courier; fontsize=18; labelloc=t
+label="clean_name_workflow.clean_scientific_name"
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+
+/* Nodes representing atomic programs in workflow */
+initialize_run [shape=record rankdir=LR label="{<f0> initialize_run |<f1> Create the run log file}"];
+read_scientific_name [shape=record rankdir=LR label="{<f0> read_scientific_name |<f1> Read scientificName from local authority source}"];
+read_data_records [shape=record rankdir=LR label="{<f0> read_data_records |<f1> Read original dataset}"];
+check_if_name_is_nonempty [shape=record rankdir=LR label="{<f0> check_if_name_is_nonempty |<f1> Check if scientificName value is present}"];
+log_name_is_empty [shape=record rankdir=LR label="{<f0> log_name_is_empty |<f1> Log records of empty scientific name with final status as unable to validate}"];
+find_name_match [shape=record rankdir=LR label="{<f0> find_name_match |<f1> Find if the scientificName matches any record in the local authority source using exact and fuzzy match}"];
+log_match_not_found [shape=record rankdir=LR label="{<f0> log_match_not_found |<f1> Log record where no match is found in authority source final status as unable to validate}"];
+update_scientific_name [shape=record rankdir=LR label="{<f0> update_scientific_name |<f1> Update scientificName if fuzzy match is found}"];
+update_authorship [shape=record rankdir=LR label="{<f0> update_authorship |<f1> Update authorship if fuzzy match is found}"];
+log_updated_record [shape=record rankdir=LR label="{<f0> log_updated_record |<f1> Log records updating from old value to new value}"];
+log_accepted_record [shape=record rankdir=LR label="{<f0> log_accepted_record |<f1> Log record final status as accepted}"];
+write_data_into_file [shape=record rankdir=LR label="{<f0> write_data_into_file |<f1> Write data into a new file}"];
+log_summary [shape=record rankdir=LR label="{<f0> log_summary |<f1> Summarize on all the records}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+data_with_cleaned_names [shape=record rankdir=LR label="{<f0> data_with_cleaned_names |<f1> file\:\{CurrentRunDir\}/demo_output_name_val.csv}"];
+name_cleaning_log [shape=record rankdir=LR label="{<f0> name_cleaning_log |<f1> file\:\{CurrentRunDir\}/name_val_log.txt}"];
+record_id_data [shape=record rankdir=LR label="{<f0> record_id_data |<f1> file\:\{CurrentRunDir\}/record_id.txt}"];
+original_dataset [shape=record rankdir=LR label="{<f0> original_dataset |<f1> file\:\{CurrentRunDir\}/demo_input_1.csv}"];
+scientificName
+empty_scientificName
+nonEmpty_scientificName
+record_final_status
+match_result
+matching_method
+matching_record
+authorship
+updated_scientificName
+updated_authorship
+other_fields
+accepted_record_count
+"unable-to-validate_record_count"
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+local_authority_source [shape=record rankdir=LR label="{<f0> local_authority_source |<f1> file\:\{CurrentRunDir\}/demo_localDB.csv}"];
+RecordID
+local_authority_source_scientificName_list
+
+/* Edges representing connections between programs and channels */
+initialize_run -> name_cleaning_log
+read_scientific_name -> local_authority_source_scientificName_list
+local_authority_source -> read_scientific_name
+read_data_records -> scientificName
+read_data_records -> authorship
+read_data_records -> RecordID
+read_data_records -> other_fields
+read_data_records -> record_id_data
+read_data_records -> name_cleaning_log
+original_dataset -> read_data_records
+check_if_name_is_nonempty -> empty_scientificName
+check_if_name_is_nonempty -> nonEmpty_scientificName
+check_if_name_is_nonempty -> name_cleaning_log
+scientificName -> check_if_name_is_nonempty
+log_name_is_empty -> record_final_status
+log_name_is_empty -> "unable-to-validate_record_count"
+log_name_is_empty -> name_cleaning_log
+RecordID -> log_name_is_empty
+empty_scientificName -> log_name_is_empty
+find_name_match -> matching_record
+find_name_match -> match_result
+find_name_match -> record_final_status
+find_name_match -> matching_method
+find_name_match -> name_cleaning_log
+nonEmpty_scientificName -> find_name_match
+local_authority_source_scientificName_list -> find_name_match
+log_match_not_found -> "unable-to-validate_record_count"
+log_match_not_found -> name_cleaning_log
+RecordID -> log_match_not_found
+record_final_status -> log_match_not_found
+match_result -> log_match_not_found
+update_scientific_name -> updated_scientificName
+matching_method -> update_scientific_name
+match_result -> update_scientific_name
+matching_record -> update_scientific_name
+update_authorship -> updated_authorship
+authorship -> update_authorship
+matching_method -> update_authorship
+matching_record -> update_authorship
+log_updated_record -> name_cleaning_log
+updated_scientificName -> log_updated_record
+updated_authorship -> log_updated_record
+authorship -> log_updated_record
+log_accepted_record -> accepted_record_count
+log_accepted_record -> name_cleaning_log
+RecordID -> log_accepted_record
+record_final_status -> log_accepted_record
+write_data_into_file -> data_with_cleaned_names
+other_fields -> write_data_into_file
+scientificName -> write_data_into_file
+authorship -> write_data_into_file
+updated_scientificName -> write_data_into_file
+updated_authorship -> write_data_into_file
+log_summary -> name_cleaning_log
+accepted_record_count -> log_summary
+"unable-to-validate_record_count" -> log_summary
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* Hidden double-cluster for grouping workflow input ports */
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+
+/* Style for nodes representing workflow input ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow input ports */
+local_authority_source_input_port [label=""]
+original_dataset_input_port [label=""]
+
+/* End of double-cluster for grouping workflow input ports */
+}}
+
+/* Hidden double-cluster for grouping workflow output ports */
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+
+/* Style for nodes representing workflow output ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow output ports */
+data_with_cleaned_names_output_port [label=""]
+name_cleaning_log_output_port [label=""]
+record_id_data_output_port [label=""]
+
+/* End of double-cluster for grouping workflow output ports */
+}}
+
+/* Edges from input ports to channels */
+local_authority_source_input_port -> local_authority_source
+original_dataset_input_port -> original_dataset
+
+/* Edges from channels to output ports */
+data_with_cleaned_names -> data_with_cleaned_names_output_port
+name_cleaning_log -> name_cleaning_log_output_port
+record_id_data -> record_id_data_output_port
+
+/* End of top-level graph */
+}

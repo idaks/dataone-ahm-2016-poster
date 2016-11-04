@@ -1,0 +1,166 @@
+annotation_id,source_id,line_number,tag,keyword,value
+1,1,13,begin,@begin,clean_event_date_workflow
+2,1,13,desc,@desc,Clean eventDate field
+3,1,14,in,@in,output1_data
+4,1,14,uri,@uri,file:{CurrentRunDir}/demo_output_name_val.csv
+5,1,14,as,@as,data_with_cleaned_names
+6,1,15,param,@param,record_id_data
+7,1,15,uri,@uri,file:{CurrentRunDir}/record_id.txt
+8,1,16,out,@out,output2_data
+9,1,16,uri,@uri,file:{CurrentRunDir}/demo_output_name_date_val.csv
+10,1,16,as,@as,data_with_cleaned_names_and_dates
+11,1,17,out,@out,date_val_log
+12,1,17,uri,@uri,file:{CurrentRunDir}/date_val_log.txt
+13,1,17,as,@as,date_cleaning_log
+14,1,21,begin,@begin,create_RunID_directory
+15,1,21,desc,@desc,create a separate directory for individual run
+16,1,22,param,@param,RunIDList
+17,1,22,as,@as,existing_RunID_structure
+18,1,23,out,@out,CurrentRunDir
+19,1,23,as,@as,newly_created_RunID_directory
+20,1,41,end,@end,create_RunID_directory
+21,1,45,begin,@begin,copy_file
+22,1,45,desc,@desc,"copy related file (script, data file, script, etc.) into a designated directory"
+23,1,46,param,@param,filename
+24,1,46,as,@as,source_file_to_be_copied
+25,1,47,param,@param,CurrentRunDir
+26,1,47,as,@as,newly_created_RunID_directory
+27,1,48,out,@out,record_id_data
+28,1,48,uri,@uri,file:{CurrentRunDir}/record_id.txt
+29,1,49,out,@out,output1_data
+30,1,49,uri,@uri,file:{CurrentRunDir}/demo_output_name_val.csv
+31,1,49,as,@as,data_with_cleaned_names
+32,1,57,end,@end,copy_file
+33,1,62,begin,@begin,clean_event_date
+34,1,62,desc,@desc,Clean eventDate field
+35,1,63,param,@param,CurrentRunDir
+36,1,63,as,@as,newly_created_RunID_directory
+37,1,64,in,@in,input2_data
+38,1,64,uri,@uri,file:{CurrentRunDir}/demo_output_name_val.csv
+39,1,64,as,@as,data_with_cleaned_names
+40,1,65,param,@param,record_id_data
+41,1,65,uri,@uri,file:{CurrentRunDir}/record_id.txt
+42,1,66,out,@out,output2_data
+43,1,66,uri,@uri,file:{CurrentRunDir}/demo_output_name_date_val.csv
+44,1,66,as,@as,data_with_cleaned_names_and_dates
+45,1,67,out,@out,date_val_log
+46,1,67,uri,@uri,file:{CurrentRunDir}/date_val_log.txt
+47,1,67,as,@as,date_cleaning_log
+48,1,99,begin,@begin,initialize_run
+49,1,99,desc,@desc,Create the run log file
+50,1,100,out,@out,date_val_log
+51,1,100,uri,@uri,file:date_val_log.txt
+52,1,100,as,@as,date_cleaning_log
+53,1,101,log,@log,{timestamp} Reading input records from {input2_data_file_name}
+54,1,107,end,@end,initialize_run
+55,1,111,begin,@begin,read_data_records
+56,1,111,desc,@desc,Read data with cleaned names
+57,1,112,in,@in,input2_data
+58,1,112,uri,@uri,file:demo_output_name_val.csv
+59,1,112,as,@as,data_with_cleaned_names
+60,1,113,in,@in,record_id_data
+61,1,113,uri,@uri,file:record_id.txt
+62,1,114,out,@out,original2_eventDate
+63,1,114,as,@as,eventDate
+64,1,115,out,@out,RecordID
+65,1,116,out,@out,original2_others
+66,1,116,as,@as,other_fields
+67,1,117,out,@out,date_val_log
+68,1,117,uri,@uri,file:date_val_log.txt
+69,1,117,as,@as,date_cleaning_log
+70,1,118,log,@log,{timestamp} Reading input record {RecordID}
+71,1,148,end,@end,read_input2_data_records
+72,1,152,begin,@begin,check_if_date_is_nonempty
+73,1,152,desc,@desc,Check if eventDate value is present
+74,1,153,in,@in,original2_eventDate
+75,1,153,as,@as,eventDate
+76,1,154,out,@out,original2_eventDate
+77,1,154,as,@as,empty_eventDate
+78,1,155,out,@out,original2_eventDate
+79,1,155,as,@as,nonEmpty_eventDate
+80,1,156,out,@out,date_val_log
+81,1,156,uri,@uri,file:date_val_log.txt
+82,1,156,as,@as,date_cleaning_log
+83,1,157,log,@log,{timestamp} Checking if {field_name} value is Empty: {check_result}
+84,1,173,end,@end,check_if_date_is_nonempty
+85,1,177,begin,@begin,log_date_is_empty
+86,1,177,desc,@desc,Log records of empty event date with final status as unable to validate
+87,1,178,param,@param,RecordID
+88,1,179,in,@in,original2_eventDate
+89,1,179,as,@as,empty_eventDate
+90,1,180,out,@out,rejected2_record_count
+91,1,180,as,@as,unable-to-validate_record_count
+92,1,181,out,@out,date_val_log
+93,1,181,uri,@uri,file:date_val_log.txt
+94,1,181,as,@as,date_cleaning_log
+95,1,182,log,@log,{timestamp} {final_result} the record {RecordID}
+96,1,196,end,@end,log_date_is_empty
+97,1,202,begin,@begin,check_ISO_date_compliant
+98,1,203,desc,@desc,Check if the eventDate is compliant with ISO date format (YYYY-MM-DD)
+99,1,204,in,@in,original2_eventDate
+100,1,204,as,@as,nonEmpty_eventDate
+101,1,205,out,@out,original2_eventDate
+102,1,205,as,@as,compliant_eventDate
+103,1,206,out,@out,original2_eventDate
+104,1,206,as,@as,nonCompliant_eventDate
+105,1,207,out,@out,date_val_log
+106,1,207,uri,@uri,file:date_val_log.txt
+107,1,207,as,@as,date_cleaning_log
+108,1,208,log,@log,{timestamp} Trying {check_type} {source_used} {match_method} match for validating {field_name}: {field_name_value}
+109,1,209,log,@log,"{timestamp} {match_method} match was {match_result}, compliant with {source_used}: {match_result}."
+110,1,227,end,@end,check_ISO_date_compliant
+111,1,231,begin,@begin,update_event_date
+112,1,231,desc,@desc,Update eventDate by date format conversion
+113,1,232,in,@in,original2_eventDate
+114,1,232,as,@as,nonCompliant_eventDate
+115,1,233,out,@out,updated2_eventDate
+116,1,233,as,@as,updated_eventDate
+117,1,234,out,@out,date_val_log
+118,1,234,uri,@uri,file:date_val_log.txt
+119,1,234,as,@as,date_cleaning_log
+120,1,235,log,@log,{timestamp} UPDATING record {Record}: {field_name} from {original_value} to {updated_value}
+121,1,272,end,@end,update_event_date
+122,1,276,begin,@begin,log_accepted_record
+123,1,276,desc,@desc,Log record final status as accepted
+124,1,277,param,@param,RecordID
+125,1,278,in,@in,updated2_eventDate
+126,1,278,as,@as,updated_eventDate
+127,1,279,in,@in,original2_eventDate
+128,1,279,as,@as,compliant_eventDate
+129,1,280,out,@out,accepted2_record_count
+130,1,280,as,@as,accepted_record_count
+131,1,281,out,@out,date_val_log
+132,1,281,uri,@uri,file:date_val_log.txt
+133,1,281,as,@as,date_cleaning_log
+134,1,282,log,@log,{timestamp} {final_result} the record {RecordID}
+135,1,287,end,@end,log_accepted_record
+136,1,292,begin,@begin,write_data_into_file
+137,1,292,desc,@desc,Write data into a new file
+138,1,293,in,@in,original2_others
+139,1,293,as,@as,other_fields
+140,1,294,in,@in,updated2_eventDate
+141,1,294,as,@as,updated_eventDate
+142,1,295,in,@in,original2_eventDate
+143,1,295,as,@as,eventDate
+144,1,296,out,@out,output2_data
+145,1,296,uri,@uri,file:demo_output_name_date_val.csv
+146,1,296,as,@as,data_with_cleaned_names_and_dates
+147,1,301,end,@end,write_output2_data
+148,1,305,begin,@begin,log_summary
+149,1,305,desc,@desc,Summarize on all the records
+150,1,306,in,@in,accepted2_record_count
+151,1,306,as,@as,accepted_record_count
+152,1,307,in,@in,rejected2_record_count
+153,1,307,as,@as,unable-to-validate_record_count
+154,1,308,out,@out,date_val_log
+155,1,308,uri,@uri,file:date_val_log.txt
+156,1,308,as,@as,date_cleaning_log
+157,1,309,log,@log,{timestamp} Wrote {accepted2_record_count} accepted records to {output2_data_file_name}
+158,1,310,log,@log,{timestamp} Wrote {rejected2_record_count} UNABLE-to-validate records to {rejected2_data_file_name}
+159,1,317,end,@end,log_summary
+160,1,321,end,@end,clean_event_date
+161,1,325,end,@end,clean_event_date_workflow
+162,1,331,begin,@begin,timestamp
+163,1,332,param,@param,message
+164,1,333,return,@return,timestamp_message
+165,1,342,end,@end,timestamp

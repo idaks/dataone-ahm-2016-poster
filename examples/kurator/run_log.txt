@@ -1,0 +1,8 @@
+Run_1: execute clean_name.py on demo_input_1.csv
+Run_2: the same run as Run_1
+Run_3: execute clean_name.py on demo_input_2.csv
+Run_4: execute clean_event_date.py on Run_1/demo_output_name_val.csv
+Run_5: execute clean_event_date.py on Run_2/demo_output_name_val.csv
+Run_6: execute clean_event_date.py on Run_3/demo_output_name_val.csv
+ 
+

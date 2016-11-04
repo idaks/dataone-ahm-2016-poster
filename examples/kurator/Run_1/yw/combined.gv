@@ -1,0 +1,99 @@
+
+/* Start of top-level graph */
+digraph Workflow {
+rankdir=TB
+
+/* Title for graph */
+fontname=Courier; fontsize=18; labelloc=t
+label=clean_name_workflow
+
+/* Start of double cluster for drawing box around nodes in workflow */
+subgraph cluster_workflow_box_outer { label=""; color=black; penwidth=2
+subgraph cluster_workflow_box_inner { label=""; color=white
+
+/* Style for nodes representing atomic programs in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=1 fontname=Courier]
+
+/* Nodes representing atomic programs in workflow */
+create_RunID_directory [shape=record rankdir=LR label="{<f0> create_RunID_directory |<f1> create a separate directory for individual run}"];
+copy_file [shape=record rankdir=LR label="{<f0> copy_file |<f1> copy related file (script, data file, script, etc.) into a designated directory}"];
+
+/* Style for nodes representing composite programs (sub-workflows) in workflow */
+node[shape=box style=filled fillcolor="#CCFFCC" peripheries=2 fontname=Courier]
+
+/* Nodes representing composite programs (sub-workflows) in workflow */
+clean_scientific_name [shape=record rankdir=LR label="{<f0> clean_scientific_name |<f1> Clean scientificName field}"];
+
+/* Style for nodes representing non-parameter data channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FFFFCC" peripheries=1 fontname=Helvetica]
+
+/* Nodes for non-parameter data channels in workflow */
+data_with_cleaned_names [shape=record rankdir=LR label="{<f0> data_with_cleaned_names |<f1> file\:\{CurrentRunDir\}/demo_output_name_val.csv}"];
+name_cleaning_log [shape=record rankdir=LR label="{<f0> name_cleaning_log |<f1> file\:\{CurrentRunDir\}/name_val_log.txt}"];
+record_id_data [shape=record rankdir=LR label="{<f0> record_id_data |<f1> file\:\{CurrentRunDir\}/record_id.txt}"];
+original_dataset [shape=record rankdir=LR label="{<f0> original_dataset |<f1> file\:\{CurrentRunDir\}/demo_input_1.csv}"];
+
+/* Style for nodes representing parameter channels in workflow */
+node[shape=box style="rounded,filled" fillcolor="#FCFCFC" peripheries=1 fontname=Helvetica]
+
+/* Nodes representing parameter channels in workflow */
+newly_created_RunID_directory
+local_authority_source [shape=record rankdir=LR label="{<f0> local_authority_source |<f1> file\:\{CurrentRunDir\}/demo_localDB.csv}"];
+
+/* Edges representing connections between programs and channels */
+create_RunID_directory -> newly_created_RunID_directory
+existing_RunID_structure -> create_RunID_directory
+copy_file -> local_authority_source
+copy_file -> original_dataset
+source_file_to_be_copied -> copy_file
+newly_created_RunID_directory -> copy_file
+clean_scientific_name -> data_with_cleaned_names
+clean_scientific_name -> name_cleaning_log
+clean_scientific_name -> record_id_data
+local_authority_source -> clean_scientific_name
+newly_created_RunID_directory -> clean_scientific_name
+original_dataset -> clean_scientific_name
+
+/* End of double cluster for drawing box around nodes in workflow */
+}}
+
+/* Hidden double-cluster for grouping workflow input ports */
+subgraph cluster_input_ports_group_outer { label=""; color=white
+subgraph cluster_input_ports_group_inner { label=""; color=white
+
+/* Style for nodes representing workflow input ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow input ports */
+local_authority_source_input_port [label=""]
+original_dataset_input_port [label=""]
+
+/* End of double-cluster for grouping workflow input ports */
+}}
+
+/* Hidden double-cluster for grouping workflow output ports */
+subgraph cluster_output_ports_group_outer { label=""; color=white
+subgraph cluster_output_ports_group_inner { label=""; color=white
+
+/* Style for nodes representing workflow output ports */
+node[shape=circle style="rounded,filled" fillcolor="#FFFFFF" peripheries=1 fontname=Helvetica width=0.2]
+
+/* Nodes representing workflow output ports */
+data_with_cleaned_names_output_port [label=""]
+name_cleaning_log_output_port [label=""]
+record_id_data_output_port [label=""]
+
+/* End of double-cluster for grouping workflow output ports */
+}}
+
+/* Edges from input ports to channels */
+local_authority_source_input_port -> local_authority_source
+original_dataset_input_port -> original_dataset
+
+/* Edges from channels to output ports */
+data_with_cleaned_names -> data_with_cleaned_names_output_port
+name_cleaning_log -> name_cleaning_log_output_port
+record_id_data -> record_id_data_output_port
+
+/* End of top-level graph */
+}

@@ -1,0 +1,176 @@
+######################################################################
+@begin clean_name_workflow
+@param local_authority_source @uri file:{CurrentRunDir}/demo_localDB.csv
+@in input1_data @uri file:{CurrentRunDir}/demo_input.csv @as original_dataset
+@out output1_data  @uri file:{CurrentRunDir}/demo_output_name_val.csv @as data_with_cleaned_names
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@out record_id_data @uri file:{CurrentRunDir}/record_id.txt
+@begin create_RunID_directory @desc create a separate directory for individual run
+@param RunIDList @as existing_RunID_structure
+@out CurrentRunDir @as newly_created_RunID_directory
+@end create_RunID_directory
+@begin copy_file @desc copy related file (script, data file, script, etc.) into a designated directory
+@param filename @as source_file_to_be_copied
+@param CurrentRunDir @as newly_created_RunID_directory
+@out local_authority_source @uri file:{CurrentRunDir}/demo_localDB.csv
+@out input1_data @uri file:{CurrentRunDir}/demo_input_1.csv @as original_dataset
+copy file into RunID directory
+@end copy_file
+@begin clean_scientific_name @desc Clean scientificName field
+@param local_authority_source @uri file:{CurrentRunDir}/demo_localDB.csv
+@param CurrentRunDir @as newly_created_RunID_directory
+@in input1_data @uri file:{CurrentRunDir}/demo_input_1.csv @as original_dataset
+@out output1_data  @uri file:{CurrentRunDir}/demo_output_name_val.csv
+@as data_with_cleaned_names
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt
+@as name_cleaning_log
+@out record_id_data @uri file:{CurrentRunDir}/record_id.txt
+create log file
+@begin initialize_run @desc Create the run log file
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} Reading input records from {input1_data_file_name}
+@end initialize_run
+@begin read_scientific_name @desc Read scientificName from local authority source
+@param local_authority_source @uri file:{CurrentRunDir}/demo_localDB.csv
+@call fieldmatch
+@out local_authority_source_scientificName_lst @as local_authority_source_scientificName_list
+create CSV reader for local_authority_source records
+fieldnames/keys of original input data (dictionary)
+find corresponding column position for specified header
+iterate over local_authority_source data records
+find values of specific fields
+@end read_scientific_name
+@begin read_data_records @desc Read original dataset
+@in input1_data @uri file:{CurrentRunDir}/demo_input.csv @as original_dataset
+@out original_scientificName @as scientificName
+@out original_authorship @as authorship
+@out RecordID
+@out original_others @as other_fields
+@out record_id_data @uri file:{CurrentRunDir}/record_id.txt
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} Reading input record {RecordID}
+create CSV reader for input records
+iterate over input data records
+open file for storing output data if not already open
+extract values of fields to be validated
+original_catalogNumber = original1_record['id']
+@end read_data_records
+@begin check_if_name_is_nonempty @desc Check if scientificName value is present
+@in original_scientificName @as scientificName
+@out original_scientificName @as empty_scientificName
+@out original_scientificName @as nonEmpty_scientificName
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} Checking if {field_name} value is Empty - {check_result}
+reject the currect record if no value
+@end check_if_name_is_nonempty
+@begin log_name_is_empty @desc Log records of empty scientific name with final status as unable to validate
+@param RecordID
+@in original_scientificName @as empty_scientificName
+@out final_result @as record_final_status
+@out rejected_record_count @as unable-to-validate_record_count
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} {final_result} the record {RecordID}
+write output record to output file
+skip to processing of next record in input file
+@end log_name_is_empty
+@begin find_name_match
+@desc Find if the scientificName matches any record in the local authority source using exact and fuzzy match
+@in original_scientificName @as nonEmpty_scientificName
+@param local_authority_source_scientificName_lst @as local_authority_source_scientificName_list
+@call exactmatch
+@call fieldmatch
+@out matching_local_authority_source_record @as matching_record
+@out match_result
+@out final_result @as record_final_status
+@out matching_method
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} Trying {check_type} {source_used} {match_method} match for validating {field_name}: {field_name_value}
+@log {timestamp} {match_method} match was {match_result}, compliant with {source_used}: {compliant_result}.
+first try exact match of the scientific name against local_authority_source
+otherwise try a fuzzy match
+@end find_name_match
+########################################################
+reject the currect record if not matched successfully against local_authority_source
+@begin log_match_not_found @desc Log record where no match is found in authority source final status as unable to validate
+@param RecordID
+@in final_result @as record_final_status
+@in match_result
+@out rejected_record_count @as unable-to-validate_record_count
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} {final_result} the record {RecordID}
+write output record to output file
+skip to processing of next record in input file
+@end log_match_not_found
+############################################################
+@begin update_scientific_name @desc Update scientificName if fuzzy match is found
+@in matching_method
+@in match_result
+@in matching_local_authority_source_record @as matching_record
+@out updated_scientificName
+get scientific name from local_authority_source record if the taxon name match was fuzzy
+@end update_scientific_name
+####################################################################
+@begin update_authorship @desc Update authorship if fuzzy match is found
+@in original_authorship @as authorship
+@in matching_method
+@in matching_local_authority_source_record @as matching_record
+@out updated_authorship
+get the scientific name authorship from the local_authority_source record if different from input record
+@end update_authorship
+####################################################################
+compose_output1_record
+@begin log_updated_record @desc Log records updating from old value to new value
+@in updated_scientificName
+@in updated_authorship
+@in original_authorship @as authorship
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} UPDATING record {Record}: {field_name} from {original_value} to {updated_value}
+@end log_updated_record
+####################################################################
+@begin log_accepted_record @desc Log record final status as accepted
+@param RecordID
+@in final_result @as record_final_status
+@out accepted_record_count
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} {final_result} the record {RecordID}
+@end log_accepted_record
+write output record to output file
+@begin write_data_into_file @desc Write data into a new file
+@in original_others @as other_fields
+@in original_scientificName @as scientificName
+@in original_authorship @as authorship
+@in updated_scientificName
+@in updated_authorship
+@out output1_data  @uri file:{CurrentRunDir}/demo_output_name_val.csv @as data_with_cleaned_names
+@end write_output1_data
+@begin log_summary @desc Summarize on all the records
+@in accepted_record_count
+@in rejected_record_count @as unable-to-validate_record_count
+@out name_val_log @uri file:{CurrentRunDir}/name_val_log.txt @as name_cleaning_log
+@log {timestamp} Wrote {accepted_record_count} ACCEPTED records to {output1_data_file_name}
+@log {timestamp} Wrote {rejected_record_count} UNABLE-to-validate records to {output1_data_file_name}
+@end log_summary
+@end clean_scientific_name
+@end clean_name_workflow
+@begin exactmatch
+@param lst
+@param label_str
+@return key
+@return None
+@end exactmatch
+@begin fuzzymatch
+@param str1
+@param str2
+@return [match_result, str1[x_longest - longest: x_longest], x_longest - longest]
+@end fuzzymatch
+@begin fieldmatch
+@param lst
+@param str2
+@call fuzzymatch
+@return match_str
+@end fieldmatch
+@begin timestamp
+@param message
+@return timestamp_message
+@end timestamp
+Demo of clean_name_workflow script

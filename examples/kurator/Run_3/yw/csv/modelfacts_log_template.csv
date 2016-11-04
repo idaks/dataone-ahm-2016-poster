@@ -1,0 +1,12 @@
+log_template_id,port_id,entry_template,log_annotation_id
+1,18,{timestamp} Reading input records from {input1_data_file_name},56
+2,27,{timestamp} Reading input record {RecordID},83
+3,31,{timestamp} Checking if {field_name} value is Empty - {check_result},96
+4,36,{timestamp} {final_result} the record {RecordID},110
+5,43,{timestamp} Trying {check_type} {source_used} {match_method} match for validating {field_name}: {field_name_value},129
+6,43,"{timestamp} {match_method} match was {match_result}, compliant with {source_used}: {compliant_result}.",130
+7,48,{timestamp} {final_result} the record {RecordID},143
+8,60,{timestamp} UPDATING record {Record}: {field_name} from {original_value} to {updated_value},171
+9,64,{timestamp} {final_result} the record {RecordID},182
+10,73,{timestamp} Wrote {accepted_record_count} ACCEPTED records to {output1_data_file_name},206
+11,73,{timestamp} Wrote {rejected_record_count} UNABLE-to-validate records to {output1_data_file_name},207

@@ -1,0 +1,232 @@
+annotation_id,source_id,line_number,tag,keyword,value
+1,1,13,begin,@begin,clean_name_workflow
+2,1,14,param,@param,local_authority_source
+3,1,14,uri,@uri,file:{CurrentRunDir}/demo_localDB.csv
+4,1,15,in,@in,input1_data
+5,1,15,uri,@uri,file:{CurrentRunDir}/demo_input.csv
+6,1,15,as,@as,original_dataset
+7,1,16,out,@out,output1_data
+8,1,16,uri,@uri,file:{CurrentRunDir}/demo_output_name_val.csv
+9,1,16,as,@as,data_with_cleaned_names
+10,1,17,out,@out,name_val_log
+11,1,17,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+12,1,17,as,@as,name_cleaning_log
+13,1,18,out,@out,record_id_data
+14,1,18,uri,@uri,file:{CurrentRunDir}/record_id.txt
+15,1,22,begin,@begin,create_RunID_directory
+16,1,22,desc,@desc,create a separate directory for individual run
+17,1,23,param,@param,RunIDList
+18,1,23,as,@as,existing_RunID_structure
+19,1,24,out,@out,CurrentRunDir
+20,1,24,as,@as,newly_created_RunID_directory
+21,1,42,end,@end,create_RunID_directory
+22,1,46,begin,@begin,copy_file
+23,1,46,desc,@desc,"copy related file (script, data file, script, etc.) into a designated directory"
+24,1,47,param,@param,filename
+25,1,47,as,@as,source_file_to_be_copied
+26,1,48,param,@param,CurrentRunDir
+27,1,48,as,@as,newly_created_RunID_directory
+28,1,49,out,@out,local_authority_source
+29,1,49,uri,@uri,file:{CurrentRunDir}/demo_localDB.csv
+30,1,50,out,@out,input1_data
+31,1,50,uri,@uri,file:{CurrentRunDir}/demo_input_1.csv
+32,1,50,as,@as,original_dataset
+33,1,58,end,@end,copy_file
+34,1,62,begin,@begin,clean_scientific_name
+35,1,62,desc,@desc,Clean scientificName field
+36,1,63,param,@param,local_authority_source
+37,1,63,uri,@uri,file:{CurrentRunDir}/demo_localDB.csv
+38,1,64,param,@param,CurrentRunDir
+39,1,64,as,@as,newly_created_RunID_directory
+40,1,65,in,@in,input1_data
+41,1,65,uri,@uri,file:{CurrentRunDir}/demo_input_1.csv
+42,1,65,as,@as,original_dataset
+43,1,66,out,@out,output1_data
+44,1,66,uri,@uri,file:{CurrentRunDir}/demo_output_name_val.csv
+45,1,67,as,@as,data_with_cleaned_names
+46,1,68,out,@out,name_val_log
+47,1,68,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+48,1,69,as,@as,name_cleaning_log
+49,1,70,out,@out,record_id_data
+50,1,70,uri,@uri,file:{CurrentRunDir}/record_id.txt
+51,1,100,begin,@begin,initialize_run
+52,1,100,desc,@desc,Create the run log file
+53,1,101,out,@out,name_val_log
+54,1,101,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+55,1,101,as,@as,name_cleaning_log
+56,1,102,log,@log,{timestamp} Reading input records from {input1_data_file_name}
+57,1,108,end,@end,initialize_run
+58,1,112,begin,@begin,read_scientific_name
+59,1,112,desc,@desc,Read scientificName from local authority source
+60,1,113,param,@param,local_authority_source
+61,1,113,uri,@uri,file:{CurrentRunDir}/demo_localDB.csv
+62,1,114,call,@call,fieldmatch
+63,1,115,out,@out,local_authority_source_scientificName_lst
+64,1,115,as,@as,local_authority_source_scientificName_list
+65,1,145,end,@end,read_scientific_name
+66,1,149,begin,@begin,read_data_records
+67,1,149,desc,@desc,Read original dataset
+68,1,150,in,@in,input1_data
+69,1,150,uri,@uri,file:{CurrentRunDir}/demo_input.csv
+70,1,150,as,@as,original_dataset
+71,1,151,out,@out,original_scientificName
+72,1,151,as,@as,scientificName
+73,1,152,out,@out,original_authorship
+74,1,152,as,@as,authorship
+75,1,153,out,@out,RecordID
+76,1,154,out,@out,original_others
+77,1,154,as,@as,other_fields
+78,1,155,out,@out,record_id_data
+79,1,155,uri,@uri,file:{CurrentRunDir}/record_id.txt
+80,1,156,out,@out,name_val_log
+81,1,156,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+82,1,156,as,@as,name_cleaning_log
+83,1,157,log,@log,{timestamp} Reading input record {RecordID}
+84,1,189,end,@end,read_data_records
+85,1,193,begin,@begin,check_if_name_is_nonempty
+86,1,193,desc,@desc,Check if scientificName value is present
+87,1,194,in,@in,original_scientificName
+88,1,194,as,@as,scientificName
+89,1,195,out,@out,original_scientificName
+90,1,195,as,@as,empty_scientificName
+91,1,196,out,@out,original_scientificName
+92,1,196,as,@as,nonEmpty_scientificName
+93,1,197,out,@out,name_val_log
+94,1,197,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+95,1,197,as,@as,name_cleaning_log
+96,1,198,log,@log,{timestamp} Checking if {field_name} value is Empty - {check_result}
+97,1,214,end,@end,check_if_name_is_nonempty
+98,1,218,begin,@begin,log_name_is_empty
+99,1,218,desc,@desc,Log records of empty scientific name with final status as unable to validate
+100,1,219,param,@param,RecordID
+101,1,220,in,@in,original_scientificName
+102,1,220,as,@as,empty_scientificName
+103,1,221,out,@out,final_result
+104,1,221,as,@as,record_final_status
+105,1,222,out,@out,rejected_record_count
+106,1,222,as,@as,unable-to-validate_record_count
+107,1,223,out,@out,name_val_log
+108,1,223,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+109,1,223,as,@as,name_cleaning_log
+110,1,224,log,@log,{timestamp} {final_result} the record {RecordID}
+111,1,237,end,@end,log_name_is_empty
+112,1,243,begin,@begin,find_name_match
+113,1,244,desc,@desc,Find if the scientificName matches any record in the local authority source using exact and fuzzy match
+114,1,245,in,@in,original_scientificName
+115,1,245,as,@as,nonEmpty_scientificName
+116,1,246,param,@param,local_authority_source_scientificName_lst
+117,1,246,as,@as,local_authority_source_scientificName_list
+118,1,247,call,@call,exactmatch
+119,1,248,call,@call,fieldmatch
+120,1,249,out,@out,matching_local_authority_source_record
+121,1,249,as,@as,matching_record
+122,1,250,out,@out,match_result
+123,1,251,out,@out,final_result
+124,1,251,as,@as,record_final_status
+125,1,252,out,@out,matching_method
+126,1,253,out,@out,name_val_log
+127,1,253,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+128,1,253,as,@as,name_cleaning_log
+129,1,254,log,@log,{timestamp} Trying {check_type} {source_used} {match_method} match for validating {field_name}: {field_name_value}
+130,1,255,log,@log,"{timestamp} {match_method} match was {match_result}, compliant with {source_used}: {compliant_result}."
+131,1,282,end,@end,find_name_match
+132,1,288,begin,@begin,log_match_not_found
+133,1,288,desc,@desc,Log record where no match is found in authority source final status as unable to validate
+134,1,289,param,@param,RecordID
+135,1,290,in,@in,final_result
+136,1,290,as,@as,record_final_status
+137,1,291,in,@in,match_result
+138,1,292,out,@out,rejected_record_count
+139,1,292,as,@as,unable-to-validate_record_count
+140,1,293,out,@out,name_val_log
+141,1,293,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+142,1,293,as,@as,name_cleaning_log
+143,1,294,log,@log,{timestamp} {final_result} the record {RecordID}
+144,1,307,end,@end,log_match_not_found
+145,1,312,begin,@begin,update_scientific_name
+146,1,312,desc,@desc,Update scientificName if fuzzy match is found
+147,1,313,in,@in,matching_method
+148,1,314,in,@in,match_result
+149,1,315,in,@in,matching_local_authority_source_record
+150,1,315,as,@as,matching_record
+151,1,316,out,@out,updated_scientificName
+152,1,324,end,@end,update_scientific_name
+153,1,329,begin,@begin,update_authorship
+154,1,329,desc,@desc,Update authorship if fuzzy match is found
+155,1,330,in,@in,original_authorship
+156,1,330,as,@as,authorship
+157,1,331,in,@in,matching_method
+158,1,332,in,@in,matching_local_authority_source_record
+159,1,332,as,@as,matching_record
+160,1,333,out,@out,updated_authorship
+161,1,343,end,@end,update_authorship
+162,1,349,begin,@begin,log_updated_record
+163,1,349,desc,@desc,Log records updating from old value to new value
+164,1,350,in,@in,updated_scientificName
+165,1,351,in,@in,updated_authorship
+166,1,352,in,@in,original_authorship
+167,1,352,as,@as,authorship
+168,1,353,out,@out,name_val_log
+169,1,353,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+170,1,353,as,@as,name_cleaning_log
+171,1,354,log,@log,{timestamp} UPDATING record {Record}: {field_name} from {original_value} to {updated_value}
+172,1,372,end,@end,log_updated_record
+173,1,376,begin,@begin,log_accepted_record
+174,1,376,desc,@desc,Log record final status as accepted
+175,1,377,param,@param,RecordID
+176,1,378,in,@in,final_result
+177,1,378,as,@as,record_final_status
+178,1,379,out,@out,accepted_record_count
+179,1,380,out,@out,name_val_log
+180,1,380,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+181,1,380,as,@as,name_cleaning_log
+182,1,381,log,@log,{timestamp} {final_result} the record {RecordID}
+183,1,386,end,@end,log_accepted_record
+184,1,391,begin,@begin,write_data_into_file
+185,1,391,desc,@desc,Write data into a new file
+186,1,392,in,@in,original_others
+187,1,392,as,@as,other_fields
+188,1,393,in,@in,original_scientificName
+189,1,393,as,@as,scientificName
+190,1,394,in,@in,original_authorship
+191,1,394,as,@as,authorship
+192,1,395,in,@in,updated_scientificName
+193,1,396,in,@in,updated_authorship
+194,1,397,out,@out,output1_data
+195,1,397,uri,@uri,file:{CurrentRunDir}/demo_output_name_val.csv
+196,1,397,as,@as,data_with_cleaned_names
+197,1,402,end,@end,write_output1_data
+198,1,406,begin,@begin,log_summary
+199,1,406,desc,@desc,Summarize on all the records
+200,1,407,in,@in,accepted_record_count
+201,1,408,in,@in,rejected_record_count
+202,1,408,as,@as,unable-to-validate_record_count
+203,1,409,out,@out,name_val_log
+204,1,409,uri,@uri,file:{CurrentRunDir}/name_val_log.txt
+205,1,409,as,@as,name_cleaning_log
+206,1,410,log,@log,{timestamp} Wrote {accepted_record_count} ACCEPTED records to {output1_data_file_name}
+207,1,411,log,@log,{timestamp} Wrote {rejected_record_count} UNABLE-to-validate records to {output1_data_file_name}
+208,1,418,end,@end,log_summary
+209,1,422,end,@end,clean_scientific_name
+210,1,426,end,@end,clean_name_workflow
+211,1,430,begin,@begin,exactmatch
+212,1,431,param,@param,lst
+213,1,432,param,@param,label_str
+214,1,433,return,@return,key
+215,1,434,return,@return,None
+216,1,446,end,@end,exactmatch
+217,1,450,begin,@begin,fuzzymatch
+218,1,451,param,@param,str1
+219,1,452,param,@param,str2
+220,1,453,return,@return,"[match_result,"
+221,1,481,end,@end,fuzzymatch
+222,1,485,begin,@begin,fieldmatch
+223,1,486,param,@param,lst
+224,1,487,param,@param,str2
+225,1,488,call,@call,fuzzymatch
+226,1,489,return,@return,match_str
+227,1,500,end,@end,fieldmatch
+228,1,505,begin,@begin,timestamp
+229,1,506,param,@param,message
+230,1,507,return,@return,timestamp_message
+231,1,516,end,@end,timestamp
