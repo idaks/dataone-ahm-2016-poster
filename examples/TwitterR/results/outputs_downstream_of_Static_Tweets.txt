@@ -1,0 +1,19 @@
+
+
+---------------------------------------------------------------------------------------------------
+Q4_Pro : List the outputs that depend on Static_Tweets.
+
+q4_pro(UpstreamDataName, OutputDataName)
+...................................................................................................
+q4_pro('Static_Tweets','Sentiment_Result').
+q4_pro('NegativeCount','Sentiment_Result').
+q4_pro('Sizes','Sentiment_Result').
+q4_pro('Sentiment_Result','Sentiment_Result').
+q4_pro('NeutralCount','Sentiment_Result').
+q4_pro('Colors','Sentiment_Result').
+q4_pro('TweetRead','Sentiment_Result').
+q4_pro('Explode','Sentiment_Result').
+q4_pro('PositiveCount','Sentiment_Result').
+q4_pro('Labels','Sentiment_Result').
+
+Static_Tweets = _h177
